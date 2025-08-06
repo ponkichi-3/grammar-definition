@@ -73,7 +73,10 @@
       .test-mode-selector{grid-template-columns:1fr}
     }
   </style>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 </head>
+
 <body>
   <div class="container">
     <!-- Home -->
@@ -1288,6 +1291,29 @@
     });
 
     // CSVファイルから問題を読み込む関数
+    async function loadQuestionsFromCSV() {
+      try {
+        const response = await fetch('grammar_definition.csv');
+        const csvText = await response.text();
+        const results = Papa.parse(csvText, {
+          header: true,
+          skipEmptyLines: true
+        });
+        if (results.data && results.data.length > 0) {
+          questionData = results.data.map(row => ({
+            id: row.id?.padStart(3, '0') || "",
+            question: row.question || "",
+            answer: row.answer || "",
+            point: row.point || "",
+            title: row.title || ""
+          }));
+          console.log(`CSVから${questionData.length}問を読み込みました`);
+        }
+      } catch (err) {
+        console.error("CSV読み込み失敗:", err);
+      }
+    }
+
     async function loadQuestionsFromCSV() {
       // まずwindow.fsが利用可能かチェック
       if(typeof window.fs !== 'undefined' && window.fs.readFile) {
