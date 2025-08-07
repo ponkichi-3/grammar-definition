@@ -1307,6 +1307,36 @@
       } catch (error) {
         console.error('CSVファイルの読み込みに失敗しました。', error);
       }
-    }  </script>
+    }  
+document.getElementById('showProblemsBtn').addEventListener('click', () => {
+  const container = document.getElementById('problemListView');
+  container.innerHTML = '';
+  container.style.display = 'block';
+
+  if (!questionData || questionData.length === 0) {
+    container.innerHTML = '<p>⚠️ 問題が読み込まれていません。</p>';
+    return;
+  }
+
+  const table = document.createElement('table');
+  table.border = '1';
+  table.style.borderCollapse = 'collapse';
+  table.innerHTML = '<tr><th>ID</th><th>POINT</th><th>タイトル</th><th>問題</th></tr>';
+
+  questionData.forEach(q => {
+    const row = document.createElement('tr');
+    row.innerHTML = `<td>${q.id}</td><td>${q.point}</td><td>${q.title}</td><td>${q.question}</td>`;
+    table.appendChild(row);
+  });
+
+  container.appendChild(table);
+});
+
+</script>
+
+  <hr>
+  <button id="showProblemsBtn">問題リストを確認</button>
+  <div id="problemListView" style="display:none; padding: 10px; border: 1px solid #ccc; margin-top: 10px;"></div>
+
 </body>
 </html>
