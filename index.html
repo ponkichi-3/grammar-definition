@@ -73,10 +73,7 @@
       .test-mode-selector{grid-template-columns:1fr}
     }
   </style>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 </head>
-
 <body>
   <div class="container">
     <!-- Home -->
@@ -1291,92 +1288,37 @@
     });
 
     // CSVファイルから問題を読み込む関数
-async function loadQuestionsFromCSV() {
-  try {
-    const response = await fetch('grammar_definition.csv', { cache: 'no-cache' });
-    if (!response.ok) {
-      console.error('CSVファイルの取得に失敗しました:', response.statusText);
-      return;
-    }
-    const csvText = await response.text();
-    const results = Papa.parse(csvText, {
-      header: true,
-      skipEmptyLines: true
-    });
-    if (results.data && results.data.length > 0) {
-      questionData = results.data.map(row => ({
-        id: row.id?.padStart(3, '0') || "",
-        question: row.question || "",
-        answer: row.answer || "",
-        point: row.point || "",
-        title: row.title || ""
-      }));
-      console.log(`✅ CSVから${questionData.length}問を読み込みました`);
-    } else {
-      console.warn("⚠ CSVデータが空です");
-    }
-  } catch (err) {
-    console.error("❌ CSV読み込みエラー:", err);
-  }
-});
-        if (results.data && results.data.length > 0) {
-          questionData = results.data.map(row => ({
-            id: row.id?.padStart(3, '0') || "",
-            question: row.question || "",
-            answer: row.answer || "",
-            point: row.point || "",
-            title: row.title || ""
-          }));
-          console.log(`CSVから${questionData.length}問を読み込みました`);
-        }
-      } catch (err) {
-        console.error("CSV読み込み失敗:", err);
-      }
-    }
-
     async function loadQuestionsFromCSV() {
-      // まずwindow.fsが利用可能かチェック
-      if(typeof window.fs !== 'undefined' && window.fs.readFile) {
-        try {
-          const csvContent = await window.fs.readFile('grammar_definition.csv', {encoding: 'utf8'});
-          
-          // 簡易的なCSVパース（Papaparseが使えない場合のフォールバック）
-          const lines = csvContent.split('\n');
-          const headers = lines[0].split(',');
-          const parsed = [];
-          
-          for(let i = 1; i < lines.length; i++) {
-            const line = lines[i].trim();
-            if(!line) continue;
-            
-            // CSVの各行をパース（カンマを含む場合の処理）
-            const matches = line.match(/(\d+),(.*?),(.*?),(.*?),(.*)$/);
-            if(matches && matches.length > 5) {
-              parsed.push({
-                id: matches[1].padStart(3, '0'),
-                question: matches[2],
-                answer: matches[3],
-                point: matches[4],
-                title: matches[5]
-              });
-            }
+      try {
+        const response = await fetch('grammar_definition.csv');
+        const csvContent = await response.text();
+
+        const lines = csvContent.split('\n');
+        const parsed = [];
+
+        for (let i = 1; i < lines.length; i++) {
+          const line = lines[i].trim();
+          if (!line) continue;
+
+          const matches = line.match(/(\d+),(.*?),(.*?),(.*?),(.*)$/);
+          if (matches && matches.length > 5) {
+            parsed.push({
+              id: matches[1].padStart(3, '0'),
+              question: matches[2],
+              answer: matches[3],
+              point: matches[4],
+              title: matches[5]
+            });
           }
-          
-          if(parsed.length > 0) {
-            questionData = parsed;
-            console.log(`CSVから${parsed.length}問の問題を読み込みました`);
-          }
-        } catch(err) {
-          console.log('CSVファイルの読み込みに失敗しました。デフォルトの問題を使用します。');
         }
-      } else {
-        // Papaparseを使った読み込み（Claude環境で利用可能な場合）
-        if(typeof Papa !== 'undefined') {
-          // ファイルAPIが利用可能な場合のみ
-          console.log('CSVファイルAPIが利用できません。デフォルトの問題を使用します。');
+
+        if (parsed.length > 0) {
+          questionData = parsed;
+          console.log(`CSVから${parsed.length}問の問題を読み込みました`);
         }
+      } catch (error) {
+        console.error('CSVファイルの読み込みに失敗しました。', error);
       }
-    }
-  </script>
+    }  </script>
 </body>
 </html>
