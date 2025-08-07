@@ -1303,10 +1303,12 @@
 
         if (parsed.length > 0) {
           questionData = parsed;
-          console.log(`CSVから${parsed.length}問の問題を読み込みました`);
+          document.getElementById('csvStatus').innerText = `✅ CSVから${parsed.length}問を読み込みました`;
+    console.log(`CSVから${parsed.length}問の問題を読み込みました`);
         }
       } catch (error) {
-        console.error('CSVファイルの読み込みに失敗しました。', error);
+        document.getElementById('csvStatus').innerText = '❌ CSVファイルの読み込みに失敗しました';
+    console.error('CSVファイルの読み込みに失敗しました。', error);
       }
     }  
 document.getElementById('showProblemsBtn').addEventListener('click', () => {
@@ -1336,7 +1338,8 @@ document.getElementById('showProblemsBtn').addEventListener('click', () => {
 </script>
 
   <hr>
-  <button id="showProblemsBtn">問題リストを確認</button>
+  <div id="csvStatus" style="font-size: small; color: darkgreen; margin-bottom: 6px;"></div>
+<button id="showProblemsBtn">問題リストを確認</button>
   <div id="problemListView" style="display:none; padding: 10px; border: 1px solid #ccc; margin-top: 10px;"></div>
 
 </body>
