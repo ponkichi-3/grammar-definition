@@ -79,7 +79,7 @@
     <!-- Home -->
     <div id="homeScreen">
       <h1>文法記述テスト</h1>
-<p style=\"font-size: small; color: gray;\">ver.5</p>
+<p style=\"font-size: small; color: gray;\">ver.11</p>
       <p style="text-align:center;color:#718096;margin-bottom:20px;">高校英語文法 定義問題</p>
       <button class="button button-purple" onclick="startGrammarTest()">記述テストを開始</button>
       <button class="button button-orange" onclick="showPracticeMode()">練習モード</button>
@@ -1303,12 +1303,19 @@
 
         if (parsed.length > 0) {
           questionData = parsed;
-          document.getElementById('csvStatus').innerText = `✅ CSVから${parsed.length}問を読み込みました`;
+              
+        const order = document.getElementById('questionOrder')?.value;
+        if (order === 'shuffle') {
+          for (let i = questionData.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [questionData[i], questionData[j]] = [questionData[j], questionData[i]];
+          }
+        }
+
     console.log(`CSVから${parsed.length}問の問題を読み込みました`);
         }
       } catch (error) {
-        document.getElementById('csvStatus').innerText = '❌ CSVファイルの読み込みに失敗しました';
-    console.error('CSVファイルの読み込みに失敗しました。', error);
+            console.error('CSVファイルの読み込みに失敗しました。', error);
       }
     }  
 document.getElementById('showProblemsBtn').addEventListener('click', () => {
@@ -1338,9 +1345,30 @@ document.getElementById('showProblemsBtn').addEventListener('click', () => {
 </script>
 
   <hr>
-  <div id="csvStatus" style="font-size: small; color: darkgreen; margin-bottom: 6px;"></div>
-<button id="showProblemsBtn">問題リストを確認</button>
+  
+
+
   <div id="problemListView" style="display:none; padding: 10px; border: 1px solid #ccc; margin-top: 10px;"></div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const labelNode = Array.from(document.querySelectorAll("label")).find(el => el.textContent.includes("問題数"));
+  if (labelNode) {
+    const orderDiv = document.createElement("div");
+    orderDiv.innerHTML = `
+      <div class="order-select" style="margin: 10px 0;">
+        <label for="questionOrder">出題順:</label>
+        <select id="questionOrder">
+          <option value="sequential">順番通り</option>
+          <option value="shuffle">シャッフル</option>
+        </select>
+      </div>
+    `;
+    labelNode.parentElement.insertBefore(orderDiv, labelNode);
+  }
+});
+</script>
 
 </body>
 </html>
