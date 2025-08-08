@@ -1,79 +1,79 @@
-"id,question,answer,point,title"
-"001,現在形の定義は？,""昨日も今日も明日も変わらない"",POINT 1,基本３時制の定義"
-"002,現在形で表せるのは◯的な予定？,""公的な予定"",POINT 1,基本３時制の定義"
-"003,現在進行形で表せるのは◯的な予定？,""私的な予定"",POINT 1,基本３時制の定義"
-"004,未来表現パターンを7つ答えよ。,""①will ②be going toV～ ③現在形「公的な予定」 ④現在進行形「私的な予定」 ⑤be about toV～「まさに～しようとするところ」　⑥be supposed toV～「～することになっている」 ⑦be toV～「～することになっている」"",POINT 2,様々な未来表現"
-"005,willとbe going toVの違いは何か？,""willは[その場でする気になったこと]/ be going toVは[それ以前からするつもりでいたこと]を表す"",POINT 2,様々な未来表現"
-"006,進行形のキーワードを3つ答えよ。,""瞬間・途中・限定"",POINT 3,進行形の定義"
-"007,現在進行形で表せるのは◯的な予定？,""私的な予定"",POINT 3,進行形の定義"
-"008,alwaysやconstantlyといった副詞を伴うとどのようなニュアンスと訳になる？,""[非難]のニュアンスを含めた反復。「いつも～してばかりいる」"",POINT 3,進行形の定義"
-"009,過去進行形は、◯◯を強調する副詞を伴うことが多い。,""そのときだけ"",POINT 3,進行形の定義"
-"010,過去進行形が伴う副詞を4つ答えよ。,""①then ②at that moment ③at that time ④when S 動作V過去形～"",POINT 3,進行形の定義"
-"011,未来進行形でよく使う副詞は何？,""at this time tomorrow / at this time next week"",POINT 3,進行形の定義"
-"012,現在完了形のキーワードは？,""現在までの  つ ・ な ・ が ・ り"",POINT 6,現在完了形の用法①～完了・結果・経験～"
-"013,現在完了形の訳し方は？,""基本的には「今までに～してきた」と訳せば問題ない"",POINT 6,現在完了形の用法①～完了・結果・経験～"
-"014,have gone toV～とhave been toV～の違いは？,""have gone to～→帰ってきていない / have been to～→帰ってきている"",POINT 6,現在完了形の用法①～完了・結果・経験～"
-"015,現在完了形（継続）の訳し方は？,""今までずっと～し続けてきた"",POINT 7,現在完了形の用法②～継続～"
-"016,状態動詞を現在完了形で使うと、どのような意味になる？,""今までずっと～してきた"",POINT 7,現在完了形の用法②～継続～"
-"017,過去から現在までどの瞬間もその行動をしていたら、どのような意味になる？また、動詞の形はどうなる？,""今までずっと～し続けてきた / have been Ving～"",POINT 7,現在完了形の用法②～継続～"
-"018,現在完了形で使えない副詞を8つ挙げよ。,""yesterday / last month / then / just now / ～ago / when I was～ / When～？ / in 1986"",POINT 8,現在完了形の用法③～注意点～"
-"019,『～して…経った』シリーズで、「私の父が亡くなって10年になる」を5つの表現で答えよ。,""Ten years have passed since my father died. / It has been ten years since my father died. / It is ten years since my father died. / My father died ten years ago. / My father has been dead for 10 years."",POINT 8,現在完了形の用法③～注意点～"
-"020,過去完了形のキーワードは？,""過去②から過去①までの  つ ・ な ・ が ・ り"",POINT 9,過去完了形の用法①～完了・結果・経験～"
-"021,過去完了形の基本の訳し方は？,""それまでに～してきた"",POINT 9,過去完了形の用法①～完了・結果・経験～"
-"022,過去完了形（継続）の訳し方は？,""それまでずっと～し続けてきた"",POINT 10,過去完了形の用法②～継続～"
-"023,状態動詞を過去完了形で使うと、どのような意味になる？,""それまでずっと～してきた"",POINT 10,過去完了形の用法②～継続～"
-"024,過去②から過去①までどの瞬間もその行動をしていたら、どのような意味になる？また、動詞の形はどうなる？,""それまでずっと～し続けてきた / had been Ving～"",POINT 10,過去完了形の用法②～継続～"
-"025,名詞的用法の意味は？,""〜すること"",POINT 45,不定詞の基本① 名詞的用法"
-"026,名詞的用法を置けるのはどこ？また、名詞的用法にも関わらず置けないのはどこ？,""S・O・Cには使えるが、前置詞の後には使えない"",POINT 45,不定詞の基本① 名詞的用法"
-"027,to不定詞句が重要情報の場合は後ろに回し、代わりにSには何を置く？,""仮主語のItを置く"",POINT 45,不定詞の基本① 名詞的用法"
-"028,目的語のto不定詞は何とくっつく？,""他動詞（例：want toV / need toV など）"",POINT 45,不定詞の基本① 名詞的用法"
-"029,ＳＶＯＣのＯがto不定詞句の場合は後ろに回し、代わりにOには何を置く？,""仮目的語のitを置く"",POINT 45,不定詞の基本① 名詞的用法"
-"030,Cにto不定詞句が置かれる場合、SとVはどんなパターン？,""S beV toV～の形（ただしSが人以外）"",POINT 45,不定詞の基本① 名詞的用法"
-"031,形容詞的用法の意味は？,""〜する名詞・〜すべき名詞"",POINT 46,不定詞の基本② 形容詞的用法"
-"032,形容詞的用法と判断できる名詞の特徴を6つ答えよ。,""①a＋名詞 ②someone/anybody/nothingなど ③time/place/reason/way ④力・努力・権利・方法・可能性・機会を表す名詞（power / effort / right / way / means / possibility / chance/ opportunity） ⑤動詞や形容詞の名詞形 ⑥the first / the last / the only / 最上級＋名詞"",POINT 46,不定詞の基本② 形容詞的用法"
-"033,副詞的用法の基本の訳し方は？,""〜するために"",POINT 47,不定詞の基本③ 副詞的用法"
-"034,副詞的用法の例外パターンとその基本的な訳をセットで3つ答えよ。,""①感情を表す形容詞や動詞の後で「〜して驚く／嬉しい／悲しいなど」②判断の根拠を表す表現の後で「〜するとは…だ」③結果を表すtoV「…したが、結局〜した」"",POINT 47,不定詞の基本③ 副詞的用法"
-"035,結果を表すtoVの例を6つ挙げよ。,""①…, only toV～「…したが、結局は～した。」②…, never toV～「…したが、二度と～しなかった。」③grow up to be～「成長して～になる。」④live to be～「～になるまで生きる」⑤awake to find～「目覚めて～とわかる」⑥wake up to find～「目覚めて～とわかる」"",POINT 47,不定詞の基本③ 副詞的用法"
-"036,「人に〜してほしい」シリーズ①「人に〜してほしい」を英語で→,""want / would like 人 toV〜"",POINT 48,SVO＋toV～ 不定詞の基本"
-"037,「人に〜してほしい」シリーズ②「hope 人 toV〜は使える？」→,""使えない。hope that S will V〜を使う"",POINT 48,SVO＋toV～ 不定詞の基本"
-"038,「人に〜するように言う」シリーズ①「人に〜するように言う」を英語で→,""tell 人 toV～"",POINT 48,SVO＋toV～ 不定詞の基本"
-"039,「人に〜するように言う」シリーズ②「人に〜するように助言する」を英語で→,""advise 人 toV～"",POINT 48,SVO＋toV～ 不定詞の基本"
-"040,「人に〜するように言う」シリーズ③「人に〜するように頼む」を英語で→,""ask 人 toV～"",POINT 48,SVO＋toV～ 不定詞の基本"
-"041,「人に〜するように言う」シリーズ④「人に〜するように警告する」を英語で→,""warn 人 toV～"",POINT 48,SVO＋toV～ 不定詞の基本"
-"042,「人に〜させる」シリーズ①「人が～するのを許す」を英語で2つ→,""allow / permit 人 toV～"",POINT 48,SVO＋toV～ 不定詞の基本"
-"043,「人に〜させる」シリーズ②「人が～できるようにする」を英語で→,""enable 人 toV～"",POINT 48,SVO＋toV～ 不定詞の基本"
-"044,「人に〜させる」シリーズ③「人が～するのを強制する」を英語で2つ→,""force / compel 人 toV～"",POINT 48,SVO＋toV～ 不定詞の基本"
-"045,「人に〜させる」シリーズ④「人に～してもらう」を英語で→,""get 人 toV～"",POINT 48,SVO＋toV～ 不定詞の基本"
-"046,「人が～だと思う」シリーズ①「人が～だと思う」を英語で→,""think 人 toV～"",POINT 48,SVO＋toV～ 不定詞の基本"
-"047,「人が～だと思う」シリーズ②「人が～だと信じている」を英語で→,""believe 人 toV～"",POINT 48,SVO＋toV～ 不定詞の基本"
-"048,「人が～だと思う」シリーズ③「人が～だとわかる」を英語で→,""find 人 toV～"",POINT 48,SVO＋toV～ 不定詞の基本"
-"049,英文中のあらゆる動詞には必ず何が存在する？,""意味上の主語（その動詞の動作主）"",POINT 49,不定詞の意味上の主語①"
-"050,動詞の意味上の主語はどのような2パターンがある？,""①その文の主語と一致②誰でもない一般の人々"",POINT 49,不定詞の意味上の主語①"
-"051,to不定詞の意味上の主語を明示する表現を英語で→,""It is … for 人 toV～"",POINT 49,不定詞の意味上の主語①"
-"052,It is … for 人 toV～とIt is … of 人 toV～の違いは？,""「for 人」は行動の必要性や可能性、「of 人」は人の性格や性質を評価する場合"",POINT 50,不定詞の意味上の主語②"
-"053,It is … of 人 toV～のポジティブ形容詞を9個挙げよ,""kind / nice / good / polite / wise / clever / considerate / thoughtful / brave"",POINT 50,不定詞の意味上の主語②"
-"054,It is … of 人 toV～のネガティブ形容詞を7個挙げよ,""careless / rude / impolite / foolish / stupid / silly / cruel"",POINT 50,不定詞の意味上の主語②"
-"055,I love you. の love の主語は？,""I"",POINT 50,不定詞の意味上の主語②"
-"056,She likes taking photos. の likes の主語は？,""She"",POINT 50,不定詞の意味上の主語②"
-"057,She likes taking photos. の taking の主語は？,""She"",POINT 50,不定詞の意味上の主語②"
-"058,Studying English hard is important. の is の主語は？,""Studying English hard"",POINT 50,不定詞の意味上の主語②"
-"059,Studying English hard is important. の Studying English hard の意味上の主語は？,""一般の人々"",POINT 50,不定詞の意味上の主語②"
-"060,It is necessary to sleep well. の is の主語は？,""It"",POINT 50,不定詞の意味上の主語②"
-"061,It is necessary to sleep well. の to sleep well の意味上の主語は？,""一般の人々"",POINT 50,不定詞の意味上の主語②"
-"062,It is important for you to study English. の to study English の主語は？,""you"",POINT 50,不定詞の意味上の主語②"
-"063,It is important for him to run every morning. の to run every morning の主語は？,""him"",POINT 50,不定詞の意味上の主語②"
-"064,It was careless of you to leave your umbrella. の to leave your umbrella の主語は？,""you"",POINT 50,不定詞の意味上の主語②"
-"065,I want you to love me. の to love の主語は？,""you"",POINT 50,不定詞の意味上の主語②"
-"066,I allowed students to play with cards. の to play の主語は？,""students"",POINT 50,不定詞の意味上の主語②"
-"067,強制のニュアンスで「Oに（を）～させる」の表現は？,""make O V原形～"",POINT 51,使役動詞（原形不定詞）"
-"068,権利のニュアンスで「Oに～してもらう」の表現は？,""have O V原形～"",POINT 51,使役動詞（原形不定詞）"
-"069,許可のニュアンスで「Oに～させてあげる」の表現は？,""let O V原形～"",POINT 51,使役動詞（原形不定詞）"
-"070,依頼のニュアンスで「Oに～してもらう」の表現は？,""get O toV～"",POINT 51,使役動詞（原形不定詞）"
-"071,使役動詞が含まれる英文が受動態になると、使役動詞の部分はどうなる？,""V原形がto V原形になる"",POINT 51,使役動詞（原形不定詞）"
-"072,「Oが～するのを見る／しているのを見る／されるのを見る」を英語で→,""see O V原形～／see O Ving～／see O Vp.p.～"",POINT 52,知覚動詞"
-"073,「Oが～するのを聞く／しているのを聞く／されるのを聞く」を英語で→,""hear O V原形～／hear O Ving～／hear O Vp.p.～"",POINT 52,知覚動詞"
-"074,「Oが～するのを感じる／しているのを感じる／されるのを感じる」を英語で→,""feel O V原形～／feel O Ving～／feel O Vp.p.～"",POINT 52,知覚動詞"
-"075,知覚動詞が含まれる英文が受動態になるとどう変化する？,""V原形→to V原形、Ving/Vp.p.はそのまま"",POINT 52,知覚動詞"
-"076,My boss made me talk about a new project. を受動態にせよ。,""I was made to talk about a new project by my boss."",POINT 52,使役動詞・知覚動詞の受動態"
-"077,I saw him cross the street. を受動態にせよ。,""He was seen to cross the street (by me)."",POINT 52,使役動詞・知覚動詞の受動態"
-"078,I saw him crossing the street. を受動態にせよ。,""He was seen crossing the street (by me)."",POINT 52,使役動詞・知覚動詞の受動態"
+id,question,answer,point,title
+001,現在形の定義は？,"昨日も今日も明日も変わらない",POINT 1,基本３時制の定義
+002,現在形で表せるのは◯的な予定？,"公的な予定",POINT 1,基本３時制の定義
+003,現在進行形で表せるのは◯的な予定？,"私的な予定",POINT 1,基本３時制の定義
+004,未来表現パターンを7つ答えよ。,"①will ②be going toV～ ③現在形「公的な予定」 ④現在進行形「私的な予定」 ⑤be about toV～「まさに～しようとするところ」　⑥be supposed toV～「～することになっている」 ⑦be toV～「～することになっている」",POINT 2,様々な未来表現
+005,willとbe going toVの違いは何か？,"willは[その場でする気になったこと]/ be going toVは[それ以前からするつもりでいたこと]を表す",POINT 2,様々な未来表現
+006,進行形のキーワードを3つ答えよ。,"瞬間・途中・限定",POINT 3,進行形の定義
+007,現在進行形で表せるのは◯的な予定？,"私的な予定",POINT 3,進行形の定義
+008,alwaysやconstantlyといった副詞を伴うとどのようなニュアンスと訳になる？,"[非難]のニュアンスを含めた反復。「いつも～してばかりいる」",POINT 3,進行形の定義
+009,過去進行形は、◯◯を強調する副詞を伴うことが多い。,"そのときだけ",POINT 3,進行形の定義
+010,過去進行形が伴う副詞を4つ答えよ。,"①then ②at that moment ③at that time ④when S 動作V過去形～",POINT 3,進行形の定義
+011,未来進行形でよく使う副詞は何？,"at this time tomorrow / at this time next week",POINT 3,進行形の定義
+012,現在完了形のキーワードは？,"現在までの  つ ・ な ・ が ・ り",POINT 6,現在完了形の用法①～完了・結果・経験～
+013,現在完了形の訳し方は？,"基本的には「今までに～してきた」と訳せば問題ない",POINT 6,現在完了形の用法①～完了・結果・経験～
+014,have gone toV～とhave been toV～の違いは？,"have gone to～→帰ってきていない / have been to～→帰ってきている",POINT 6,現在完了形の用法①～完了・結果・経験～
+015,現在完了形（継続）の訳し方は？,"今までずっと～し続けてきた",POINT 7,現在完了形の用法②～継続～
+016,状態動詞を現在完了形で使うと、どのような意味になる？,"今までずっと～してきた",POINT 7,現在完了形の用法②～継続～
+017,過去から現在までどの瞬間もその行動をしていたら、どのような意味になる？また、動詞の形はどうなる？,"今までずっと～し続けてきた / have been Ving～",POINT 7,現在完了形の用法②～継続～
+018,現在完了形で使えない副詞を8つ挙げよ。,"yesterday / last month / then / just now / ～ago / when I was～ / When～？ / in 1986",POINT 8,現在完了形の用法③～注意点～
+019,『～して…経った』シリーズで、「私の父が亡くなって10年になる」を5つの表現で答えよ。,"Ten years have passed since my father died. / It has been ten years since my father died. / It is ten years since my father died. / My father died ten years ago. / My father has been dead for 10 years.",POINT 8,現在完了形の用法③～注意点～
+020,過去完了形のキーワードは？,"過去②から過去①までの  つ ・ な ・ が ・ り",POINT 9,過去完了形の用法①～完了・結果・経験～
+021,過去完了形の基本の訳し方は？,"それまでに～してきた",POINT 9,過去完了形の用法①～完了・結果・経験～
+022,過去完了形（継続）の訳し方は？,"それまでずっと～し続けてきた",POINT 10,過去完了形の用法②～継続～
+023,状態動詞を過去完了形で使うと、どのような意味になる？,"それまでずっと～してきた",POINT 10,過去完了形の用法②～継続～
+024,過去②から過去①までどの瞬間もその行動をしていたら、どのような意味になる？また、動詞の形はどうなる？,"それまでずっと～し続けてきた / had been Ving～",POINT 10,過去完了形の用法②～継続～
+025,名詞的用法の意味は？,"〜すること",POINT 45,不定詞の基本① 名詞的用法
+026,名詞的用法を置けるのはどこ？また、名詞的用法にも関わらず置けないのはどこ？,"S・O・Cには使えるが、前置詞の後には使えない",POINT 45,不定詞の基本① 名詞的用法
+027,to不定詞句が重要情報の場合は後ろに回し、代わりにSには何を置く？,"仮主語のItを置く",POINT 45,不定詞の基本① 名詞的用法
+028,目的語のto不定詞は何とくっつく？,"他動詞（例：want toV / need toV など）",POINT 45,不定詞の基本① 名詞的用法
+029,ＳＶＯＣのＯがto不定詞句の場合は後ろに回し、代わりにOには何を置く？,"仮目的語のitを置く",POINT 45,不定詞の基本① 名詞的用法
+030,Cにto不定詞句が置かれる場合、SとVはどんなパターン？,"S beV toV～の形（ただしSが人以外）",POINT 45,不定詞の基本① 名詞的用法
+031,形容詞的用法の意味は？,"〜する名詞・〜すべき名詞",POINT 46,不定詞の基本② 形容詞的用法
+032,形容詞的用法と判断できる名詞の特徴を6つ答えよ。,"①a＋名詞 ②someone/anybody/nothingなど ③time/place/reason/way ④力・努力・権利・方法・可能性・機会を表す名詞（power / effort / right / way / means / possibility / chance/ opportunity） ⑤動詞や形容詞の名詞形 ⑥the first / the last / the only / 最上級＋名詞",POINT 46,不定詞の基本② 形容詞的用法
+033,副詞的用法の基本の訳し方は？,"〜するために",POINT 47,不定詞の基本③ 副詞的用法
+034,副詞的用法の例外パターンとその基本的な訳をセットで3つ答えよ。,"①感情を表す形容詞や動詞の後で「〜して驚く／嬉しい／悲しいなど」②判断の根拠を表す表現の後で「〜するとは…だ」③結果を表すtoV「…したが、結局〜した」",POINT 47,不定詞の基本③ 副詞的用法
+035,結果を表すtoVの例を6つ挙げよ。,"①…, only toV～「…したが、結局は～した。」②…, never toV～「…したが、二度と～しなかった。」③grow up to be～「成長して～になる。」④live to be～「～になるまで生きる」⑤awake to find～「目覚めて～とわかる」⑥wake up to find～「目覚めて～とわかる」",POINT 47,不定詞の基本③ 副詞的用法
+036,「人に〜してほしい」シリーズ①「人に〜してほしい」を英語で→,"want / would like 人 toV〜",POINT 48,SVO＋toV～ 不定詞の基本
+037,「人に〜してほしい」シリーズ②「hope 人 toV〜は使える？」→,"使えない。hope that S will V〜を使う",POINT 48,SVO＋toV～ 不定詞の基本
+038,「人に〜するように言う」シリーズ①「人に〜するように言う」を英語で→,"tell 人 toV～",POINT 48,SVO＋toV～ 不定詞の基本
+039,「人に〜するように言う」シリーズ②「人に〜するように助言する」を英語で→,"advise 人 toV～",POINT 48,SVO＋toV～ 不定詞の基本
+040,「人に〜するように言う」シリーズ③「人に〜するように頼む」を英語で→,"ask 人 toV～",POINT 48,SVO＋toV～ 不定詞の基本
+041,「人に〜するように言う」シリーズ④「人に〜するように警告する」を英語で→,"warn 人 toV～",POINT 48,SVO＋toV～ 不定詞の基本
+042,「人に〜させる」シリーズ①「人が～するのを許す」を英語で2つ→,"allow / permit 人 toV～",POINT 48,SVO＋toV～ 不定詞の基本
+043,「人に〜させる」シリーズ②「人が～できるようにする」を英語で→,"enable 人 toV～",POINT 48,SVO＋toV～ 不定詞の基本
+044,「人に〜させる」シリーズ③「人が～するのを強制する」を英語で2つ→,"force / compel 人 toV～",POINT 48,SVO＋toV～ 不定詞の基本
+045,「人に〜させる」シリーズ④「人に～してもらう」を英語で→,"get 人 toV～",POINT 48,SVO＋toV～ 不定詞の基本
+046,「人が～だと思う」シリーズ①「人が～だと思う」を英語で→,"think 人 toV～",POINT 48,SVO＋toV～ 不定詞の基本
+047,「人が～だと思う」シリーズ②「人が～だと信じている」を英語で→,"believe 人 toV～",POINT 48,SVO＋toV～ 不定詞の基本
+048,「人が～だと思う」シリーズ③「人が～だとわかる」を英語で→,"find 人 toV～",POINT 48,SVO＋toV～ 不定詞の基本
+049,英文中のあらゆる動詞には必ず何が存在する？,"意味上の主語（その動詞の動作主）",POINT 49,不定詞の意味上の主語①
+050,動詞の意味上の主語はどのような2パターンがある？,"①その文の主語と一致②誰でもない一般の人々",POINT 49,不定詞の意味上の主語①
+051,to不定詞の意味上の主語を明示する表現を英語で→,"It is … for 人 toV～",POINT 49,不定詞の意味上の主語①
+052,It is … for 人 toV～とIt is … of 人 toV～の違いは？,"「for 人」は行動の必要性や可能性、「of 人」は人の性格や性質を評価する場合",POINT 50,不定詞の意味上の主語②
+053,It is … of 人 toV～のポジティブ形容詞を9個挙げよ,"kind / nice / good / polite / wise / clever / considerate / thoughtful / brave",POINT 50,不定詞の意味上の主語②
+054,It is … of 人 toV～のネガティブ形容詞を7個挙げよ,"careless / rude / impolite / foolish / stupid / silly / cruel",POINT 50,不定詞の意味上の主語②
+055,I love you. の love の主語は？,"I",POINT 50,不定詞の意味上の主語②
+056,She likes taking photos. の likes の主語は？,"She",POINT 50,不定詞の意味上の主語②
+057,She likes taking photos. の taking の主語は？,"She",POINT 50,不定詞の意味上の主語②
+058,Studying English hard is important. の is の主語は？,"Studying English hard",POINT 50,不定詞の意味上の主語②
+059,Studying English hard is important. の Studying English hard の意味上の主語は？,"一般の人々",POINT 50,不定詞の意味上の主語②
+060,It is necessary to sleep well. の is の主語は？,"It",POINT 50,不定詞の意味上の主語②
+061,It is necessary to sleep well. の to sleep well の意味上の主語は？,"一般の人々",POINT 50,不定詞の意味上の主語②
+062,It is important for you to study English. の to study English の主語は？,"you",POINT 50,不定詞の意味上の主語②
+063,It is important for him to run every morning. の to run every morning の主語は？,"him",POINT 50,不定詞の意味上の主語②
+064,It was careless of you to leave your umbrella. の to leave your umbrella の主語は？,"you",POINT 50,不定詞の意味上の主語②
+065,I want you to love me. の to love の主語は？,"you",POINT 50,不定詞の意味上の主語②
+066,I allowed students to play with cards. の to play の主語は？,"students",POINT 50,不定詞の意味上の主語②
+067,強制のニュアンスで「Oに（を）～させる」の表現は？,"make O V原形～",POINT 51,使役動詞（原形不定詞）
+068,権利のニュアンスで「Oに～してもらう」の表現は？,"have O V原形～",POINT 51,使役動詞（原形不定詞）
+069,許可のニュアンスで「Oに～させてあげる」の表現は？,"let O V原形～",POINT 51,使役動詞（原形不定詞）
+070,依頼のニュアンスで「Oに～してもらう」の表現は？,"get O toV～",POINT 51,使役動詞（原形不定詞）
+071,使役動詞が含まれる英文が受動態になると、使役動詞の部分はどうなる？,"V原形がto V原形になる",POINT 51,使役動詞（原形不定詞）
+072,「Oが～するのを見る／しているのを見る／されるのを見る」を英語で→,"see O V原形～／see O Ving～／see O Vp.p.～",POINT 52,知覚動詞
+073,「Oが～するのを聞く／しているのを聞く／されるのを聞く」を英語で→,"hear O V原形～／hear O Ving～／hear O Vp.p.～",POINT 52,知覚動詞
+074,「Oが～するのを感じる／しているのを感じる／されるのを感じる」を英語で→,"feel O V原形～／feel O Ving～／feel O Vp.p.～",POINT 52,知覚動詞
+075,知覚動詞が含まれる英文が受動態になるとどう変化する？,"V原形→to V原形、Ving/Vp.p.はそのまま",POINT 52,知覚動詞
+076,My boss made me talk about a new project. を受動態にせよ。,"I was made to talk about a new project by my boss.",POINT 52,使役動詞・知覚動詞の受動態
+077,I saw him cross the street. を受動態にせよ。,"He was seen to cross the street (by me).",POINT 52,使役動詞・知覚動詞の受動態
+078,I saw him crossing the street. を受動態にせよ。,"He was seen crossing the street (by me).",POINT 52,使役動詞・知覚動詞の受動態
