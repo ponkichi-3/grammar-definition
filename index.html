@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>文法記述テスト</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+<title>文法記述テスト</title>
+<style>
     *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
     body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Hiragino Sans',sans-serif;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;overflow-x:hidden}
     .container{background:#fff;border-radius:20px;padding:30px;box-shadow:0 20px 40px rgba(0,0,0,.1);max-width:700px;width:100%}
@@ -75,225 +76,212 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <!-- Home -->
-    <div id="homeScreen">
-      <h1>文法記述テスト</h1>
-<p style=\"font-size: small; color: gray;\">ver.12</p>
-      <p style="text-align:center;color:#718096;margin-bottom:20px;">高校英語文法 定義問題</p>
-      <button class="button button-purple" onclick="startGrammarTest()">記述テストを開始</button>
-      <button class="button button-orange" onclick="showPracticeMode()">練習モード</button>
-      <button class="button button-green" onclick="showTeacherLogin()">教員ページ</button>
-    </div>
-
-    <!-- Settings -->
-    <div id="settingsScreen" class="hidden">
-      <h2>テスト設定</h2>
-      
-      <div class="form-group">
-        <label>テストモード</label>
-        <div class="test-mode-selector">
-          <div class="mode-button selected" onclick="selectMode('test')" id="modeTest">
-            <div class="mode-title">テストモード</div>
-            <div class="mode-desc">時間制限あり・1回のみ解答</div>
-          </div>
-          <div class="mode-button" onclick="selectMode('practice')" id="modePractice">
-            <div class="mode-title">練習モード</div>
-            <div class="mode-desc">時間制限なし・即座に正解確認</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label>文法大項目の選択（複数選択可）</label>
-        <div class="select-controls">
-          <button class="select-button" onclick="selectAllMajorCategories()">全て選択</button>
-          <button class="select-button" onclick="deselectAllMajorCategories()">全て解除</button>
-        </div>
-        <div class="checkbox-group" style="max-height:150px;overflow-y:auto;border:2px solid #e2e8f0;border-radius:8px;padding:12px;">
-          <label class="checkbox-label" style="display:flex;align-items:center;padding:4px 0;cursor:pointer;font-size:14px;">
-            <input type="checkbox" value="tense" onchange="updateSubCategories()" style="margin-right:8px;">
+<div class="container">
+<!-- Home -->
+<div id="homeScreen">
+<h1>文法記述テスト</h1>
+<p color:="" gray;\"="" small;="" style='\"font-size:'>ver.12</p>
+<p style="text-align:center;color:#718096;margin-bottom:20px;">高校英語文法 定義問題</p>
+<button class="button button-purple" onclick="startGrammarTest()">記述テストを開始</button>
+<button class="button button-orange" onclick="showPracticeMode()">練習モード</button>
+<button class="button button-green" onclick="showTeacherLogin()">教員ページ</button>
+</div>
+<!-- Settings -->
+<div class="hidden" id="settingsScreen">
+<h2>テスト設定</h2>
+<div class="form-group">
+<label>テストモード</label>
+<div class="test-mode-selector">
+<div class="mode-button selected" id="modeTest" onclick="selectMode('test')">
+<div class="mode-title">テストモード</div>
+<div class="mode-desc">時間制限あり・1回のみ解答</div>
+</div>
+<div class="mode-button" id="modePractice" onclick="selectMode('practice')">
+<div class="mode-title">練習モード</div>
+<div class="mode-desc">時間制限なし・即座に正解確認</div>
+</div>
+</div>
+</div>
+<div class="form-group">
+<label>文法大項目の選択（複数選択可）</label>
+<div class="select-controls">
+<button class="select-button" onclick="selectAllMajorCategories()">全て選択</button>
+<button class="select-button" onclick="deselectAllMajorCategories()">全て解除</button>
+</div>
+<div class="checkbox-group" style="max-height:150px;overflow-y:auto;border:2px solid #e2e8f0;border-radius:8px;padding:12px;">
+<label class="checkbox-label" style="display:flex;align-items:center;padding:4px 0;cursor:pointer;font-size:14px;">
+<input onchange="updateSubCategories()" style="margin-right:8px;" type="checkbox" value="tense"/>
             時制（TENSE）
           </label>
-          <label class="checkbox-label" style="display:flex;align-items:center;padding:4px 0;cursor:pointer;font-size:14px;">
-            <input type="checkbox" value="voice" onchange="updateSubCategories()" style="margin-right:8px;">
+<label class="checkbox-label" style="display:flex;align-items:center;padding:4px 0;cursor:pointer;font-size:14px;">
+<input onchange="updateSubCategories()" style="margin-right:8px;" type="checkbox" value="voice"/>
             受動態（VOICE）
           </label>
-          <label class="checkbox-label" style="display:flex;align-items:center;padding:4px 0;cursor:pointer;font-size:14px;">
-            <input type="checkbox" value="auxiliary" onchange="updateSubCategories()" style="margin-right:8px;">
+<label class="checkbox-label" style="display:flex;align-items:center;padding:4px 0;cursor:pointer;font-size:14px;">
+<input onchange="updateSubCategories()" style="margin-right:8px;" type="checkbox" value="auxiliary"/>
             助動詞（AUXILIARY VERB）
           </label>
-          <label class="checkbox-label" style="display:flex;align-items:center;padding:4px 0;cursor:pointer;font-size:14px;">
-            <input type="checkbox" value="infinitive" onchange="updateSubCategories()" style="margin-right:8px;">
+<label class="checkbox-label" style="display:flex;align-items:center;padding:4px 0;cursor:pointer;font-size:14px;">
+<input onchange="updateSubCategories()" style="margin-right:8px;" type="checkbox" value="infinitive"/>
             不定詞（INFINITIVE）
           </label>
-          <label class="checkbox-label" style="display:flex;align-items:center;padding:4px 0;cursor:pointer;font-size:14px;">
-            <input type="checkbox" value="gerund" onchange="updateSubCategories()" style="margin-right:8px;">
+<label class="checkbox-label" style="display:flex;align-items:center;padding:4px 0;cursor:pointer;font-size:14px;">
+<input onchange="updateSubCategories()" style="margin-right:8px;" type="checkbox" value="gerund"/>
             動名詞（GERUND）
           </label>
-          <label class="checkbox-label" style="display:flex;align-items:center;padding:4px 0;cursor:pointer;font-size:14px;">
-            <input type="checkbox" value="participle" onchange="updateSubCategories()" style="margin-right:8px;">
+<label class="checkbox-label" style="display:flex;align-items:center;padding:4px 0;cursor:pointer;font-size:14px;">
+<input onchange="updateSubCategories()" style="margin-right:8px;" type="checkbox" value="participle"/>
             分詞（PARTICIPLE）
           </label>
-          <label class="checkbox-label" style="display:flex;align-items:center;padding:4px 0;cursor:pointer;font-size:14px;">
-            <input type="checkbox" value="subjunctive" onchange="updateSubCategories()" style="margin-right:8px;">
+<label class="checkbox-label" style="display:flex;align-items:center;padding:4px 0;cursor:pointer;font-size:14px;">
+<input onchange="updateSubCategories()" style="margin-right:8px;" type="checkbox" value="subjunctive"/>
             仮定法（SUBJUNCTIVE）
           </label>
-          <label class="checkbox-label" style="display:flex;align-items:center;padding:4px 0;cursor:pointer;font-size:14px;">
-            <input type="checkbox" value="relative" onchange="updateSubCategories()" style="margin-right:8px;">
+<label class="checkbox-label" style="display:flex;align-items:center;padding:4px 0;cursor:pointer;font-size:14px;">
+<input onchange="updateSubCategories()" style="margin-right:8px;" type="checkbox" value="relative"/>
             関係詞（RELATIVE PRONOUN）
           </label>
-          <label class="checkbox-label" style="display:flex;align-items:center;padding:4px 0;cursor:pointer;font-size:14px;">
-            <input type="checkbox" value="comparison" onchange="updateSubCategories()" style="margin-right:8px;">
+<label class="checkbox-label" style="display:flex;align-items:center;padding:4px 0;cursor:pointer;font-size:14px;">
+<input onchange="updateSubCategories()" style="margin-right:8px;" type="checkbox" value="comparison"/>
             比較（COMPARISON）
           </label>
-        </div>
+</div>
+</div>
+<div class="form-group">
+<label>文法小項目の選択（複数選択可）</label>
+<div class="select-controls">
+<button class="select-button" onclick="selectAllItems()">全て選択</button>
+<button class="select-button" onclick="deselectAllItems()">全て解除</button>
+</div>
+<div class="checkbox-group" id="subCategoryGroup" style="max-height:200px;overflow-y:auto;border:2px solid #e2e8f0;border-radius:8px;padding:12px;"></div>
+</div>
+<div class="form-group">
+<label>問題数</label>
+<select id="questionCount">
+<option value="3">3問</option>
+<option value="5">5問</option>
+<option selected="" value="10">10問</option>
+<option value="all">全問題</option>
+</select>
+</div>
+<div class="form-group" id="timeLimitGroup">
+<label>制限時間</label>
+<select id="timeLimit">
+<option value="5">5分</option>
+<option selected="" value="10">10分</option>
+<option value="15">15分</option>
+<option value="20">20分</option>
+<option value="0">無制限</option>
+</select>
+</div>
+<div id="studentInfoGroup">
+<div class="info-grid">
+<div class="form-group">
+<label>学年 <span style="color:#f56565;">*</span></label>
+<select id="studentGrade">
+<option value="">選択してください</option>
+<option value="1年">1年</option>
+<option value="2年">2年</option>
+<option value="3年">3年</option>
+</select>
+</div>
+<div class="form-group">
+<label>クラス <span style="color:#f56565;">*</span></label>
+<select id="studentClass">
+<option value="">選択してください</option>
+</select>
+</div>
+</div>
+<div class="info-grid">
+<div class="form-group">
+<label>出席番号 <span style="color:#f56565;">*</span></label>
+<select id="studentNumber">
+<option value="">選択してください</option>
+</select>
+</div>
+<div class="form-group">
+<label>氏名 <span style="color:#f56565;">*</span></label>
+<input id="studentName" placeholder="例: 山田太郎" type="text"/>
+</div>
+</div>
+</div>
+<button class="button button-blue" onclick="startTest()">テスト開始</button>
+<button class="button button-gray" onclick="backToHome()">戻る</button>
+</div>
+<!-- Quiz -->
+<div class="hidden" id="quizScreen">
+<div class="timer" id="timer"></div>
+<div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+<div class="quiz-container">
+<div class="question-box">
+<div class="question-header">
+<div class="question-number" id="questionNumber"></div>
+<div class="point-badge" id="pointBadge"></div>
+</div>
+<div class="question-title" id="questionTitle"></div>
+<div class="question-text" id="questionText"></div>
+</div>
+<div class="answer-section">
+<textarea class="answer-input" id="answerInput" placeholder="答えを入力してください..." rows="3"></textarea>
+<div class="answer-status" id="answerStatus"></div>
+<div class="model-answer" id="modelAnswer">
+<div class="model-answer-label">模範解答</div>
+<div class="model-answer-text" id="modelAnswerText"></div>
+</div>
+</div>
+</div>
+<button class="button button-blue" id="submitButton" onclick="submitAnswer()">解答を提出</button>
+<button class="button button-blue hidden" id="nextButton" onclick="nextQuestion()">次の問題へ</button>
+<button class="button button-orange hidden" id="finishButton" onclick="finishTest()">テストを終了</button>
+</div>
+<!-- Result -->
+<div class="hidden" id="resultScreen">
+<h2>テスト終了！</h2>
+<div class="score-display" id="scoreDisplay"></div>
+<div class="result-details">
+<div class="result-item">
+<span class="result-label">正解数</span>
+<span class="result-value" id="correctCount"></span>
+</div>
+<div class="result-item">
+<span class="result-label">問題数</span>
+<span class="result-value" id="totalCount"></span>
+</div>
+<div class="result-item">
+<span class="result-label">所要時間</span>
+<span class="result-value" id="elapsedTime"></span>
+</div>
+</div>
+<div class="success-box" id="saveSuccess" style="display:none;">
+<strong>✅ 保存完了</strong><br/>成績がクラウドに保存されました。
       </div>
-
-      <div class="form-group">
-        <label>文法小項目の選択（複数選択可）</label>
-        <div class="select-controls">
-          <button class="select-button" onclick="selectAllItems()">全て選択</button>
-          <button class="select-button" onclick="deselectAllItems()">全て解除</button>
-        </div>
-        <div class="checkbox-group" id="subCategoryGroup" style="max-height:200px;overflow-y:auto;border:2px solid #e2e8f0;border-radius:8px;padding:12px;"></div>
-      </div>
-
-      <div class="form-group">
-        <label>問題数</label>
-        <select id="questionCount">
-          <option value="3">3問</option>
-          <option value="5">5問</option>
-          <option value="10" selected>10問</option>
-          <option value="all">全問題</option>
-        </select>
-      </div>
-
-      <div class="form-group" id="timeLimitGroup">
-        <label>制限時間</label>
-        <select id="timeLimit">
-          <option value="5">5分</option>
-          <option value="10" selected>10分</option>
-          <option value="15">15分</option>
-          <option value="20">20分</option>
-          <option value="0">無制限</option>
-        </select>
-      </div>
-
-      <div id="studentInfoGroup">
-        <div class="info-grid">
-          <div class="form-group">
-            <label>学年 <span style="color:#f56565;">*</span></label>
-            <select id="studentGrade">
-              <option value="">選択してください</option>
-              <option value="1年">1年</option>
-              <option value="2年">2年</option>
-              <option value="3年">3年</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>クラス <span style="color:#f56565;">*</span></label>
-            <select id="studentClass">
-              <option value="">選択してください</option>
-            </select>
-          </div>
-        </div>
-        <div class="info-grid">
-          <div class="form-group">
-            <label>出席番号 <span style="color:#f56565;">*</span></label>
-            <select id="studentNumber">
-              <option value="">選択してください</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>氏名 <span style="color:#f56565;">*</span></label>
-            <input type="text" id="studentName" placeholder="例: 山田太郎">
-          </div>
-        </div>
-      </div>
-      
-      <button class="button button-blue" onclick="startTest()">テスト開始</button>
-      <button class="button button-gray" onclick="backToHome()">戻る</button>
-    </div>
-
-    <!-- Quiz -->
-    <div id="quizScreen" class="hidden">
-      <div class="timer" id="timer"></div>
-      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-      <div class="quiz-container">
-        <div class="question-box">
-          <div class="question-header">
-            <div class="question-number" id="questionNumber"></div>
-            <div class="point-badge" id="pointBadge"></div>
-          </div>
-          <div class="question-title" id="questionTitle"></div>
-          <div class="question-text" id="questionText"></div>
-        </div>
-        <div class="answer-section">
-          <textarea class="answer-input" id="answerInput" placeholder="答えを入力してください..." rows="3"></textarea>
-          <div class="answer-status" id="answerStatus"></div>
-          <div class="model-answer" id="modelAnswer">
-            <div class="model-answer-label">模範解答</div>
-            <div class="model-answer-text" id="modelAnswerText"></div>
-          </div>
-        </div>
-      </div>
-      <button class="button button-blue" id="submitButton" onclick="submitAnswer()">解答を提出</button>
-      <button class="button button-blue hidden" id="nextButton" onclick="nextQuestion()">次の問題へ</button>
-      <button class="button button-orange hidden" id="finishButton" onclick="finishTest()">テストを終了</button>
-    </div>
-
-    <!-- Result -->
-    <div id="resultScreen" class="hidden">
-      <h2>テスト終了！</h2>
-      <div class="score-display" id="scoreDisplay"></div>
-      <div class="result-details">
-        <div class="result-item">
-          <span class="result-label">正解数</span>
-          <span class="result-value" id="correctCount"></span>
-        </div>
-        <div class="result-item">
-          <span class="result-label">問題数</span>
-          <span class="result-value" id="totalCount"></span>
-        </div>
-        <div class="result-item">
-          <span class="result-label">所要時間</span>
-          <span class="result-value" id="elapsedTime"></span>
-        </div>
-      </div>
-      <div id="saveSuccess" class="success-box" style="display:none;">
-        <strong>✅ 保存完了</strong><br>成績がクラウドに保存されました。
-      </div>
-      <div id="detailedResults"></div>
-      <button class="button button-blue" onclick="restartTest()">もう一度挑戦</button>
-      <button class="button button-gray" onclick="backToHome()">メニューに戻る</button>
-    </div>
-
-    <!-- Teacher Login -->
-    <div id="teacherLoginScreen" class="hidden">
-      <h2>教員ページログイン</h2>
-      <div class="form-group">
-        <label>パスワード</label>
-        <input type="password" id="teacherPassword" placeholder="パスワードを入力">
-      </div>
-      <button class="button button-green" onclick="teacherLogin()">ログイン</button>
-      <button class="button button-gray" onclick="backToHome()">戻る</button>
-    </div>
-
-    <!-- Teacher Page -->
-    <div id="teacherScreen" class="hidden">
-      <h2>成績管理</h2>
-      <div id="scoresList" style="max-height:400px;overflow-y:auto;">
-        <p style="text-align:center;color:#718096;">まだ成績データがありません</p>
-      </div>
-      <button class="button button-blue" onclick="loadCloudScores()" style="margin-top:10px;">クラウドから読み込み</button>
-      <button class="button button-green" onclick="exportScores()" style="margin-top:10px;">CSVでエクスポート</button>
-      <button class="button button-red" onclick="clearAllScores()" style="margin-top:20px;">すべてのデータを削除</button>
-      <button class="button button-gray" onclick="backToHome()">戻る</button>
-    </div>
-  </div>
-
-  <script>
+<div id="detailedResults"></div>
+<button class="button button-blue" onclick="restartTest()">もう一度挑戦</button>
+<button class="button button-gray" onclick="backToHome()">メニューに戻る</button>
+</div>
+<!-- Teacher Login -->
+<div class="hidden" id="teacherLoginScreen">
+<h2>教員ページログイン</h2>
+<div class="form-group">
+<label>パスワード</label>
+<input id="teacherPassword" placeholder="パスワードを入力" type="password"/>
+</div>
+<button class="button button-green" onclick="teacherLogin()">ログイン</button>
+<button class="button button-gray" onclick="backToHome()">戻る</button>
+</div>
+<!-- Teacher Page -->
+<div class="hidden" id="teacherScreen">
+<h2>成績管理</h2>
+<div id="scoresList" style="max-height:400px;overflow-y:auto;">
+<p style="text-align:center;color:#718096;">まだ成績データがありません</p>
+</div>
+<button class="button button-blue" onclick="loadCloudScores()" style="margin-top:10px;">クラウドから読み込み</button>
+<button class="button button-green" onclick="exportScores()" style="margin-top:10px;">CSVでエクスポート</button>
+<button class="button button-red" onclick="clearAllScores()" style="margin-top:20px;">すべてのデータを削除</button>
+<button class="button button-gray" onclick="backToHome()">戻る</button>
+</div>
+</div>
+<script>
     // ====== グローバル状態 ======
     let grammarQuestions = [];
     let currentQuestions = [];
@@ -626,10 +614,10 @@
     }
 
     function updateSelectedCategories(){
-      selectedCategories = [];
-      const checkboxes = document.querySelectorAll('#subCategoryGroup input[type="checkbox"]:checked');
-      checkboxes.forEach(cb => selectedCategories.push(cb.value));
-    }
+  selectedCategories = [];
+  const checkboxes = document.querySelectorAll('#subCategoryGroup input[type="checkbox"]:checked');
+  checkboxes.forEach(cb => selectedCategories.push(cb.value.padStart(3, '0')));
+}
 
     // ====== モード選択 ======
     function selectMode(mode){
@@ -1343,14 +1331,8 @@ document.getElementById('showProblemsBtn').addEventListener('click', () => {
 });
 
 </script>
-
-  <hr>
-  
-
-
-  <div id="problemListView" style="display:none; padding: 10px; border: 1px solid #ccc; margin-top: 10px;"></div>
-
-
+<hr/>
+<div id="problemListView" style="display:none; padding: 10px; border: 1px solid #ccc; margin-top: 10px;"></div>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const labelNode = Array.from(document.querySelectorAll("label")).find(el => el.textContent.includes("問題数"));
@@ -1369,6 +1351,5 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 </script>
-
 </body>
 </html>
