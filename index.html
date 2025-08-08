@@ -831,6 +831,7 @@
 
     function generateQuestions(){
       const count = document.getElementById('questionCount').value;
+      const order = document.getElementById('questionOrder')?.value || 'sequential';
       
       // 選択されたカテゴリの問題のみ抽出
       let filteredQuestions = questionData.filter(q => 
@@ -843,12 +844,19 @@
         filteredQuestions = [...questionData];
       }
       
-      let shuffled = [...filteredQuestions].sort(() => Math.random() - 0.5);
+      // シャッフルするかどうかの判定
+      let orderedQuestions;
+      if(order === 'shuffle'){
+        orderedQuestions = [...filteredQuestions].sort(() => Math.random() - 0.5);
+      } else {
+        // 順番通りの場合はそのまま使用
+        orderedQuestions = [...filteredQuestions];
+      }
       
       if(count === 'all'){
-        currentQuestions = shuffled;
+        currentQuestions = orderedQuestions;
       } else {
-        currentQuestions = shuffled.slice(0, parseInt(count));
+        currentQuestions = orderedQuestions.slice(0, parseInt(count));
       }
       
       // 各問題に answered フラグを初期化
@@ -1437,15 +1445,6 @@
 
         if (parsed.length > 0) {
           questionData = parsed;
-              
-          const order = document.getElementById('questionOrder')?.value;
-          if (order === 'shuffle') {
-            for (let i = questionData.length - 1; i > 0; i--) {
-              const j = Math.floor(Math.random() * (i + 1));
-              [questionData[i], questionData[j]] = [questionData[j], questionData[i]];
-            }
-          }
-
           console.log(`CSVから${parsed.length}問の問題を読み込みました`);
         }
       } catch (error) {
