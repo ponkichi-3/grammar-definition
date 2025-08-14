@@ -1,0 +1,274 @@
+﻿id,question,answer,point,title,hint,example_en,example_jp
+1,現在形の定義は？,昨日も今日も明日も変わらない,POINT 1,基本３時制の定義,□□も□□も□□も変わらない,The earth goes around the sun.,地球は太陽の周りを回っている。
+2,現在形で表せるのは◯的な予定？,公的な予定,POINT 1,基本３時制の定義,現在形は変わらない,The next bus comes at 10:45.,次のバスは10:45に来ます。
+3,現在進行形で表せるのは◯的な予定？,私的な予定,POINT 1,基本３時制の定義,現在進行系は途中を表す,I am going to Paris next week.|We are having a party tonight.,私は来週パリに行きます。|私達は今夜パーティーを開きます。
+4,未来表現パターンを7つ答えよ。,①will ②be going toV～ ③現在形「公的な予定」 ④現在進行形「私的な予定」 ⑤be about toV～「まさに～しようとするところ」　⑥be supposed toV～「～することになっている」 ⑦be toV～「～することになっている」,POINT 2,様々な未来表現,熟語はbe ab□□□ toV〜、be su□□□□□□ toV〜、be □□V〜,I will call you tomorrow.|I am going to start a new project next month.|The train leaves at 9 a.m.|I am meeting my friend for lunch tomorrow.|I am about to leave the office.|The meeting is supposed to start at 2 p.m.|The president is to visit Japan next week.,私は明日あなたに電話します。|私は来月新しいプロジェクトを始める予定だ。|その列車は午前9時に出発する。|私は明日友人と昼食をとる予定だ。|私はまさにオフィスを出るところだ。|その会議は午後2時に始まることになっている。|大統領は来週日本を訪問することになっている。
+5,willとbe going toVの違いは何か？,willは[その場でする気になったこと]/ be going toVは[それ以前からするつもりでいたこと]を表す,POINT 2,様々な未来表現,be going toVは進行形。進行形のニュアンスは「瞬間・途中・限定」,I think I will have a cup of tea.|I am going to visit Kyoto next weekend.,紅茶を一杯飲もうかな。（今この場でそう決めた）|私は来週末に京都を訪れる予定だ。（以前からそう決めていた）
+6,進行形のキーワードを3つ答えよ。,瞬間・途中・限定,POINT 3,進行形の定義,瞬□・途□・限□,She is talking on the phone now.|I am reading a very interesting book these days.|He is staying with his grandparents this week.,彼女はいま電話で話しているところだ。|私は最近、とても面白い本を読んでいるところだ。|彼は今週、祖父母の家に滞在している。
+7,現在進行形で表せるのは◯的な予定？,私的な予定,POINT 3,進行形の定義,現在進行系は途中を表す,I am meeting my friend for lunch tomorrow.,私は明日、友人と昼食をとる予定だ。
+8,alwaysやconstantlyといった副詞を伴うとどのようなニュアンスと訳になる？,[非難]のニュアンスを含めた反復。「いつも～してばかりいる」,POINT 3,進行形の定義,「非難」のニュアンスだから訳は…,Meg is always eating snacks. ,メグはいつもお菓子を食べてばかりいる。
+9,過去進行形は、◯◯を強調する副詞を伴うことが多い。,そのときだけ,POINT 3,進行形の定義,進行形は瞬間を表すから…,I was watching TV then.,私はそのときテレビを観ていた。
+10,過去進行形が伴う副詞を4つ答えよ。,①then ②at that moment ③at that time ④when S 動作V過去形～,POINT 3,進行形の定義,①th□□ ②at that □□□□□□ ③at that □□□□ ④□□□□ S 動作V過去形～,We were playing soccer then.|She was reading a book at that moment.|I was studying at that time.|I was cooking dinner when he arrived.,私たちはそのときサッカーをしていた。|彼女はその瞬間、本を読んでいた。|私はそのとき勉強していた。|彼が到着したとき、私は夕食を作っていた。
+11,未来進行形でよく使う副詞は何？,at this time tomorrow / at this time next week,POINT 3,進行形の定義,at □□□□ ti□□が必ず入る！,We will be playing tennis at this time tomorrow.,私たちは明日のこの時間、テニスをしているよ。
+12,進行形にできるのは□□動詞。できないのは□□動詞。,進行形にできるのは動作動詞。できないのは状態動詞。,POINT 4,進行形のルール,動□動詞・状□動詞,Are you smelling the flower?|It smells good.,あなたはいまその花の匂いをかいでいますか。|それはいい香りがする。
+13,動作動詞と状態動詞の判別方法は？,３秒以内にその動作をやめ、また３秒以内にその動作を開始できる→動作動詞。３秒以内にその動作をやめ、また３秒以内にその動作を開始できない→状態動詞,POINT 4,進行形のルール,□秒ルール,I am eating lunch now.|I know the answer.,私は今昼食を食べている。|私はその答えを知っている。
+14,完結動作動詞と非完結動作動詞の判別方法は？,"３秒以内にやめ、また３秒以内に開始できる動詞が非完結動作動詞！その動作を行ったと同時に終了するのが完結動作動詞。完結動作動詞…arrive, come, start, finish, open, wakeなど",POINT 4,進行形のルール,完結とは何か？,The train is arriving at the station now.|She is coming closer to her dream.|The movie is starting in a few minutes.|He is finishing the final chapter of his book.|The store is opening new branches across the country.|The baby is waking from a long nap.,列車が今駅に到着しつつある。|彼女は夢に近づきつつある。|映画があと数分で始まりつつある。|彼は本の最終章を終えつつある。|その店は全国に新しい支店を開設しつつある。|赤ちゃんが長い昼寝から目を覚ましつつある。
+15,完結動作動詞を進行形にするとどんなニュアンスを表し、どんな訳になる？,ニュアンスは〈途中〉を表し、「～しつつある」という訳になる。,POINT 4,進行形のルール,「〜している」という訳にはならないよ！,This train is arriving at Tachikawa.,この電車は立川駅に到着しつつある。→もうすぐ到着するよ。
+16,動作動詞と状態動詞の両方を持つ動詞もあるが、smellはそれぞれどういう意味になる？,He is smelling the wine. （動作動詞：匂いをかぐ）The soup smells good.　（状態動詞：匂いがする）,POINT 4,進行形のルール,,I am smelling the flowers.|The soup smells delicious.,私はいま花の匂いをかいでいる。|そのスープはおいしそうな匂いがする。
+17,□□的な状態や□□の状態を強調する場合、状態動詞でも進行形で表すことができる！,限定的な状態や途中の状態を強調する場合、状態動詞でも進行形で表すことができる！,POINT 4,進行形のルール,,He is being very quiet today. |She is resembling her grandmother more and more.,彼は今日、とても静かだ。←今日に限っての性質。|彼女は祖母にますます似てきている。
+18,whenのような「□」を表す接続詞や、ifのような「□□」を表す接続詞の節では、未来のことを表していても、□□形で表す！,whenのような「時」を表す接続詞や、ifのような「条件」を表す接続詞の節では、未来のことを表していても、現在形で表す！,POINT 5,「時や条件」を表す副詞節で用いる現在形,,The birds will fly south when winters comes.,冬が来ると、その鳥は南へ飛んでいくだろう。
+19,「時」を表す副詞節①「〜するとき」,when SV〜,POINT 5,「時や条件」を表す副詞節で用いる現在形,wh□□ SV〜,I will call you when I arrive.  ,私が到着したらあなたに電話します。  
+20,「時」を表す副詞節②「〜する間に」,while SV〜,POINT 5,「時や条件」を表す副詞節で用いる現在形,wh□□□ SV〜,I will read a book while I wait.  ,私が待っている間、本を読みます。  
+21,「時」を表す副詞節③「〜する前に」,before SV〜,POINT 5,「時や条件」を表す副詞節で用いる現在形,be□□□□ SV〜,I will brush my teeth before I go to bed.  ,寝る前に歯を磨きます。  
+22,「時」を表す副詞節④「〜した後に」,after SV〜,POINT 5,「時や条件」を表す副詞節で用いる現在形,af□□□ SV〜,I will watch TV after I finish my homework.  ,宿題を終えたあとでテレビを見ます。  
+23,「時」を表す副詞節⑤「〜するまで」を2つ,till/until SV〜,POINT 5,「時や条件」を表す副詞節で用いる現在形,ti□□/un□□□ SV〜,I will stay here until you come back.  ,あなたが戻ってくるまでここにいます。  
+24,「時」を表す副詞節⑥「〜するときまでに」,by the time SV〜,POINT 5,「時や条件」を表す副詞節で用いる現在形,by the □□□□ SV〜,I will have finished the work by the time you arrive.  ,あなたが到着するまでにその仕事を終えているでしょう。  
+25,「時」を表す副詞節⑦「〜するとすぐに」,as soon as SV〜,POINT 5,「時や条件」を表す副詞節で用いる現在形,as □□□□ as SV〜,I will call you as soon as I get home.  ,家に着いたらすぐにあなたに電話します。  
+26,「時」を表す副詞節⑧「〜する場合に備えて」,in case SV〜,POINT 5,「時や条件」を表す副詞節で用いる現在形,in ca□□ SV〜,Take an umbrella in case it rains.  ,雨が降る場合に備えて傘を持っていきなさい。  
+27,「時」を表す副詞節⑨「次〜するときに」,the next time SV〜,POINT 5,「時や条件」を表す副詞節で用いる現在形,the ne□□ t□□□ SV〜,I will tell you the story the next time I see you.  ,次にあなたに会うときにその話をします。  
+28,「時」を表す副詞節⑩「〜する瞬間に」,the moment SV〜,POINT 5,「時や条件」を表す副詞節で用いる現在形,the mo□□□□ SV〜,I will call you the moment I hear the news.  ,その知らせを聞いたらすぐにあなたに電話します。  
+29,「時」を表す副詞節11「最後に〜したときに」,the last time SV〜,POINT 5,「時や条件」を表す副詞節で用いる現在形,the la□□ t□□□ SV〜,I will never forget the last time we met.  ,私たちが最後に会ったときのことを決して忘れません。  
+30,「条件」を表す副詞節①「もし〜したら」,if SV〜,POINT 5,「時や条件」を表す副詞節で用いる現在形,i□ SV〜,"If it rains tomorrow, we will stay home.  ",もし明日雨が降ったら、私たちは家にいます。  
+31,「条件」を表す副詞節②「〜しない限り」,unless SV〜,POINT 5,「時や条件」を表す副詞節で用いる現在形,un□□□□ SV〜,I won’t go unless you come with me.  ,あなたが一緒に来ない限り行きません。  
+32,「条件」を表す副詞節③「いったん〜すると」,once SV〜,POINT 5,「時や条件」を表す副詞節で用いる現在形,on□□ SV〜,"Once you finish this task, you can take a break.  ",この作業を終えたら、休憩してよいです。  
+33,「条件」を表す副詞節④「〜する限りは」,as long as SV〜,POINT 5,「時や条件」を表す副詞節で用いる現在形,as lo□□ as SV〜,You can stay here as long as you keep quiet.,静かにしている限り、ここにいてもよいです。
+34,whenやifが□□節を作る場合→未来のことを表す場合は、willを使う。,whenやifが名詞節を作る場合→未来のことを表す場合は、willを使う。,POINT 5,「時や条件」を表す副詞節で用いる現在形,副詞節ではなく…,I don’t know when she will arrive.|I wonder if it will rain tomorrow.,彼女がいつ到着するのかわからない。|明日雨が降るかどうか知りたい。
+35,whenやifが副詞節か名詞節かの判別方法は？,思考・認知・告示動詞の直後のwhenやifは名詞節となる。,POINT 5,「時や条件」を表す副詞節で用いる現在形,"think, know, tellなどの動詞を何というか",I don’t know if she will come.|I can’t remember when he called me.|She asked me if I could help her.|He will tell us when the concert will begin.,彼女が来るかどうかわからない。|彼がいつ私に電話をかけてきたのか思い出せない。|彼女は私に手伝ってくれるかどうか尋ねた。|彼はコンサートがいつ始まるのか私たちに教えてくれるだろう。
+36,whenが名詞節のときの訳は？,「いつ〜するか」,POINT 5,「時や条件」を表す副詞節で用いる現在形,,We don't know when she will finish her homework.,私たちには、彼女がいつ宿題を終えるかわかりません。
+37,ifが名詞節のときの訳は？,「〜かどうか」,POINT 5,「時や条件」を表す副詞節で用いる現在形,,We don't know if she will finish her homework.,私たちには、彼女が宿題を終えるかどうかわかりません。
+38,現在完了形のキーワードは？,現在までの  つ ・ な ・ が ・ り,POINT 6,現在完了形の用法①～完了・結果・経験～,現在□□の  □ ・ □ ・ □ ・ □,I have visited Paris twice.|I have just finished my homework.|I have lived here for five years.|We have built three schools so far.,私はパリを2回訪れたことがある。|宿題をちょうど終えたところだ。|私は5年間ずっとここに住んでいる。|私たちはこれまでに3つの学校を建てた。
+39,現在完了形の訳し方は？,「今までに～してきた」,POINT 6,現在完了形の用法①～完了・結果・経験～,「今□□に〜して□□」,I have tried sushi before.|She has already cleaned her room.|He has worked at this company since 2010.|They have completed all the assignments this semester.,私は以前寿司を食べたことがある。|彼女はすでに部屋を掃除した。|彼は2010年以来この会社で働いている。|彼らは今学期の課題をすべて終えた。
+40,have gone toV～とhave been toV～の違いは？,have gone to～→「行ってしまった」=帰ってきていない / have been to～→「行ったことがある」=帰ってきている,POINT 6,現在完了形の用法①～完了・結果・経験～,両者ともそこに「行った」のは同じだけど…,She has gone to Canada.|She has been to Canada.,彼女はカナダに行ってしまった。|彼女はカナダに行ったことがある。
+41,現在完了形（継続）の訳し方は？,今までずっと～し続けてきた,POINT 7,"現在完了形の用法②～継続～""今まで□□□～し続けてきた""",,I have lived in this city for ten years.|She has been studying English since last April.,私はこの街に10年間住んでいる。|彼女は去年の4月から英語を勉強している。
+42,状態動詞を現在完了形で使うと、どのような意味になる？,今までずっと～してきた,POINT 7,現在完了形の用法②～継続～,今まで□□□～してきた,I have known him for five years.|We have belonged to this club since 2020.,私は彼を5年間知っている。|私たちは2020年からこのクラブに所属している。
+43,過去から現在までどの瞬間もその行動をしていたら、どのような意味になる？また、動詞の形はどうなる？,今までずっと～し続けてきた / have been Ving～,POINT 7,現在完了形の用法②～継続～,瞬間のニュアンスを表すのは進行形だったから…,I have been reading this book for two hours.|She has been working at the café since morning.,私はこの本を2時間ずっと読んでいる。|彼女は朝からずっとカフェで働いている。
+44,現在完了形で使えない副詞を8つ挙げよ。,yesterday / last month / then / just now / ～ago / when I was～ / When～？ / in 1986,POINT 8,現在完了形の用法③～注意点～,ye〜 / □□□□ month / th□□ / □□□□ now / ～□□□ / □□□□ I was～ / □□□□～？ / □□ 1986,I went to Kyoto yesterday.|I visited New York last month.|We were in the park then.|She called me just now.|He left here two days ago.|I met him when I was a child.|When did you see her?|I was born in 1986.,私は昨日京都に行った。|私は先月ニューヨークを訪れた。|私たちはそのとき公園にいた。|彼女はたった今私に電話した。|彼は2日前にここを出た。|私は子供のころに彼に会った。|あなたはいつ彼女に会いましたか。|私は1986年に生まれた。
+45,現在完了形で使えない副詞たちでも、ある単語を伴うと完了形として使える。その単語とは？,since,POINT 8,現在完了形の用法③～注意点～,si□□□,I have not seen her since yesterday.|I have been busy since last month.|I have known him since then.|I have felt better since just now.|I have lived here since two years ago.|I have played the guitar since when I was a child.|Have you met her since we last spoke?|I have worked for this company since 1986.,私は昨日から彼女に会っていない。|私は先月から忙しい。|私はそのとき以来彼を知っている。|たった今から気分がよくなった。|私は2年前からここに住んでいる。|私は子供のころからギターを弾いている。|前回話して以来、彼女に会いましたか。|私は1986年からこの会社で働いている。
+46,『～して…経った』シリーズで、「私の父が亡くなって10年になる」を5つの表現で答えよ。,Ten years have passed since my father died. / It has been ten years since my father died. / It is ten years since my father died. / My father died ten years ago. / My father has been dead for 10 years.,POINT 8,現在完了形の用法③～注意点～,"Ten years □□□□ □□□□ed □□□□□ my father □□□□. / It □□□ □□□□ ten years □□□□□ my father □□□□. / It □□ ten years □□□□□ my father □□□□. / My father □□□□ ten years □□□. / My father □□□ □□□□ □□□□ □□□ 10 years.""",Five years have passed since I moved to Tokyo.|It has been five years since I moved to Tokyo.|It is five years since I moved to Tokyo.|I moved to Tokyo five years ago.|I have lived in Tokyo for five years.,私が東京に引っ越してから5年が過ぎた。|私が東京に引っ越してから5年になる。|私が東京に引っ越してから5年になる。|私は5年前に東京に引っ越した。|私は東京に5年間住んでいる。
+47,過去完了形のキーワードは？,過去②から過去①までの  つ ・ な ・ が ・ り,POINT 9,過去完了形の用法①～完了・結果・経験～,完了形のニュアンスは常に「□・□・□・□」,I had already left when she arrived.,彼女が到着したとき、私はすでに出発していた。
+48,過去完了形の基本の訳し方は？,それまでに～してきた,POINT 9,過去完了形の用法①～完了・結果・経験～,□□□□に～して□□,I had read many books before I entered college.,私は大学に入る前までにたくさんの本を読んできた。
+49,過去完了形（継続）の訳し方は？,それまでずっと～し続けてきた,POINT 10,過去完了形の用法②～継続～,継続は続けるイメージだから…,I had been studying English for five years when I moved to Canada.|I had known about the program since it started.,私はカナダに引っ越すときまで5年間ずっと英語を勉強し続けていた。|私はそのプログラムが始まって以来ずっと知っていた。
+50,状態動詞を過去完了形で使うと、どのような意味になる？,それまでずっと～してきた,POINT 10,過去完了形の用法②～継続～,それまで□□□～してきた,I had believed in his story for years before I learned the truth.|She had owned that house since she was young.,私は真実を知るまで何年も彼の話を信じていた。|彼女は若いころからずっとその家を所有していた。
+51,過去②から過去①までどの瞬間もその行動をしていたら、どのような意味になる？また、動詞の形はどうなる？,それまでずっと～し続けてきた / had been Ving～,POINT 10,過去完了形の用法②～継続～,瞬間のニュアンスを表すのは進行形だったから…,I had been waiting for over an hour when the bus finally arrived.|She had been studying all night before the exam.,バスがようやく到着したとき、私は1時間以上待ち続けていた。|彼女は試験の前の晩、ずっと勉強していた。
+52,名詞的用法の意味は？,〜すること,POINT 45,不定詞の基本① 名詞的用法,〜する□□,　　To be a good student is not easy.,    良い生徒になることは、簡単ではない。
+53,名詞的用法を置けるのはどこ？また、名詞的用法にも関わらず置けないのはどこ？,S・O・Cには使えるが、前置詞の後には使えない,POINT 45,不定詞の基本① 名詞的用法,□・□・□には使えるが、□□詞の後には使えない,To travel around the world is my dream.|I want to learn Spanish.|Her dream is to become a doctor.,世界一周することが私の夢だ。|私はスペイン語を学びたい。|彼女の夢は医者になることだ。
+54,to不定詞句が重要情報の場合は後ろに回し、代わりにSには何を置く？,仮主語のItを置く,POINT 45,不定詞の基本① 名詞的用法,仮□□の□□を置く,　　　It is not easy to be a good student.,良い生徒になることは、簡単ではない。
+55,目的語のto不定詞は何とくっつく？,他動詞（例：want toV / need toV など）,POINT 45,不定詞の基本① 名詞的用法,□動詞,　  My son needs to see a dentist.,私の息子は医者に診てもらう必要がある。
+56,ＳＶＯＣのＯがto不定詞句の場合は後ろに回し、代わりにOには何を置く？,仮目的語のitを置く,POINT 45,不定詞の基本① 名詞的用法,仮□□□の□□を置く,Sam found it easy to be a good student.,サムは、良い生徒になることは簡単だとわかった。
+57,Cにto不定詞句が置かれる場合、SとVはどんなパターン？またその注意点は？,S beV toV～の形（ただしSが人以外）,POINT 45,不定詞の基本① 名詞的用法,□ beV toV～の形（ただし□が□以外）,Our plan is to climb the mountain tomorrow.,明日、私たちは山に登る予定だ。
+58,形容詞的用法の意味は？,〜する名詞・〜すべき名詞,POINT 46,不定詞の基本② 形容詞的用法,「〜するための」はむしろ例外的な訳し方だよ！,,
+59,形容詞的用法と判断できる名詞の特徴を6つ答えよ。,①a＋名詞 ②someone/anybody/nothingなど ③time/place/reason/way ④力・努力・権利・方法・可能性・機会を表す名詞（power / effort / right / way / means / possibility / chance/ opportunity） ⑤動詞や形容詞の名詞形 ⑥the first / the last / the only / 最上級＋名詞,POINT 46,不定詞の基本② 形容詞的用法,①□＋名詞 ②□□□□one/□□□body/□□thingなど ③ti□□/pl□□□/re□□□□/w□□ ④□・努□・権□・方□・可□□・機□を表す名詞（power / effort / right / way / means / possibility / chance/ opportunity） ⑤動詞や形容詞の□詞形 ⑥the fi□□□ / the la□□ / the on□ / 最□＋名詞,I’m looking for someone to help me with my work.| I have a lot of homework to do.| Do you have anything to write on.| Do you have anything to write with.| We were surprised at her decision to become an actress.,私の仕事を手伝ってくれる誰かを探しています。|やるべきたくさんの宿題がある。|何か書くもの（紙）を持ってますか？|何か書くもの（ペン）を持ってますか？|私たちは、女優になるという彼女の決断に驚いた。
+60,副詞的用法の基本の訳し方は？,〜するために,POINT 47,不定詞の基本③ 副詞的用法,ヒントなし！,She studies English to be a English teacher.,彼女は英語教師になるために英語を勉強している。
+61,副詞的用法の例外パターンとその基本的な訳をセットで3つ答えよ。,①感情を表す形容詞や動詞の後で「〜して驚く／嬉しい／悲しいなど」②判断の根拠を表す表現の後で「〜するとは…だ」③結果を表すtoV「…したが、結局〜した」,POINT 47,不定詞の基本③ 副詞的用法,①□□を表す形容詞や動詞の後で「〜□□驚く／嬉しい／悲しいなど」②□□の根拠を表す表現の後で「〜する□□…だ」③□□を表すtoV「…したが、□□〜した」,I’m very happy to meet you.|  He must be a genius to understand the theory.|They came home to find that the window was broken.,あなたに会えてとてもうれしいです。|その理論を理解するとは、彼は天才に違いない。|彼らは家に帰って、窓が割れていることに気づいた。
+62,結果を表すtoVの例を6つ挙げよ。,"①…, only toV～「…したが、結局は～した。」②…, never toV～「…したが、二度と～しなかった。」③grow up to be～「成長して～になる。」④live to be～「～になるまで生きる」⑤awake to find～「目覚めて～とわかる」⑥wake up to find～「目覚めて～とわかる」",POINT 47,不定詞の基本③ 副詞的用法,,"They separated, never to see each other again.| We ran to the store, only to find it closed.| He grew up to be a professional soccer player.|His grandfather lived to be 92.| She woke up to find she was alone.",彼らは別れ、そして二度と会うことはなかった。|私たちは店まで走ったが、閉まっているとわかっただけだった。|彼は大人になり、そしてプロサッカー選手になった。|彼の祖父は92歳まで生きた。|彼女は目が覚めて、一人ぼっちだとわかった。
+63,「人に〜してほしい」シリーズ①「人に〜してほしい」を英語で→,want / would like 人 toV〜,POINT 48,SVO＋toV～ 不定詞の基本,wa□□ / wo□□□ li□□ 人 toV〜,I want you to be more careful. |I would like you to be more careful.,あなたにはもっと注意深くなってほしい。
+64,「人に〜してほしい」シリーズ②「hope 人 toV〜は使える？」→,使えない。hope that S will V〜を使う,POINT 48,SVO＋toV～ 不定詞の基本,わざわざ問題にするくらいだからねぇ…,I hope that you will be more careful. ,あなたにはもっと注意深くなってほしい。
+65,「人に〜するように言う」シリーズ①「人に〜するように言う」を英語で→,tell 人 toV～,POINT 48,SVO＋toV～ 不定詞の基本,te□□ 人 toV～,My mother told me to eat more vegetables.　,私の母は私にもっと野菜を食べるようにと言ってきた。
+66,「人に〜するように言う」シリーズ②「人に〜するように助言する」を英語で→,advise 人 toV～,POINT 48,SVO＋toV～ 不定詞の基本,ad□□□□ 人 toV～,She advised me to study harder.,彼女は私にもっと一生懸命勉強するよう助言した。
+67,「人に〜するように言う」シリーズ③「人に〜するように頼む」を英語で→,ask 人 toV～,POINT 48,SVO＋toV～ 不定詞の基本,a□□ 人 toV～,I asked him to help me.,私は彼に手伝ってくれるよう頼んだ。
+68,「人に〜するように言う」シリーズ④「人に〜するように警告する」を英語で→,warn 人 toV～,POINT 48,SVO＋toV～ 不定詞の基本,wa□□ 人 toV～,They warned us to stay away from the river.,彼らは私たちに川から離れるよう警告した。
+69,「人に〜させる」シリーズ①「人が～するのを許す」を英語で2つ→,allow / permit 人 toV～,POINT 48,SVO＋toV～ 不定詞の基本,al□□□ / pe□□□□ 人 toV～,My parents allowed me to go out.,両親は私が外出することを許可した。
+70,「人に〜させる」シリーズ②「人が～できるようにする」を英語で→,enable 人 toV～,POINT 48,SVO＋toV～ 不定詞の基本,en□□□□ 人 toV～,This tool enables you to work faster.,この道具はあなたがより速く作業できるようにする。
+71,「人に〜させる」シリーズ③「人が～するのを強制する」を英語で2つ→,force / compel 人 toV～,POINT 48,SVO＋toV～ 不定詞の基本,fo□□□ / co□□□□ 人 toV～,The teacher forced the students to finish their homework.,先生は生徒たちに宿題を終わらせるよう強制した。
+72,「人に〜させる」シリーズ④「人に～してもらう」を英語で→,get 人 toV～,POINT 48,SVO＋toV～ 不定詞の基本,g□□人 toV～,I got my friend to join the club.,私は友達をクラブに入会させた。
+73,「人が～だと思う」シリーズ①「人が～だと思う」を英語で→,think 人 toV～,POINT 48,SVO＋toV～ 不定詞の基本,th□□□ 人 toV～,I think him to be honest.,私は彼を正直な人だと思っている。
+74,「人が～だと思う」シリーズ②「人が～だと信じている」を英語で→,believe 人 toV～,POINT 48,SVO＋toV～ 不定詞の基本,be□□□□□ 人 toV～,Many people believe her to be a great singer.,多くの人が彼女を偉大な歌手だと信じている。
+75,「人が～だと思う」シリーズ③「人が～だとわかる」を英語で→,find 人 toV～,POINT 48,SVO＋toV～ 不定詞の基本,fi□□ 人 toV～,We found the room to be very clean.,私たちはその部屋がとてもきれいだとわかった。
+76,英文中のあらゆる動詞には必ず何が存在する？,意味上の主語（その動詞の動作主）,POINT 49,"不定詞の意味上の主語①""意味上の□□（その動詞の動作主）""",,,
+77,動詞の意味上の主語はどのような2パターンがある？,①その文の主語と一致②誰でもない一般の人々,POINT 49,不定詞の意味上の主語①,①その文の□□と一致②誰でもない□□の人々,,
+78,to不定詞の意味上の主語を明示する表現を英語で2つ→,It is … for 人 toV～ / It is … of 人 toV～ ,POINT 49,不定詞の意味上の主語①,□□ is … □□□ 人 toV～ / □□ is … □□ 人 toV～,It is common for children to like sweets.|It is kind of you to help me.,子どもが甘い物を好きなのは普通のことだ。|手伝ってくれるなんてあなたは親切だ。
+79,どういうときに、It is … for 人 toV～ではなく、It is … of 人 toV～を使う？,…の形容詞がtoVの内容を指すし、人の性質も指す場合はofを使う。…の形容詞がtoVの内容だけを指す場合はforを浮かう,POINT 50,不定詞の意味上の主語②,…の部分の形容詞に注目せよ,It is common for children to like sweets.|It is kind of you to help me.,「普通」なのは「甘い物を好きなこと」であって、「子ども」自体が「普通」と言っているわけではない。|「手伝ってくれる」ことも「親切」だし、そんなことをしてくれる「あなた」も「親切」という意味になる。
+80,It is … of 人 toV～のポジティブ形容詞を9個挙げよ(優しい・ナイス・良い・丁寧な・賢い・賢い・思いやりのある・思慮深い・勇敢な),kind / nice / good / polite / wise / clever / considerate / thoughtful / brave,POINT 50,不定詞の意味上の主語②,ki□□ / ni□□ / go□□ / po□□□□ / wi□□ / cl□□□r / con□□□□□□te / thou□□□ful / br□□e,It is kind of you to share your lunch with me.|It is nice of her to visit me in the hospital.|It is good of them to clean the park.|It is polite of you to say thank you.|It is wise of him to start saving early.|It is clever of her to solve the problem so quickly.|It is considerate of you to lower your voice.|It is thoughtful of them to send a card.|It is brave of you to speak in front of a large audience.,昼食を分けてくれるなんてあなたは親切だ。|病院にお見舞いに来てくれるなんて彼女は優しい。|公園を掃除してくれるなんて彼らは良い人だ。|「ありがとう」と言うなんてあなたは礼儀正しい。|早くから貯金を始めるなんて彼は賢明だ。|問題をそんなに早く解くなんて彼女は賢い。|声を小さくしてくれるなんてあなたは思いやりがある。|カードを送ってくれるなんて彼らは心遣いがある。|大勢の前で話すなんてあなたは勇敢だ。
+81,It is … of 人 toV～のネガティブ形容詞を7個挙げよ(不注意な・無礼な・無礼な・愚かな・愚かな・愚かな・冷酷な),careless / rude / impolite / foolish / stupid / silly / cruel,POINT 50,不定詞の意味上の主語②,care□□□□ / ru□□ / im□□□□□□ / foo□□□□ / st□□□□ / si□□□ / cr□□□,It is careless of you to forget your homework.|It is rude of him to interrupt the conversation.|It is impolite of her to ignore the invitation.|It is foolish of you to waste your money.|It is stupid of him to drive so fast in the rain.|It is silly of her to believe such a rumor.|It is cruel of them to tease the dog.,宿題を忘れるなんてあなたは不注意だ。|会話をさえぎるなんて彼は失礼だ。|招待を無視するなんて彼女は礼儀がない。|お金を無駄にするなんてあなたは愚かだ。|雨の中そんなに速く運転するなんて彼は馬鹿だ。|そんな噂を信じるなんて彼女は愚かだ。|犬をからかうなんて彼らは残酷だ。
+82,I love you. の love の主語は？,I,POINT 50,不定詞の意味上の主語②,シンプルに考えよ！,,私はあなたを愛している。
+83,She likes taking photos. の likes の主語は？,She,POINT 50,不定詞の意味上の主語②,シンプルに考えよ！,,彼女は写真を撮ることが好きだ。
+84,She likes taking photos. の taking の主語は？,She,POINT 50,不定詞の意味上の主語②,シンプルに考えよ！,,彼女は写真を撮ることが好きだ。
+85,Studying English hard is important. の is の主語は？,Studying English hard,POINT 50,不定詞の意味上の主語②,シンプルに考えよ！,,一生懸命英語を勉強することは重要だ。
+86,Studying English hard is important. の Studying English hard の意味上の主語は？,一般の人々,POINT 50,不定詞の意味上の主語②,よく考えよ！,,一生懸命英語を勉強することは重要だ。
+87,It is necessary to sleep well. の is の主語は？,It,POINT 50,不定詞の意味上の主語②,シンプルに考えよ！,,あなたが英語を勉強することは重要だ。
+88,It is necessary to sleep well. の to sleep well の意味上の主語は？,一般の人々,POINT 50,不定詞の意味上の主語②,よく考えよ！,,あなたが英語を勉強することは重要だ。
+89,It is important for you to study English. の to study English の主語は？,you,POINT 50,不定詞の意味上の主語②,これまでの知識を使いたまえ！,,彼が毎朝走ることは重要だ。
+90,It is important for him to run every morning. の to run every morning の主語は？,him,POINT 50,不定詞の意味上の主語②,これまでの知識を使いたまえ！,,彼が毎朝走ることは重要だ。
+91,It was careless of you to leave your umbrella. の to leave your umbrella の主語は？,you,POINT 50,不定詞の意味上の主語②,これまでの知識を使いたまえ！,,傘を置き忘れるなんてあなたは不注意だった。
+92,I want you to love me. の to love の主語は？,you,POINT 50,不定詞の意味上の主語②,内容を考えればわかる！,,私はあなたに私を愛してほしい。
+93,I allowed students to play with cards. の to play の主語は？,students,POINT 50,不定詞の意味上の主語②,内容を考えればわかる！,,私は生徒たちにカードで遊ぶことを許可した。
+94,強制のニュアンスで「Oに（を）～させる」の表現は？,make O V原形～,POINT 51,使役動詞（原形不定詞）,ma□□ O V原形～,My teacher made me rewrite the report.,先生は私にレポートを書き直させた。
+95,権利のニュアンスで「Oに～してもらう」の表現は？,have O V原形～,POINT 51,"使役動詞（原形不定詞）""ha□□ O V原形～""",,I had my brother carry my bag.,私は弟にカバンを運ばせた。
+96,許可のニュアンスで「Oに～させてあげる」の表現は？,let O V原形～,POINT 51,"使役動詞（原形不定詞）""l□□ O V原形～""",,She let her son play outside.,彼女は息子を外で遊ばせた。
+97,依頼のニュアンスで「Oに～してもらう」の表現は？,get O toV～,POINT 51,使役動詞（原形不定詞）,g□□ O toV～,I got my friend to help me with my homework.,私は友達に宿題を手伝ってもらった。
+98,使役動詞が含まれる英文が受動態になると、使役動詞の部分はどうなる？,V原形がto V原形になる,POINT 51,使役動詞（原形不定詞）,まぁ不定詞の範囲だからね…,"My teacher made me rewrite the report.	|I was made to rewrite the report by my teacher.",私の先生は私にレポートを書き直させた。|私は先生にレポートを書き直させられた。
+99,「Oが～するのを見る／しているのを見る／されるのを見る」を英語で→,see O V原形～／see O Ving～／see O Vp.p.～,POINT 52,知覚動詞,「〜している」や「〜される」と訳す場合の動詞の形は決まっている！,I saw him cross the street.|I saw him crossing the street.|I saw him hit by a car.,私は彼が通りを渡るのを見た。|私は彼が通りを渡っているのを見た。|私は彼が車にはねられるのを見た。
+100,「Oが～するのを聞く／しているのを聞く／されるのを聞く」を英語で→,hear O V原形～／hear O Ving～／hear O Vp.p.～,POINT 52,知覚動詞,「〜している」や「〜される」と訳す場合の動詞の形は決まっている！,I heard her sing a song.|I heard her singing a song.|I heard her called by the teacher.,私は彼女が歌を歌うのを聞いた。|私は彼女が歌を歌っているのを聞いた。|私は彼女が先生に呼ばれるのを聞いた。
+101,「Oが～するのを感じる／しているのを感じる／されるのを感じる」を英語で→,feel O V原形～／feel O Ving～／feel O Vp.p.～,POINT 52,知覚動詞,「〜している」や「〜される」と訳す場合の動詞の形は決まっている！,I felt someone touch my shoulder.|I felt someone touching my shoulder.|I felt my wallet stolen.,私は誰かが私の肩に触るのを感じた。|私は誰かが私の肩に触っているのを感じた。|私は財布が盗まれたのを感じた。
+102,知覚動詞が含まれる英文が受動態になるとどう変化する？,V原形→to V原形、Ving/Vp.p.はそのまま,POINT 52,知覚動詞,知覚動詞+Oのあとの動詞は3パターンあったよね。それぞれどう変化するかというのがポイント！,I saw him cross the street.|I saw him crossing the street.|I saw him hit by a car.,He was seen to cross the street.|He was seen crossing the street.|He was seen to be hit by a car.
+103,My boss made me talk about a new project. を受動態にせよ。,I was made to talk about a new project by my boss.,POINT 52,使役動詞・知覚動詞の受動態,まぁ不定詞の範囲だからね…,,
+104,I saw him cross the street. を受動態にせよ。,He was seen to cross the street (by me).,POINT 52,使役動詞・知覚動詞の受動態,SVOのOがSになるのが受動態だよ！,,
+105,I saw him crossing the street. を受動態にせよ。,He was seen crossing the street (by me).,POINT 52,使役動詞・知覚動詞の受動態,SVOのOがSになるのが受動態だよ！,,
+106,「Sは～しているようだ」を英語で,S seem toV～,POINT 53,〜ようだシリーズ,S se□□ toV～,He seems to know the answer.,彼は答えを知っているようだ。
+107,S seem toV～をthat節を使って言い換えると？, It seems that S V～,POINT 53,〜ようだシリーズ, □□ seems □□□□ S V～,My dog seems to understand English.＝It seems that my dog understands English.,私の犬は英語を理解しているようだ。
+108,S seem toV～とほぼ同じ意味になる別の動詞は？,S appear toV～,POINT 53,〜ようだシリーズ,S ap□□□□ toV～,He appears to be tired.,彼は疲れているようだ。
+109,S appear toV～をthat節を使って言い換えると？, It appears that S V～,POINT 53,〜ようだシリーズ, □□ appears □□□□ S V～,The children appeared to be happy.＝It appeared that the children was happy.,その子たちは幸せだったようだ。
+110,S seem C「SはCに見える」という用法もある。では、「彼女は悲しそうに見える」を英語で答えよ。,She seems sad.,POINT 53,〜ようだシリーズ,She seems s□□.,,
+111,S seem Cとほぼ同じ表現を答えよ。,She looks sad.,POINT 53,〜ようだシリーズ,She lo□□□ sad.,,
+112, It seems that S V～をS seem toV～に書き換えるときに気をつけることは？,その文のVと不定詞の時制が一致しているかどうか,POINT 54,時制の不一致,その文のVと不定詞の□□が□□しているかどうか,,
+113,その文のVと不定詞の時制が一致している場合、toV〜はどうなる？,toV〜のまま！,POINT 54,時制の不一致,,①It seems that he belongs to a photo club. （現在形で一致）→He seems to belong to a photo club.②It seemed that he belonged to a photo club.  （過去形で一致）→He seemed to belong to a photo club.,
+114,不定詞の内容がその文のVよりも過去を表す場合、toV〜はどうなる？,to have Vp.p.〜になる！,POINT 54,時制の不一致,,③It seems that he belonged to a photo club. （時制が不一致）→He seems to have belonged to a photo club.④It seemed that he had belonged to a photo club. （時制が不一致）→He seemed to have belonged to  a photo club.,
+115,「Sは～だと言われている」パターンを3つ答えよ！,They say that S V～＝It is said that S V～＝S is said toV～,POINT 54,時制の不一致,Th□□ say th□□ S V～＝□□ is sa□□ that S V～＝S □□ sa□□ toV～,,
+116,次の【】に入る語句をそれぞれ答えよ。They say that the teacher is an actor.＝It 【】 said that the teacher 【】 an actor.＝The teacher 【】 said to 【】 an actor. ,They say that the teacher is an actor.（現在形で一致）＝It is said that the teacher is an actor.＝The teacher is said to be an actor. ,POINT 54,時制の不一致,文のVと不定詞の時制が現在形で一致しているから…,,彼らはその先生が俳優だと言う。＝その先生は俳優だと言われている。＝その先生は俳優だと言われている。
+117,次の【】に入る語句をそれぞれ答えよ。They said that the teacher was an actor.＝It 【】 said that the teacher 【】 an actor.＝The teacher 【】 said to 【】 an actor.,They said that the teacher was an actor.（過去形で一致）＝It was said that the teacher was an actor.＝The teacher was said to be an actor.,POINT 54,時制の不一致,文のVと不定詞の時制が過去形で一致しているから…,,彼らはその先生が俳優だったと言った。＝その先生は俳優だったと言われた。＝その先生は俳優だったと言われた。
+118,次の【】に入る語句をそれぞれ答えよ。They say that the teacher was an actor.＝It 【】 said that the teacher 【】 an actor.＝The teacher 【】 said to 【】 an actor.,They say that the teacher was an actor.（時制が不一致）＝It is said that the teacher was an actor.＝The teacher is said to have been an actor.,POINT 54,時制の不一致,文のVと不定詞の時制が現在形と過去形で一致していないから…,,彼らはその先生が俳優だったと言う。＝その先生は俳優だったと言われている。＝その先生は以前俳優だったと言われている。
+119,次の【】に入る語句をそれぞれ答えよ。They said that the teacher had been an actor. ＝ It 【】 said that the teacher 【】 an actor.＝The teacher 【】 said to 【】 an actor.,They said that the teacher had been an actor. （時制が不一致）＝ It was said that the teacher had been an actor.＝The teacher was said to have been an actor.,POINT 54,時制の不一致,文のVと不定詞の時制が過去形と過去完了形で一致していないから…,,彼らはその先生が以前俳優だったと言った。＝その先生は以前俳優だったと言われた。＝その先生は以前俳優だったと言われた。
+120,不定詞の内容が進行形を表す場合、toの後の形はどうなる？,to be Ving〜,POINT 55,様々な形の不定詞～進行形・受動態・否定～,to+進行形の公式,She seems to be studying now.,彼女は今勉強しているようだ。
+121,【】に入る語句を答えよ。It seems that he is playing soccer now.＝He seems 【  】 soccer every day.,He seems to be playing soccer now.,POINT 55,様々な形の不定詞～進行形・受動態・否定～,,,彼は今サッカーをしているようだ。
+122,不定詞の内容が受動態を表す場合、toの後の形はどうなる？,to be Vp.p.〜,POINT 55,様々な形の不定詞～進行形・受動態・否定～,,He seems to be loved by everyone.,彼はみんなに愛されているようだ。
+123,【】に入る語句を答えよ。It seems that Bob is loved by Mary.→Bob seems 【  】by Mary.,Bob seems to be loved by Mary.,POINT 55,様々な形の不定詞～進行形・受動態・否定～,,,ボブはメアリーに愛されているようだ。
+124,不定詞の内容を否定する場合、どうすればいい？,toの直前にnotやneverを置く。,POINT 55,様々な形の不定詞～進行形・受動態・否定～,,Our teacher advised us to be kind to the classmates.|Our teacher advised us not to be kind to the classmates.|,先生は、クラスメイトに優しくするよう助言してくれた。|先生は、クラスメイトに優しくしないよう助言してくれた。|先生は、自分たちの将来を決してあきらめないよう助言してくれた。
+125,①when toV〜の訳は？,いつ〜すべきか,POINT 56,疑問詞 toV～シリーズ,,Ask your teacher when to start.,いつ始めるべきか先生に尋ねなさい。
+126,②where toV〜の訳は？,どこで〜すべきか,POINT 56,疑問詞 toV～シリーズ,,Do you know where to buy the ticket.,どこでチケットを買えばいいか知っていますか？
+127,③who toV〜の訳は？,誰を〜すべきか,POINT 56,疑問詞 toV～シリーズ,,I thought about who to invite to the party.,誰を招待すべきかについて考えた。
+128,④what toV〜の訳は？,何を〜すべきか,POINT 56,疑問詞 toV～シリーズ,,I don’t know what to do next.,次に何をすべきかわからない。
+129,⑤which toV〜の訳は？,どれを〜すべきか,POINT 56,疑問詞 toV～シリーズ,,I can’t decide which to choose.,どれを選ぶべきか決められない。
+130,⑥how toV〜の訳は？,どのように〜すべきか＝〜する方法,POINT 56,疑問詞 toV～シリーズ,,You should teach your children how to swim.,あなたは子どもたちに泳ぎ方を教えるべきだ。
+131,⑦whether toV〜の訳は？,〜すべきかどうか,POINT 56,疑問詞 toV～シリーズ,,I don’t know whether to go abroad.,私は海外に行くべきかどうかわからない。
+132,疑問詞＋toV〜の品詞は何詞になる？,名詞。通常のto不定詞と異なり、S・O・C・前置詞の後と通常の名詞と同じところに使える！,POINT 56,疑問詞 toV～シリーズ,,I don’t know what to do.|How to use this machine is easy.|My plan is where to build the new house.|She is interested in how to cook sushi.,私は何をすべきかわからない。|この機械の使い方は簡単だ。|私の計画は新しい家をどこに建てるかということだ。|彼女は寿司の作り方に興味がある。
+133,①実を言うと,to tell the truth,POINT 57,独立不定詞,to te□□ the tr□□□,"To tell the truth, I don’t like coffee.",実を言うと、私はコーヒーが好きではない。
+134,②正直に言うと,to be honest,POINT 57,独立不定詞,to be ho□□□□,"To be honest, I was nervous before the test.",正直に言うと、テスト前は緊張していた。
+135,③率直に言うと,to be frank (with you),POINT 57,独立不定詞,to be fr□□□ (with you),"To be frank with you, your plan needs improvement.",率直に言うと、あなたの計画には改善が必要だ。
+136,④手短に言うと(2つ),to be brief / to put it briefly,POINT 57,独立不定詞,to be br□□□ / to p□□ it br□□□□□,"To be brief, the project was a success.|To put it briefly, the project was a success.",手短に言うと、そのプロジェクトは成功だった。|手短に言えば、そのプロジェクトは成功だった。
+137,⑤はっきり言うと,to put it clearly,POINT 57,独立不定詞,to p□□ it cl□□□□□,"To put it clearly, we cannot continue this way.",はっきり言うと、私たちはこのまま続けることはできない。
+138,⑥端的に言うと,to put it simply,POINT 57,独立不定詞,to p□□ it si□□□□,"To put it simply, he is the best player on the team.",端的に言うと、彼はチームで最高の選手だ。
+139,⑦控えめに言っても,to say the least,POINT 57,独立不定詞,to s□□ the le□□□,"To say the least, the movie was disappointing.",控えめに言っても、その映画はがっかりだった。
+140,⑧まず第一に(2つ),to begin with / to start with,POINT 57,独立不定詞,to be□□□ wi□□ / to st□□□ wi□□,"To begin with, we need more information.|To start with, we need more information.",まず第一に、私たちはもっと情報が必要だ。|第一に、私たちはもっと情報が必要だ。
+141,⑨さらに悪いことに,to make matters worse,POINT 57,独立不定詞,to ma□□ ma□□□□□ wo□□□,"To make matters worse, it started to rain.",さらに悪いことに、雨が降り始めた。
+142,⑩確かに,to be sure,POINT 57,独立不定詞,to be su□□,"To be sure, this method is not perfect.",確かに、この方法は完璧ではない。
+143,⑪奇妙なことに,strange to say,POINT 57,独立不定詞,st□□□□□ to s□□,"Strange to say, he passed the exam without studying.",奇妙なことに、彼は勉強せずに試験に合格した。
+144,⑫言うまでもなく(5コ！),needless to say / not to say / not to mention / not to speak of〜 / to say nothing of〜,POINT 57,独立不定詞,ne□□□□□□ to say / n□□ t□ s□□ / n□□ to□ me□□□□□ / n□□ t□ sp□□□ of〜 / to s□□ no□□□□□ of〜,"Needless to say, health is important.|Not to say it’s impossible, but it will be very difficult.|Not to mention his singing, his dancing is also great.|Not to speak of Tokyo, even smaller cities are crowded.|To say nothing of her kindness, her cooking is excellent.",言うまでもなく、健康は大切だ。|不可能とは言わないが、とても難しいだろう。|彼の歌だけでなく、踊りも素晴らしい。|東京は言うまでもなく、小さな都市でも混雑している。|彼女の優しさは言うまでもなく、料理も素晴らしい。
+145,⑬いわば,so to speak,POINT 57,独立不定詞,s□ to sp□□□,"So to speak, he is the leader of the group.",いわば、彼はグループのリーダーだ。
+146,⑭Aを公平に評すると,to do A justice,POINT 57,独立不定詞,to do A ju□□□□□,"To do her justice, she worked very hard.",彼女を正当に評価すると、彼女はとても努力した。
+147,⑮驚いたことに,to my surprise,POINT 57,独立不定詞,to my su□□□□□□ / myは人によってherなどに変わる,"To my surprise, he agreed to help us.",驚いたことに、彼は私たちを手伝うことに同意した。
+148,独立不定詞は必ず何詞扱いになる？,副詞。基本的には文頭に置かれる。,POINT 57,独立不定詞,主語の前に置かれることが多いということは、あの品詞だよね！,,
+149,S be toV〜で「Sは〜すること」という名詞的用法があるが、S≠toV〜の場合は「be to不定詞」という熟語扱いになる。つまり、be toV〜が「〜すること」なのか「be to不定詞」なのかの判断は、どこに注目すればいい？,SとtoV〜の関係が「＝」なら「〜することになっている」という意味になり、「≠」なら「be to不定詞」扱いになる！,POINT 58,be to不定詞,SとtoV〜の関係が「□」なら「〜することになっている」という意味になり、「□」なら「be to不定詞」扱いになる！,My dream is to travel around the world.|The meeting is to start at 3 p.m.,私の夢は世界一周旅行をすることだ。|会議は午後3時に始まることになっている。
+150,be to不定詞には、予定・義務・可能・運命・意図と多くの意味があるが、これらをすべて覚える必要はない。では、どのような意味を1つ覚えておくだけでよい？,「〜することになっている」。この意味を文に当てはめて、必要に応じて意訳すればOK！,POINT 58,be to不定詞,to不定詞は「未来」のニュアンスがあります。未来表現のところでも出てきたよね！POINT2のところだよ。,The train is to leave at 10 a.m.,その列車は午前10時に出発することになっている。
+151,和訳せよ。必要に応じて意訳せよ。The next meeting is to take place in Hong Kong.,次の会議は香港で行われることになっている＝行われる予定だ。,POINT 58,be to不定詞,予定っぽい,The meeting is to start at 2 p.m.,会議は午後2時に始まる予定だ。
+152,和訳せよ。必要に応じて意訳せよ。You are to show your student card at the entrance.,あなたは入り口で生徒証を見せることになっている＝見せなければならない。,POINT 58,be to不定詞,義務っぽい,You are to submit the report by Friday.,あなたは金曜日までに報告書を提出しなければならない。
+153,和訳せよ。必要に応じて意訳せよ。Not a sound was to be heard.,物音ひとつ聞こえることになっていなかった＝聞こえなかった。,POINT 58,be to不定詞,可能っぽい。ちなみに、be to不定詞が可能の場合、必ず否定分で使われるので、実際には不可能を表すことになります。,No one is to enter this room without permission.,許可なしにこの部屋に入ってはならない。
+154,和訳せよ。必要に応じて意訳せよ。He was never to return to his hometown.,彼は二度と故郷に戻ることにはならなかった＝戻らなかった。,POINT 58,be to不定詞,運命っぽい,We met as if we were to meet again.,私たちはまた会う運命であるかのように出会った。
+155,"和訳せよ。必要に応じて意訳せよ。If you are to pass the exam, you’d better study hard.",もしあなたが試験を合格することになっているなら、一生懸命勉強すべきだ。＝合格したいなら、一生懸命勉強すべきだ。,POINT 58,be to不定詞,意図っぽい,He is to be a doctor in the future.,彼は将来医者になるつもりだ。
+156,be to不定詞の変化系として「Sは〜に責任がある＝〜はSのせいだ」を英語で,S be to blame for～,POINT 58,be to不定詞,S be to bl□□□ fo□～,He is to blame for the accident.,彼はその事故に責任がある＝その事故は彼のせいだ。
+157,【It is 難易形容詞 toV 人・モノ.】は【Ｓ（人・モノ） is 難易形容詞 toV.】に言い換えられるが、注意点は何？,toVの目的語がSに移動しているため、toVの直後の名詞が消えている。本来、toVが他動詞であれば目的語が必要だし、toVの中に前置詞があれば名詞が必要であるが、それらがSに移動しているため消えているということ。,POINT 59,難易度を表す形容詞＋ toV～,言い換えにより、どこからどこへ何が移動している？,It is easy to please Tom.|Tom is easy to please.,トムを喜ばせるのは簡単だ。|トムは喜ばせやすい人だ。
+158,言い換えよ。It is hard to translate poetry.,Poetry is hard to translate.＝詩は訳すのが難しい。,POINT 59,難易度を表す形容詞＋ toV～,translaeteは他動詞だから直後に目的語が必要なはずだが…,,
+159,言い換えよ。It is easy to talk with our teacher.,Our teacher is easy to talk with.＝私達の先生は話しやすい。,POINT 59,難易度を表す形容詞＋ toV～,withは前置詞だから名詞とセットになるはずだが…,,
+160,代不定詞とは、動詞の繰り返しを避けるためにどのような工夫をすること？,toのみを残してV～を省略する！＊to be～の場合はto beまで残す。,POINT 60,代不定詞,会話文でよく使われるけど、どんな言語も繰り返しを避けるために省略するもんですよね。,“Would you like to go to the movies?” “I’d like to.（ go to the movies ）”,
+161,①「Sがたまたま～する」を2つ,S happen toV～＝It happens that S V～,POINT 61,不定詞の熟語①,S ha□□□□ toV～＝It ha□□□□□ th□□ S V～,I happened to see Jim in a bookstore.,私は本屋でたまたまジムに会った。
+162,②「Sは～だとわかる」,S turn out to be～＝It turns out that S beV～,POINT 61,不定詞の熟語①,S tu□□ o□□ to be～＝It tu□□□ o□□ th□□ S beV～,His story turned out to be true.,彼の話は本当だとわかった。
+163,③「Sは～だとわかる」,S prove to be〜,POINT 61,不定詞の熟語①,S pr□□□ to be〜,The rumor proved to be false.,その噂は間違いだとわかった。
+164,④「～するようになる」,come toV～,POINT 61,不定詞の熟語①,co□□ toV～,I came to like the small town.,私はその小さな町が好きになった。
+165,⑤「～するようになる」,get toV～,POINT 61,不定詞の熟語①,g□□ toV～,They will soon get to love each other.,彼らはすぐにお互いを愛するようになるだろう。
+166,⑥「～するようになる」,learn toV～,POINT 61,不定詞の熟語①,le□□□ toV～,come toV / get toV / learn toVと同じ意味なのに何が違うんだろう？と思ったよね！ニュアンスの違いを調べてみよう！,
+167,①「形/副すぎて～できない / ～するには形/副すぎる」,too 形/副 toV～,POINT 62,不定詞の熟語②,t□□ 形/副 □□ V～,　This curry is too spicy for me to eat.,このカレーは私にとって食べるには辛すぎる。
+168,②too 形/副 toV～を言い換えると,so 形/副 that S can’t V～,POINT 62,不定詞の熟語②,s□ 形/副 th□□ S □□□’t V～,This curry is so spicy that I couldn’t eat it.,このカレーは辛すぎて食べられません。
+169,③「～するのに十分なほど形/副」,形/副 enough toV～,POINT 62,不定詞の熟語②,形/副 en□□□□ toV～,　She was kind enough to carry my baggage.,彼女は私の荷物を運んでくれるほど親切だった。＝彼女は親切にも私の荷物を運んでくれた。
+170,④「～するのに十分な名詞」,enough名詞 toV～,POINT 62,不定詞の熟語②,en□□□□ 名詞 toV～,　I have enough money to buy a new car.,私は新しい車を買うのに十分なお金を持っている。
+171,⑤「～するほど形/副」,so 形/副 as toV～,POINT 62,不定詞の熟語②,s□ 形/副 a□ toV～,　She was so kind as to carry my baggage.,彼女は私の荷物を運んでくれるほど親切だった。
+172,⑥so 形/副 as toV～を言い換えると,so 形/副 that S V～,POINT 62,不定詞の熟語②,s□ 形/副 th□□ S V～,She was so kind that she carried my baggage.,彼女は私の荷物を運んでくれるほど親切だった。
+173,⑦「～するために」「〜しないために」をそれぞれ2つずつ,so as toV～ / so as not toV～ / in order toV〜 / in order not toV〜,POINT 62,不定詞の熟語②,s□ a□ toV～ / s□ a□ n□□ toV～ / i□ or□□□ toV〜 / i□ or□□□ ni□ or□□□i□ or□□□ toV〜,　I left early so as to avoid heavy traffic.|　I hurried in order not to miss the train.,私は渋滞を避けるために早く出発した。|私は電車に乗り遅れないために急いだ。
+174,動名詞の品詞は？,名詞,POINT 63,動名詞の基本,名前でわかる,,
+175,動名詞の訳は？,〜すること,POINT 63,動名詞の基本,名詞の最も基本的な訳です,[Learning English] is not easy but very important.,英語を勉強することは簡単ではないがとても重要である。
+176,名詞ということは文のどこに置ける？,S / O / C / 前置詞の後,POINT 63,動名詞の基本,基本すぎて…,Swimming is my favorite hobby.|I enjoy reading books.|My hobby is playing the guitar.|She is good at painting.,水泳は私の一番好きな趣味だ。|私は本を読むことを楽しむ。|私の趣味はギターを弾くことだ。|彼女は絵を描くのが得意だ。
+177,【Sパターン】動名詞句が重要情報の場合は後ろに回し、代わりにSには何を置く？,仮主語のItを置く,POINT 63,動名詞の基本,不定詞と同じ,[Studying English] is very important.→It is very important [studying English].,
+178,【Oパターン】目的語の動名詞は何とくっつく？,他動詞（例：enjoy Ving / finish Ving など）,POINT 63,動名詞の基本,□動詞,She has not given up [becoming an actress].,彼女は[女優になること]をあきらめていない。
+179,【Oパターン】ＳＶＯＣのＯが動名詞句の場合は後ろに回し、代わりにOには何を置く？,仮目的語のitを置く,POINT 63,動名詞の基本,仮□□□の□□を置く,I found it interesting [talking with Bob].,ボブと話すのは楽しいとわかった。
+180,【Cパターン】Cに動名詞句が置かれる場合、SとVはどんなパターン？またその注意点は？,S beV Ving～の形（ただしSが人以外）,POINT 63,動名詞の基本,□ beV Ving～の形（ただし□が□以外）,My hobby is taking photos.,私の趣味は写真を撮ることです。
+181,【Cパターン】Cに動名詞句が置かれる場合、SとVはどんなパターン？またその注意点は？,Sと[Ving～]に【主語】→【述語】の関係があれば、[Ving～]は現在分詞句＝進行形。関係がなければ動名詞句。もしくは、Sが生き物→現在分詞　　Sが生き物以外→動名詞の可能性が高い。,POINT 63,動名詞の基本,意味上の主語に注目したいね,①Junko is playing the piano.|②My hoppy is playing the piano.,①は、Junkoが主語で playing the pianoが述語の関係になっているので、進行形ですね。②は「私の趣味」はピアノを弾いたりしないですよね。なぜなら「趣味」は生き物ではないから、行動を起こせないのです。あくまで「趣味の内容」が「ピアノを弾くこと」なのです。「ピアノを弾く」のは「私」であって「趣味」ではありません。
+182,動名詞も不定詞の名詞的用法も名詞なのに、不定詞の名詞的用法だけ置けないところはどこ？,前置詞の後,POINT 64,動名詞と不定詞の違い,S/O/C…？,She is interested in learning English.,彼女は英語を学ぶことに興味がある。
+183,ちなみに、前置詞＋名詞でどのような役割になる？,形容詞か副詞,POINT 64,動名詞と不定詞の違い,名詞でもなく動詞でもなく…,This is a book for students.,これは学生のための本だ。
+184,ちなみに、形容詞の役割は？,名詞を修飾して名詞とセットになるか、Cになる。,POINT 64,動名詞と不定詞の違い,□詞を修飾して□詞とセ□□になるか、□になる。,I saw a beautiful garden.|The garden is beautiful.,私は美しい庭を見た。|その庭は美しい。
+185,さらにちなみに、副詞の役割は？,名詞以外を修飾する,POINT 64,動名詞と不定詞の違い,□詞以外を修飾する,He runs quickly.,彼は素早く走る。
+186,動名詞のニュアンスを3つ！,「過去志向」「否定的（中断・逃避）」「反復的」,POINT 64,動名詞と不定詞の違い,「□□志向」「□□的（中断・逃避）」「反□的」,動名詞と不定詞の根本的な違いを理解することで、「直後に動名詞しかこない動詞」「直後に不定詞しかこない動詞」「動名詞・不定詞によって意味がかわる動詞」を覚えやすくなるのです。ゆえに、この根本的な違いを理解することは最優先事項となります。,
+187,不定詞のニュアンスを3つ！,「未来志向」「肯定的（意志・願望）」「単発的」,POINT 64,動名詞と不定詞の違い,「□□志向」「□□的（意志・願望）」「単□的」,動名詞と不定詞の根本的な違いを理解することで、「直後に動名詞しかこない動詞」「直後に不定詞しかこない動詞」「動名詞・不定詞によって意味がかわる動詞」を覚えやすくなるのです。ゆえに、この根本的な違いを理解することは最優先事項となります。,
+188,本文のＳと動名詞の意味上の主語が一致していない場合、どうすればいい？,動名詞の直前に所有格 or目的格を置く,POINT 65,動名詞の意味上の主語と否定語の位置,,My brother doesn’t like playing computer games.|My brother doesn’t like my playing computer games.,私の兄は、ゲームをすることが好きではない。＊「ゲームをする」のは「私の兄」→本文のＳと動名詞の意味上の主語が一致|私の兄は、私がゲームをすることが好きではない。＊「ゲームをする」のは「私」→本文のＳと動名詞の意味上の主語が一致していない
+189,ちなみに、to不定詞の意味上の主語を明示する表現を英語で2つ→,It is … for 人 toV～,POINT 65,動名詞の意味上の主語と否定語の位置,□□ is … □□□ 人 toV～ / □□ is … □□ 人 toV～,It is important for you to study every day.|It was kind of her to help the old man.,あなたが毎日勉強することは重要だ。|お年寄りを助けるなんて彼女は親切だった。
+190,動名詞を否定する場合は、どうすればいい？,動名詞の直前にnotやneverを置く。,POINT 65,動名詞の意味上の主語と否定語の位置,to不定詞と考え方は同じ！,Saying “Thank you” is very important.|Not saying “Thank you” is rude.,「ありがとう」と言うことはとても大切である。|「ありがとう」と言わないことは無礼である。
+191,動名詞の受動態の形と訳は？,being Vp.p.〜「〜されること」,POINT 66,動名詞の受動態,受動態はbe動詞＋Vp.p.！,I don’t like treating like a child.| I don’t like being treated like a child.,私は子どものように扱うことは好きではない。|私は子どものように扱われることは好きではない。
+192,ちなみに、不定詞の受動態の形と訳は？,to be Vp.p.〜「〜されること」,POINT 66,動名詞の受動態,動名詞と不定詞は似ているからセットで覚えよう！,Children like to praise.| Children like to be praised.,子どもたちはほめることが好きだ。|子どもたちはほめられることが好きだ。
+193,その文のVと動名詞の時制が一致している場合、Ving〜はどうなる？,Ving〜のまま！,POINT 67,時制の不一致,一致しているときは簡単,She is proud of being rich.| She is proud of having been rich.,彼女は大金持ちであることを誇りに思っている。|彼女は大金持ちであったことを誇りに思っている。
+194,ちなみに、不定詞の内容がその文のVよりも過去を表す場合、toV〜はどうなる？,to have Vp.p.〜になる！,POINT 67,時制の不一致,不一致のときは、より過去の方の形が変わるんだよね,,
+195,次の【】に入る語句を答えよ。She is proud that she is rich.＝She is proud of 【  】 rich.,She is proud of being rich.,POINT 67,時制の不一致,isとisだから…,,彼女は裕福であることを誇りに思っている。  
+196,次の【】に入る語句を答えよ。She is proud that she was rich.＝She is proud of 【  】 rich.,She is proud of having been rich.,POINT 67,時制の不一致,isとwasだから…,,彼女は以前裕福だったことを誇りに思っている。  
+197,次の【】に入る語句を答えよ。She was proud that she was rich.＝She is proud of 【  】 rich.,She was proud of being rich.,POINT 67,時制の不一致,wasとwasだから…,,彼女は裕福であることを誇りに思っていた。  
+198,次の【】に入る語句を答えよ。She was proud that she had been rich.＝She is proud of 【  】 rich.,She was proud of having been rich.,POINT 67,時制の不一致,wasとhad beenだから…,,彼女は以前裕福だったことを誇りに思っていた。  
+199,【toの直後に動名詞が来るパターン①】「〜することに慣れている」を2つ！,be used to Ving〜 / be accustomed toVing〜 ＊ユーズドではなく、ユーストと読みます,POINT 68,動名詞を使った重要表現①,be us□□ to Ving〜 / be ac□□□□□□□□ toVing〜,The boy is used to making his own breakfast.,  その少年は彼自身の朝食を作ることに慣れている。
+200,【toの直後に動名詞が来るパターン②】「〜することに慣れる」,get used to Ving〜,POINT 68,動名詞を使った重要表現①,ge□ us□□ to Ving〜,I am getting used to living alone.,私は一人暮らしに慣れてきている。
+201,【toの直後に動名詞が来るパターン③】「〜することを楽しみにする」,look forward to Ving〜,POINT 68,動名詞を使った重要表現①,lo□□ fo□□□□□ to Ving〜,　I’m looking forward to seeing you again.,  私はあなたにまたお会いすることを楽しみにしています。
+202,【toの直後に動名詞が来るパターン④】「〜することとなると(いつも)」,When it comes to Ving〜,POINT 68,動名詞を使った重要表現①,Wh□□ i□ co□□□ to Ving〜,"When it comes to making decisions, he is very careful.",意思決定となると、彼はとても慎重だ。
+203,【toの直後に動名詞が来るパターン⑤】「〜することに反対する」,object to Ving〜,POINT 68,動名詞を使った重要表現①,ob□□□□ to Ving〜,She objected to working on Sundays.,彼女は日曜日に働くことに反対した。
+204,【toの直後に動名詞が来るパターン⑥】〜することはどうですか？を2つ,What do you say to Ving〜? / How about Ving〜?,POINT 68,動名詞を使った重要表現①,Wh□□ do you s□□ to Ving〜? / H□□ ab□□□ Ving〜?,　How about going for a swim?,  泳ぎに行くのはどうですか?
+205,【ネガティブパターン①】「〜することはできない」を動名詞を使った表現と不定詞を使った表現でそれぞれ1つずつ！,There is no Ving〜 / It is impossible toV〜,POINT 68,動名詞を使った重要表現①,Th□□□ is □□ Ving〜 / It is im□□□□□□□□ toV〜,There is no telling what will happen tomorrow.,明日何が起こるかわからない。
+206,【ネガティブパターン②】「〜してもむだである」を5つ！,It is no use Ving〜 / It is no good Ving〜 / There is no use Ving〜 / There is no good Ving〜 / There is no point Ving〜,POINT 68,動名詞を使った重要表現①,It is □□ u□□ Ving〜 / It is □□ g□□□ Ving〜 / Th□□□ is □□ u□□ Ving〜 / Th□□□ is □□ g□□□ Ving〜 / Th□□□ is □□ po□□□ Ving〜,It is impossible to finish this task in an hour.,この仕事を1時間で終えることは不可能だ。
+207,【ネガティブパターン③】「〜は言うまでもない」を動名詞を使った表現と不定詞を使った表現でそれぞれ1つずつ！,It goes without saying that〜 / Needless to say that〜,POINT 68,動名詞を使った重要表現①,It g□□□ wi□□□□□ sa□□□□ that〜 / Ne□□□□□□ to sa□ that〜,It is no use crying over spilt milk.|It is no good arguing with him.|There is no use talking to her about it.|There is no good complaining now.|There is no point discussing this any further.,覆水盆に返らず。|彼と議論しても無駄だ。|そのことを彼女に話しても無駄だ。|今さら文句を言っても無駄だ。|これ以上これについて議論する意味はない。
+208,【ネガティブパターン④】「Oが〜することを妨げる」を3つ！,keep O from Ving〜 / prevent O from Ving〜 / stop O from Ving〜,POINT 68,動名詞を使った重要表現①,ke□□ O fr□□ Ving〜 / pr□□□□□ O fr□□ Ving〜 / st□□ O fr□□ Ving〜,It goes without saying that health is important.|Needless to say that honesty is the best policy.,健康が大切であることは言うまでもない。|正直が最良の方策であることは言うまでもない。
+209,【ネガティブパターン⑤】「〜するのに苦労する」を2つ！,have difficulty (in) Ving〜 / have trouble (in) Ving〜,POINT 68,動名詞を使った重要表現①,ha□□ di□□□□□□□□ (in) Ving〜 / ha□□ tr□□□□□ (in) Ving〜,Nothing could keep him from reaching his goal.|The rain prevented us from playing tennis.|She stopped me from making a big mistake.,彼の目標達成を妨げられるものは何もなかった。|雨のせいで私たちはテニスができなかった。|彼女は私が大きな間違いをするのを止めた。
+210,【ネガティブパターン⑥】「〜するのに忙しい」,beV busy Ving〜,POINT 68,動名詞を使った重要表現①,beV bu□□ Ving〜,I had difficulty (in) finding the station.|We had trouble (in) solving the problem.,私はその駅を見つけるのに苦労した。|私たちはその問題を解くのに苦労した。
+211,①〜してもらえませんか？,Would you mind Ving〜?,POINT 69,動名詞を使った重要表現②,Wo□□□ you mi□□ Ving〜?,He is busy preparing for the meeting.,彼は会議の準備で忙しい。
+212,②(私が)〜してもいいですか？,Would you mind my / me Ving〜?,POINT 69,動名詞を使った重要表現②,Wo□□□ you m□□□ m□ / m□ Ving〜?,Would you mind opening the window?|Would you mind my opening the window?|Would you mind me opening the window?,窓を開けてもらえますか。|私が窓を開けてもかまいませんか。|私が窓を開けてもかまいませんか。
+213,③〜する価値がある,beV worth Ving〜,POINT 69,動名詞を使った重要表現②,beV wo□□□ Ving〜,This book is worth reading.,この本は読む価値がある。
+214,④〜した気分,feel like Ving〜,POINT 69,動名詞を使った重要表現②,fe□□ li□□ Ving〜,I feel like going for a walk.,散歩に行きたい気分だ。
+215,⑤〜することにAを費やす,spend A (in) Ving〜,POINT 69,動名詞を使った重要表現②,sp□□□ A (in) Ving〜,She spends a lot of time (in) studying English.,彼女は英語を勉強するのに多くの時間を費やす。
+216,⑥…すれば必ず〜する,never V…without Ving〜,POINT 69,動名詞を使った重要表現②,ne□□□ V…wi□□□□□ Ving〜,He never passes the shop without buying something.,彼はその店の前を通ると必ず何かを買う。
+217,⑦〜するために,with a view to Ving〜,POINT 69,動名詞を使った重要表現②,wi□□ a vi□□ to Ving〜,I went to the library with a view to studying.,勉強する目的で図書館へ行った。
+218,⑧〜するとすぐに,on Ving〜,POINT 69,動名詞を使った重要表現②,□□ Ving〜,"On arriving at the station, I called her.",駅に到着してすぐ、彼女に電話した。
+219,⑨〜するときに,in Ving〜,POINT 69,動名詞を使った重要表現②,□□ Ving〜,He made a mistake in writing the report.,彼は報告書を書くときに間違いをした。
+220,動名詞を使うか不定詞を使うか、4つのパターンの他動詞がありますね。その4つのパターンを答えよ！,①動名詞のみを目的語にする動詞②不定詞のみを目的語にする動詞③動名詞も不定詞も目的語にできるが意味が異なる動詞④動名詞も不定詞も目的語にでき、意味もほとんど同じ動詞,POINT 70,動名詞と不定詞①,,,
+221,ここからは、①動名詞のみを目的語にとる動詞シリーズです。ところで、動名詞の3つのニュアンスは何だったっけ？,「過去志向」「消極的（中断・逃避）」「反復的」,POINT 70,動名詞と不定詞①,「□□志向」「□□的（中断・逃避）」「□□的」,,
+222,動名詞のみを目的語にとる動詞シリーズの頭文字を取ると？,mmegafeppsdaicon＝「っメガフェップス大根！」と覚えよう☆,POINT 70,動名詞と不定詞①,「っメガフェップス大根！」と覚えよう☆,＊目的語に動名詞と不定詞のどちらを使うかを問う入試問題は、GMARCHでもよく出ます。|The suspect denied (     ) in the building when the crime took place.|① having been　② he is  ③ to being  ④ to be　　　(立命館大学),答えはもちろん①
+223,mmegafeppsdaiconを全部答えてみよう！笑,mind / miss / enjoy / give up=quit / admit / finish / escape / practice / postpone=put off / suggest / deny / avoid / imagine / consider,POINT 70,動名詞と不定詞①,mi□□ / mi□□ / en□□□ / gi□□ u□=qu□□ / ad□□□ / fi□□□□ / es□□□□ / pr□□□□□□ / po□□□□□□=p□□ o□□ / su□□□□□ / de□□ / av□□□ / im□□□□□ / con□□□□□,,
+224,では、改めて1つずつ。①気にする,mind,POINT 70,動名詞と不定詞①,mi□□,I don’t mind waiting here.,ここで待つのは気にしない。
+225,②しそこなう,miss,POINT 70,動名詞と不定詞①,mi□□,I missed catching the last train.|I miss talking with you.,最終電車に乗りそこなった。|あなたと話すのが恋しい。
+226,③楽しむ,enjoy,POINT 70,動名詞と不定詞①,en□□□,I enjoy playing soccer.,私はサッカーをするのを楽しむ。
+227,④やめる,give up=quit,POINT 70,動名詞と不定詞①,gi□□ u□=qu□□,He gave up smoking.|He quit smoking.,彼は喫煙をやめた。|彼は喫煙をやめた。
+228,⑤認める,admit,POINT 70,動名詞と不定詞①,ad□□□,She admitted making a mistake.,彼女は間違いを犯したことを認めた。
+229,⑥終える,finish,POINT 70,動名詞と不定詞①,fi□□□□,We finished cleaning the room.,私たちは部屋の掃除を終えた。
+230,⑦避ける,escape,POINT 70,動名詞と不定詞①,es□□□□,He escaped being caught by the police.,彼は警察に捕まるのを逃れた。
+231,⑧練習する,practice,POINT 70,動名詞と不定詞①,pr□□□□□□,I practice speaking English every day.,私は毎日英語を話す練習をする。
+232,⑨延期する,postpone=put off,POINT 70,動名詞と不定詞①,po□□□□□□=p□□ o□□,They postponed making a decision.|They put off making a decision.,彼らは決定を延期した。|彼らは決定を延期した。
+233,⑩提案する,suggest,POINT 70,動名詞と不定詞①,su□□□□□,I suggest going to the park.,私は公園に行くことを提案する。
+234,⑪否定する,deny,POINT 70,動名詞と不定詞①,de□□,He denied breaking the window.,彼は窓を壊したことを否定した。
+235,⑫避ける,avoid,POINT 70,動名詞と不定詞①,av□□□,She avoids eating junk food.,彼女はジャンクフードを食べるのを避けている。
+236,⑬想像する,imagine,POINT 70,動名詞と不定詞①,im□□□□□,Can you imagine living on the moon?,あなたは月で暮らすことを想像できますか。
+237,⑭よく考える,consider,POINT 70,動名詞と不定詞①,con□□□□□,We are considering moving to another city.,私たちは別の都市に引っ越すことを検討している。
+238,次は②不定詞のみを目的語にする動詞シリーズ…なんだけど、①の動名詞だけをとるシリーズの動詞さえ覚えてしまえば、それ以外の動詞は基本的にto不定詞を置けるということになります。単純に、動詞の単語力をつけるという観点で取り組んでいきましょう！OK？,OK！,POINT 71,動名詞と不定詞②,,,
+239,①〜したい(5こ！),"want, hope, wish, care, would like",POINT 71,動名詞と不定詞②,"wa□□, ho□□, wi□□, ca□□, wo□□□ li□□",I want to visit London.|I hope to see you again.|I wish to speak with the manager.|I don’t care to join the game.|I would like to have a cup of coffee.,私はロンドンを訪れたい。|またあなたに会いたい。|支配人と話をしたい。|その試合に参加する気はない。|コーヒーを一杯いただきたい。
+240,②〜することを強く望む,desire,POINT 71,動名詞と不定詞②,de□□□□,I desire to improve my English.,英語力を向上させたい。
+241,③〜することを同意する,agree,POINT 71,動名詞と不定詞②,ag□□□,We agree to help them.,私たちは彼らを助けることに同意した。
+242,④〜することを約束する,promise,POINT 71,動名詞と不定詞②,pr□□□□□,She promised to call me.,彼女は私に電話すると約束した。
+243,⑤〜するつもりだ(2つ！),mean / expect,POINT 71,動名詞と不定詞②,me□□ / ex□□□□,I meant to send the email.|I expected to win the game.,メールを送るつもりだった。|試合に勝つことを予想していた。
+244,⑥〜することを計画する,plan,POINT 71,動名詞と不定詞②,pl□□,They plan to travel abroad.,彼らは海外旅行を計画している。
+245,⑦〜することを決める,decide,POINT 71,動名詞と不定詞②,de□□□□,He decided to buy a new car.,彼は新しい車を買うことに決めた。
+246,⑧〜することを選ぶ,choose,POINT 71,動名詞と不定詞②,ch□□□□,I chose to stay home.,私は家にいることを選んだ。
+247,⑨〜することを申し出る,offer,POINT 71,動名詞と不定詞②,of□□□,She offered to drive me to the station.,彼女は私を駅まで車で送ると申し出た。
+248,⑩〜することを試みる,attempt,POINT 71,動名詞と不定詞②,at□□□□□,I attempted to solve the problem.,私はその問題を解決しようと試みた。
+249,⑪〜することをためらう,hesitate,POINT 71,動名詞と不定詞②,he□□□□□□,Don’t hesitate to ask questions.,遠慮せずに質問してください。
+250,⑫〜することを断る,refuse,POINT 71,動名詞と不定詞②,re□□□□,He refused to answer the question.,彼はその質問に答えることを拒んだ。
+251,⑬〜するふりをする,pretend,POINT 71,動名詞と不定詞②,pr□□□□□,She pretended to be asleep.,彼女は寝ているふりをした。
+252,⑭どうにか〜する,manage,POINT 71,動名詞と不定詞②,ma□□□□,He managed to finish the work on time.,彼は仕事を時間通りに終わらせることに成功した。
+253,⑮〜する余裕がある,afford,POINT 71,動名詞と不定詞②,af□□□□,I can’t afford to buy a new house.,私は新しい家を買う余裕がない。
+254,⑯〜しそこなう,fail,POINT 71,動名詞と不定詞②,fa□□,He failed to pass the exam.,彼は試験に合格できなかった。
+255,⑰〜するようになる(3つ！),"come, get, learn",POINT 71,動名詞と不定詞②,"co□□, g□□, le□□□",I came to understand the problem.|I got to know many people.|I learned to play the piano.,私はその問題を理解するようになった。|私は多くの人と知り合うようになった。|私はピアノを弾けるようになった。
+256,ここからは③ 動名詞も不定詞も目的語にできるが意味が異なる動詞を扱います。ここで大事なのは、動名詞が□□志向で、不定詞が□□志向であることです。意味の違いもこの点から発生しています。,動名詞は過去志向。不定詞は未来志向。,POINT 72,動名詞と不定詞③,そもそもtoは「→」のニュアンスがあります。時間軸の→が意味するのは…,,
+257,①forget Ving〜とforget toV〜のそれぞれの意味を答えよ,〜したことを忘れる/ 〜することを忘れる,POINT 72,動名詞と不定詞③,動名詞は過去志向/ 不定詞は未来志向,I’ll never forget visiting Kyoto.|Don’t forget to lock the door.  ,私は京都を訪れたことを決して忘れない。|ドアに鍵をかけるのを忘れないで。  
+258,②remember Ving〜と remember toV〜のそれぞれの意味を答えよ,〜したことを覚えている / 忘れずに〜する,POINT 72,動名詞と不定詞③,動名詞は過去志向/ 不定詞は未来志向,I remember meeting her at the party.|Remember to bring your homework.  ,私はパーティーで彼女に会ったのを覚えている。|宿題を持ってくるのを忘れないで。  
+259,③regret Ving〜とregret toV〜のそれぞれの意味を答えよ,〜したことを後悔する / 残念ながら〜する,POINT 72,動名詞と不定詞③,動名詞は過去志向/ 不定詞は未来志向,I regret saying such a thing.|We regret to inform you that you were not selected.  ,そんなことを言ったのを後悔している。|残念ながらあなたが選ばれなかったことをお知らせします。  
+260,④try Ving〜とtry toV〜のそれぞれの意味を答えよ,試しに〜してみる / 〜しようと試みる,POINT 72,動名詞と不定詞③,try＋動名詞で「実際にやった」という意味に、try＋toVで「やろうとした」という意味になります,"Try adding some sugar to the tea.|I tried to solve the problem, but I couldn’t.  ",紅茶に砂糖を加えてみなさい。|その問題を解こうとしたができなかった。  
+261,⑤stop Ving〜とstop toV〜のそれぞれの意味を答えよ,〜するのをやめる / 〜するために立ち止まる,POINT 72,動名詞と不定詞③,動名詞は過去志向/ 不定詞は未来志向,He stopped smoking.|He stopped to talk to an old friend.  ,彼はたばこをやめた。|彼は古い友人と話すために立ち止まった。  
+262,⑥mean Ving〜と mian toV〜のそれぞれの意味を答えよ,〜することを意味する / 〜するつもりである,POINT 72,動名詞と不定詞③,動名詞は過去志向/ 不定詞は未来志向,This job means working on weekends.|I meant to call you yesterday.  ,この仕事は週末に働くことを意味する。|昨日あなたに電話するつもりだった。  
+263,⑦deserve Ving〜と deserve toV〜のそれぞれの意味を答えよ,〜されるだけの価値がある / 〜する意味がある,POINT 72,動名詞と不定詞③,動名詞が受け身のニュアンスを持つパターン,The book deserves reading carefully.|She deserves to win the prize.  ,その本は注意深く読む価値がある。|彼女はその賞を受けるに値する。  
+264,⑧go on Ving〜と go on toV〜のそれぞれの意味を答えよ,〜し続ける / さらに続けて〜する,POINT 72,動名詞と不定詞③,動名詞は過去志向/ 不定詞は未来志向,"He went on talking for two hours.|After finishing school, she went on to study in France.  ",彼は2時間話し続けた。|彼女は学校を卒業した後、フランスで学び続けた。  
+265,⑨need Ving〜とneed toV〜のそれぞれの意味を答えよ,〜される必要がある / 〜する必要がある,POINT 72,動名詞と不定詞③,動名詞が受け身のニュアンスを持つパターン,This room needs cleaning.|You need to see a doctor.  ,この部屋は掃除される必要がある。|あなたは医者に診てもらう必要がある。  
+266,⑩want Ving〜とwant toV〜のそれぞれの意味を答えよ,〜される必要がある / 〜したい,POINT 72,動名詞と不定詞③,動名詞が受け身のニュアンスを持つパターン,The car wants washing.|I want to buy a new bag.  ,その車は洗ってもらう必要がある。|私は新しいバッグを買いたい。  
+267,⑪be anxious about Ving〜とbe anxious toV〜のそれぞれの意味を答えよ,〜について心配している / 〜したがっている,POINT 72,動名詞と不定詞③,動名詞は過去志向/ 不定詞は未来志向,She is anxious about taking the test.|I am anxious to meet her again.,彼女はテストを受けることを心配している。|私は再び彼女に会いたくてたまらない。
+268,現在分詞のVing〜の訳は？,〜している,POINT 73,現在分詞の基本,〜して□□,The man sitting by the window is my uncle.|I saw a dog running across the street.|The students studying in the library are very quiet.,窓際に座っている男性は私の叔父だ。|私は通りを横切って走っている犬を見た。|図書館で勉強している生徒たちはとても静かだ。
+269,現在分詞の役割は何詞？,形容詞,POINT 73,現在分詞の基本,「名詞を修飾して名詞とセットになるか、Cになるか」のあれです,We watched the rising sun over the mountains.|The sun was shining brightly.,私たちは山の上に昇っている太陽を見た。|太陽が明るく輝いていた。
+270,ちなみに、形容詞の役割は？,名詞を修飾して名詞とセットになるか、Cになる,POINT 73,現在分詞の基本,□詞を修飾して□詞とセットになるか、□になる,We saw a beautiful sunset yesterday.|The sunset was beautiful.,私たちは昨日、美しい夕日を見た。|その夕日は美しかった。
+271,では、現在分詞が【S beV C】の【C】に置かれているときは、文法的に言うと何というやつ？,進行形！ということで、現在分詞がbe動詞の後のCに置かれるときは基本的に進行形になります。その場合、わざわざ「現在分詞」という言葉は使わず、「進行形」と説明しますよね。つまり、「現在分詞」という言葉を使うときは、基本的には「名詞を修飾して名詞とセットになるパターン」だということです！,POINT 73,現在分詞の基本,beV+Vingと言えば…,The children are playing in the park.,その子供たちは公園で遊んでいる。
+272,現在分詞が名詞を修飾するとき、現在分詞が□語だったら名詞の□に置き、□語以上だったら名詞の□に置くのが基本ルール。,現在分詞が１語だったら名詞の前に置き、２語以上だったら名詞の後ろに置くのが基本ルール。,POINT 73,現在分詞の基本,前置詞・不定詞・関係詞なども同じ理論です。前置詞は「前置詞＋名詞」、不定詞は「to＋動詞の原形」、関係代名詞は「関係詞＋SV〜」と必ず□語以上になりますよね。だから、修飾する名詞の□に置かれるわけです。,The rising sun was beautiful.|The sun rising over the mountains was beautiful.,昇る太陽は美しかった。|山の上に昇っている太陽は美しかった。
+273,１語だったら名詞の前に置き、２語以上だったら名詞の後ろに置くのが基本ルールというのは、通常の形容詞でも同じです。名詞の前に置くことを□□修飾、名詞の後ろに置くことを□□修飾と言います。,名詞の前に置くことを前置修飾、名詞の後ろに置くことを後置修飾と言います。,POINT 73,現在分詞の基本,置く場所から来ています,He is a responsible man.|He is the man responsible for this project. |She is a famous actress.|She is the actress famous for her role in the movie.   ,彼は責任感のある男性です。|彼はこのプロジェクトに責任を持つ男性です。 |彼女は有名な女優です。|彼女はその映画での役で有名な女優です。   

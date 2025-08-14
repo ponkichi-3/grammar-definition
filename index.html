@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="yes" name="mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
 <title>文法記述テスト</title>
 <style>
@@ -80,7 +80,7 @@
 <!-- Home -->
 <div id="homeScreen">
 <h1>文法記述テスト</h1>
-<p color:="" gray;\"="" small;="" style='\"font-size:'>ver.12</p>
+<p style="font-size: 14px; text-align: center; color: gray;">ver.12</p>
 <p style="text-align:center;color:#718096;margin-bottom:20px;">高校英語文法 定義問題</p>
 <button class="button button-purple" onclick="startGrammarTest()">記述テストを開始</button>
 <button class="button button-orange" onclick="showPracticeMode()">練習モード</button>
@@ -164,6 +164,13 @@
 <option value="all">全問題</option>
 </select>
 </div>
+<div class="order-select" style="margin: 10px 0;">
+<label for="questionOrder">出題順:</label>
+<select id="questionOrder">
+<option value="sequential">順番通り</option>
+<option value="shuffle">シャッフル</option>
+</select>
+</div>
 <div class="form-group" id="timeLimitGroup">
 <label>制限時間</label>
 <select id="timeLimit">
@@ -220,10 +227,22 @@
 </div>
 <div class="question-title" id="questionTitle"></div>
 <div class="question-text" id="questionText"></div>
+<button class="button button-gray" id="toggleExampleBtn" onclick="toggleExample()" style="margin-top:8px;">例文を表示</button>
+<div id="exampleBox" class="example-box hidden" style="margin-top:10px;padding:12px;border:1px solid #e2e8f0;border-radius:8px;background:#f9fafb;">
+  <div style="font-size:12px;color:#718096;font-weight:700;margin-bottom:6px;">例文</div>
+  <div id="exampleEn" style="font-size:15px;color:#2d3748;"></div>
+  <div id="exampleJp" style="font-size:14px;color:#4a5568;margin-top:4px;"></div>
+</div>
+
 </div>
 <div class="answer-section">
 <textarea class="answer-input" id="answerInput" placeholder="答えを入力してください..." rows="3"></textarea>
 <div class="answer-status" id="answerStatus"></div>
+<button class="hint-btn" id="hintButton" type="button" style="display:none;" onclick="toggleHint()">ヒントを見る</button>
+<div id="hintBox" class="hint-box" style="display:none;">
+  <div class="hint-label">ヒント</div>
+  <div id="hintText" class="hint-text"></div>
+</div>
 <div class="model-answer" id="modelAnswer">
 <div class="model-answer-label">模範解答</div>
 <div class="model-answer-text" id="modelAnswerText"></div>
@@ -281,6 +300,15 @@
 <button class="button button-gray" onclick="backToHome()">戻る</button>
 </div>
 </div>
+
+<style>
+.hint-box{margin-top:12px;padding:12px;background:#fff7ed;border:2px solid #ed8936;border-radius:8px;display:none}
+.hint-label{font-size:12px;color:#c05621;font-weight:700;margin-bottom:4px}
+.hint-text{color:#7b341e;font-size:15px;line-height:1.5}
+.hint-btn{display:inline-block;padding:8px 12px;border:2px solid #ed8936;border-radius:8px;background:#fff;cursor:pointer;font-size:14px;font-weight:700;color:#c05621;margin-top:10px}
+.hint-btn:hover{background:#fffaf0}
+</style>
+
 <script>
     // ====== グローバル状態 ======
     let grammarQuestions = [];
@@ -484,6 +512,7 @@
     let questionData = [];
     
     // CSVのタイトルとgrammarDataの小項目IDをマッピング
+    function normalizeTitle(s){return (s||'').toString().toLowerCase().replace(/\s+/g,'').replace(/["""'、。・（）()［］【】\[\]\-—–~〜|｜]/g,'');}
     const titleToItemIdMap = {
       "基本３時制の定義": "001",
       "様々な未来表現": "002",
@@ -621,9 +650,10 @@
 
     // ====== ユーティリティ ======
     function showScreen(id){
-      ['homeScreen','settingsScreen','quizScreen','resultScreen','teacherLoginScreen','teacherScreen']
-        .forEach(sid=>document.getElementById(sid).classList.add('hidden'));
-      document.getElementById(id).classList.remove('hidden');
+      ['homeScreen','settingsScreen','quizScreen','resultScreen','teacherLoginScreen','teacherScreen','questionScreen']
+        .forEach(sid=>{ const el=document.getElementById(sid); if(el) el.classList.add('hidden'); });
+      const target=document.getElementById(id);
+      if(target){ target.classList.remove('hidden'); }
     }
 
     function backToHome(){
@@ -639,6 +669,8 @@
       testMode='test';
       selectedCategories=[];
       if(timerInterval) clearInterval(timerInterval);
+      resetExampleUI();
+      resetHintUI();
     }
 
     // ====== セレクト初期化 ======
@@ -750,10 +782,10 @@
     }
 
     function updateSelectedCategories(){
-  selectedCategories = [];
-  const checkboxes = document.querySelectorAll('#subCategoryGroup input[type="checkbox"]:checked');
-  checkboxes.forEach(cb => selectedCategories.push(cb.value.padStart(3, '0')));
-}
+      selectedCategories = [];
+      const checkboxes = document.querySelectorAll('#subCategoryGroup input[type="checkbox"]:checked');
+      checkboxes.forEach(cb => selectedCategories.push(cb.value.padStart(3, '0')));
+    }
 
     // ====== モード選択 ======
     function selectMode(mode){
@@ -833,15 +865,26 @@
       const count = document.getElementById('questionCount').value;
       const order = document.getElementById('questionOrder')?.value || 'sequential';
       
+      console.log('選択されたカテゴリ:', selectedCategories);
+      console.log('利用可能な問題数:', questionData.length);
+      console.log('questionDataの最初の5件:', questionData.slice(0, 5));
+      
       // 選択されたカテゴリの問題のみ抽出
-      let filteredQuestions = questionData.filter(q => 
-        selectedCategories.includes(q.id)
-      );
+      let filteredQuestions = questionData.filter(q => {
+        const match = selectedCategories.includes(q.id);
+        if (!match && selectedCategories.length > 0 && questionData.length > 0) {
+          console.log(`問題ID ${q.id} は選択カテゴリに含まれていません`);
+        }
+        return match;
+      });
+      
+      console.log('フィルタ後の問題数:', filteredQuestions.length);
       
       // 問題が存在しない場合は全問題を使用（デモ用）
       if(filteredQuestions.length === 0){
-        console.log('選択されたカテゴリに問題がありません。全問題を使用します。');
-        filteredQuestions = [...questionData];
+        console.log('選択されたカテゴリに問題がありません。');
+        // エラーメッセージを表示して処理を中断
+        return;
       }
       
       // シャッフルするかどうかの判定
@@ -892,6 +935,9 @@
     }
 
     function displayQuestion(){
+      resetExampleUI();
+      resetHintUI();
+      
       if(currentQuestion >= currentQuestions.length){
         finishTest();
         return;
@@ -908,6 +954,9 @@
       document.getElementById('answerInput').className = 'answer-input';
       document.getElementById('answerStatus').textContent = '';
       document.getElementById('modelAnswer').style.display = 'none';
+      
+      // ヒント設定
+      updateHintForCurrentQuestion();
       
       // ボタンの表示制御
       const isLastQuestion = currentQuestion === currentQuestions.length - 1;
@@ -1108,6 +1157,8 @@
     }
 
     function nextQuestion(){
+      resetExampleUI();
+      resetHintUI();
       // テストモードの場合は解答を保存
       if(testMode === 'test'){
         const userAnswer = document.getElementById('answerInput').value.trim();
@@ -1399,6 +1450,163 @@
       setTimeout(() => { hasSentToCloud = false; }, 3000);
     }
 
+    // ====== CSV処理 ======
+    function splitCSVRow(line){
+      const out=[];let cur='';let inQ=false;
+      for(let i=0;i<line.length;i++){
+        const ch=line[i],n=line[i+1];
+        if(ch==='"'){
+          if(inQ&&n==='"'){cur+='"';i++;continue;}
+          inQ=!inQ;continue;
+        }
+        if(ch===','&&!inQ){out.push(cur);cur='';continue;}
+        cur+=ch;
+      }
+      out.push(cur);
+      return out;
+    }
+
+    // CSVファイルから問題を読み込む関数
+    async function loadQuestionsFromCSV(){
+      try{
+        const response = await fetch('grammar_definition_with_examples2.csv');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const csvContent = await response.text();
+        console.log('CSV読み込み成功, 文字数:', csvContent.length);
+        
+        const lines = csvContent.replace(/\r/g,'').split('\n').filter(l=>l.trim()!=='');
+        console.log('総行数:', lines.length);
+        
+        const headers = splitCSVRow(lines[0]);
+        console.log('ヘッダー:', headers);
+        
+        const idx = (name)=>headers.indexOf(name);
+        const iId=idx('id'), iQ=idx('question'), iA=idx('answer'), iP=idx('point'), iT=idx('title');
+        const iH=idx('hint'), iExEn=idx('example_en'), iExJp=idx('example_jp');
+        
+        const parsed=[];
+        for(let i=1;i<lines.length;i++){
+          const row=splitCSVRow(lines[i]);
+          if(row.length===0) continue;
+          
+          const rawId = iId>-1 ? String(row[iId]||'') : '';
+          const csvId = rawId.padStart(3,'0');
+          const question = iQ>-1 ? String(row[iQ]||'').trim() : '';
+          const answer   = iA>-1 ? String(row[iA]||'').trim() : '';
+          const point    = iP>-1 ? String(row[iP]||'').trim() : '';
+          const title    = iT>-1 ? String(row[iT]||'').trim() : '';
+          const hint     = iH>-1 ? String(row[iH]||'').trim() : '';
+          const example_en = iExEn>-1 ? String(row[iExEn]||'').trim() : '';
+          const example_jp = iExJp>-1 ? String(row[iExJp]||'').trim() : '';
+          
+          if(!question || !answer || !title) continue;
+          
+          const normalizedMap = {}; 
+          Object.keys(titleToItemIdMap||{}).forEach(k=>normalizedMap[normalizeTitle(k)] = titleToItemIdMap[k]);
+          const mappedId = (titleToItemIdMap && titleToItemIdMap[title]) ? titleToItemIdMap[title] : (normalizedMap[normalizeTitle(title)] || csvId);
+          
+          parsed.push({ id: mappedId, csvId, question, answer, point, title, hint, example_en, example_jp });
+        }
+        
+        if(parsed.length>0){
+          window.questionData = parsed;
+          questionData = parsed; // グローバル変数にも代入
+          console.log(`CSVから${parsed.length}件を読み込みました`);
+          console.log('読み込んだ問題のID例:', parsed.slice(0, 5).map(q => ({ id: q.id, title: q.title })));
+          console.log('questionData確認:', questionData.length);
+        }else{
+          console.warn('CSVから有効な行を読み込めませんでした');
+        }
+      }catch(e){
+        console.error('CSV読み込み失敗', e);
+        // ローカルファイルの場合のフォールバック
+        if (e.message.includes('Failed to fetch')) {
+          console.log('ローカルファイルアクセスエラー。デモデータを使用します。');
+          // デモデータを設定
+          window.questionData = [
+            { id: "001", csvId: "001", question: "基本３時制とは何か説明しなさい。", answer: "①過去形 ②現在形 ③未来形", point: "3点", title: "基本３時制の定義", hint: "英語の動詞には3つの基本的な時制があります", example_en: "I played tennis yesterday.|I play tennis every day.|I will play tennis tomorrow.", example_jp: "私は昨日テニスをした。|私は毎日テニスをする。|私は明日テニスをするだろう。" }
+          ];
+        }
+      }
+    }
+
+    // ====== 例文機能 ======
+    function resetExampleUI(){
+      const box=document.getElementById('exampleBox');
+      const en=document.getElementById('exampleEn');
+      const jp=document.getElementById('exampleJp');
+      const btn=document.getElementById('toggleExampleBtn');
+      if(box){ box.classList.add('hidden'); }
+      if(en){ en.textContent=''; }
+      if(jp){ jp.textContent=''; }
+      if(btn){ btn.textContent='例文を表示'; }
+    }
+
+    function toggleExample(){
+      try{
+        const q = (typeof currentQuestions!=='undefined' && typeof currentQuestion!=='undefined') ? currentQuestions[currentQuestion] : null;
+        if(!q){
+          alert('問題データが見つかりません。'); return;
+        }
+        const hasExample = (q.example_en && q.example_en.length>0) || (q.example_jp && q.example_jp.length>0);
+        if(!hasExample){
+          alert('この問題には例文が設定されていません。'); return;
+        }
+        const box=document.getElementById('exampleBox');
+        const en=document.getElementById('exampleEn');
+        const jp=document.getElementById('exampleJp');
+        const enFormatted=(q.example_en||'').split('|').join('<br>');
+        const jpFormatted=(q.example_jp||'').split('|').join('<br>');
+        if(en) en.innerHTML=enFormatted;
+        if(jp) jp.innerHTML=jpFormatted;
+        if(box){
+          const hidden=box.classList.contains('hidden');
+          if(hidden){ box.classList.remove('hidden'); } else { box.classList.add('hidden'); }
+        }
+        const btn=document.getElementById('toggleExampleBtn');
+        if(btn){
+          if(box && box.classList.contains('hidden')) btn.textContent='例文を表示';
+          else btn.textContent='例文を隠す';
+        }
+      }catch(e){
+        console.error('toggleExample error', e);
+      }
+    }
+
+    // ====== ヒント機能 ======
+    function resetHintUI(){
+      const box = document.getElementById('hintBox');
+      const btn = document.getElementById('hintButton');
+      if(box) box.style.display = 'none';
+      if(btn) btn.style.display = 'none';
+    }
+
+    function toggleHint(){
+      const box = document.getElementById('hintBox');
+      if(!box) return;
+      box.style.display = (box.style.display === 'none' || box.style.display === '') ? 'block' : 'none';
+    }
+
+    function updateHintForCurrentQuestion(){
+      const hb = document.getElementById('hintBox');
+      const ht = document.getElementById('hintText');
+      const hbtn = document.getElementById('hintButton');
+      
+      if(hb) hb.style.display = 'none';
+      
+      let q = null;
+      if(Array.isArray(currentQuestions) && typeof currentQuestion === 'number'){
+        q = currentQuestions[currentQuestion];
+      }
+      
+      const hint = q && q.hint ? String(q.hint).trim() : '';
+      
+      if(ht) ht.textContent = hint || '';
+      if(hbtn) hbtn.style.display = hint ? 'inline-block' : 'none';
+    }
+
     // ====== 初期化 ======
     window.addEventListener('DOMContentLoaded', () => {
       initializeSelects();
@@ -1407,95 +1615,6 @@
       // CSVファイルから問題を読み込む
       loadQuestionsFromCSV();
     });
-
-    // CSVファイルから問題を読み込む関数
-    async function loadQuestionsFromCSV() {
-      try {
-        const response = await fetch('grammar_definition.csv');
-        const csvContent = await response.text();
-
-        const lines = csvContent.split('\n');
-        const parsed = [];
-
-        for (let i = 1; i < lines.length; i++) {
-          const line = lines[i].trim();
-          if (!line) continue;
-
-          const matches = line.match(/(\d+),(.*?),(.*?),(.*?),(.*)$/);
-          if (matches && matches.length > 5) {
-            const csvId = matches[1];
-            const question = matches[2];
-            const answer = matches[3];
-            const point = matches[4];
-            const title = matches[5];
-            
-            // タイトルからgrammarDataの小項目IDを取得
-            const itemId = titleToItemIdMap[title];
-            
-            parsed.push({
-              id: itemId || csvId.padStart(3, '0'), // マッピングがない場合は元のIDを使用
-              csvId: csvId, // デバッグ用に元のIDも保持
-              question: question,
-              answer: answer,
-              point: point,
-              title: title
-            });
-          }
-        }
-
-        if (parsed.length > 0) {
-          questionData = parsed;
-          console.log(`CSVから${parsed.length}問の問題を読み込みました`);
-        }
-      } catch (error) {
-        console.error('CSVファイルの読み込みに失敗しました。', error);
-      }
-    }  
-document.getElementById('showProblemsBtn').addEventListener('click', () => {
-  const container = document.getElementById('problemListView');
-  container.innerHTML = '';
-  container.style.display = 'block';
-
-  if (!questionData || questionData.length === 0) {
-    container.innerHTML = '<p>⚠️ 問題が読み込まれていません。</p>';
-    return;
-  }
-
-  const table = document.createElement('table');
-  table.border = '1';
-  table.style.borderCollapse = 'collapse';
-  table.innerHTML = '<tr><th>ID</th><th>POINT</th><th>タイトル</th><th>問題</th></tr>';
-
-  questionData.forEach(q => {
-    const row = document.createElement('tr');
-    row.innerHTML = `<td>${q.id}</td><td>${q.point}</td><td>${q.title}</td><td>${q.question}</td>`;
-    table.appendChild(row);
-  });
-
-  container.appendChild(table);
-});
-
-</script>
-<hr/>
-<div id="problemListView" style="display:none; padding: 10px; border: 1px solid #ccc; margin-top: 10px;"></div>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const labelNode = Array.from(document.querySelectorAll("label")).find(el => el.textContent.includes("問題数"));
-  if (labelNode) {
-    const orderDiv = document.createElement("div");
-    orderDiv.innerHTML = `
-      <div class="order-select" style="margin: 10px 0;">
-        <label for="questionOrder">出題順:</label>
-        <select id="questionOrder">
-          <option value="sequential">順番通り</option>
-          <option value="shuffle">シャッフル</option>
-        </select>
-      </div>
-    `;
-    labelNode.parentElement.insertBefore(orderDiv, labelNode);
-  }
-});
 </script>
 </body>
 </html>
-    
