@@ -1,1620 +1,913 @@
 <!DOCTYPE html>
-
 <html lang="ja">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-<meta content="yes" name="mobile-web-app-capable"/>
-<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
-<title>文法記述テスト</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<title>文法記述テスト（確認式＋復習 / 管理モード対応 FIX9）</title>
 <style>
-    *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Hiragino Sans',sans-serif;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;overflow-x:hidden}
-    .container{background:#fff;border-radius:20px;padding:30px;box-shadow:0 20px 40px rgba(0,0,0,.1);max-width:700px;width:100%}
-    h1,h2{text-align:center;color:#333;margin-bottom:24px}
-    h1{font-size:28px}
-    h2{font-size:22px}
-    .button{display:block;width:100%;padding:14px;margin-bottom:12px;border:none;border-radius:10px;font-size:18px;font-weight:700;cursor:pointer;transition:.2s;color:#fff;text-align:center;-webkit-appearance:none}
-    .button:hover{transform:translateY(-1px);box-shadow:0 5px 12px rgba(0,0,0,.2)}
-    .button:active{transform:translateY(0)}
-    .button-purple{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%)}
-    .button-green{background:linear-gradient(135deg,#48bb78 0%,#2f855a 100%)}
-    .button-blue{background:linear-gradient(135deg,#3182ce 0%,#2c5282 100%)}
-    .button-gray{background:linear-gradient(135deg,#718096 0%,#4a5568 100%)}
-    .button-red{background:linear-gradient(135deg,#f56565 0%,#c53030 100%)}
-    .button-orange{background:linear-gradient(135deg,#ed8936 0%,#c05621 100%)}
-    .form-group{margin-bottom:16px}
-    label{display:block;margin-bottom:6px;font-weight:700;color:#4a5568;font-size:14px}
-    input[type=text],input[type=password],select,textarea{width:100%;padding:10px;border:2px solid #e2e8f0;border-radius:8px;font-size:16px;transition:border-color .2s;-webkit-appearance:none;font-family:inherit}
-    input:focus,select:focus,textarea:focus{outline:none;border-color:#667eea}
-    textarea{resize:vertical;min-height:80px}
-    .quiz-container{text-align:left}
-    .question-box{background:#f8f9fa;border-radius:12px;padding:20px;margin-bottom:20px}
-    .question-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-    .question-number{font-size:14px;color:#718096;font-weight:600}
-    .point-badge{background:#667eea;color:#fff;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600}
-    .question-title{font-size:13px;color:#4a5568;margin-bottom:8px;font-weight:600}
-    .question-text{font-size:20px;font-weight:700;color:#2d3748;line-height:1.5}
-    .answer-section{margin-top:20px}
-    .answer-input{width:100%;padding:12px;border:2px solid #cbd5e0;border-radius:8px;font-size:16px;background:#fff;transition:.2s}
-    .answer-input:focus{border-color:#667eea;background:#f7fafc}
-    .answer-input.correct{border-color:#48bb78;background:#f0fff4}
-    .answer-input.incorrect{border-color:#f56565;background:#fff5f5}
-    .model-answer{margin-top:12px;padding:12px;background:#e6fffa;border:2px solid #38b2ac;border-radius:8px;display:none}
-    .model-answer-label{font-size:12px;color:#2c7a7b;font-weight:700;margin-bottom:4px}
-    .model-answer-text{color:#234e52;font-size:15px;line-height:1.5}
-    .progress-bar{height:8px;background:#e2e8f0;border-radius:4px;margin-bottom:20px;overflow:hidden}
-    .progress-fill{height:100%;background:linear-gradient(90deg,#667eea 0%,#48bb78 100%);transition:width .3s;border-radius:4px}
-    .score-display{font-size:64px;font-weight:800;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:18px 0;text-align:center}
-    .hidden{display:none}
-    .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-    .success-box{background:#f0fff4;border:2px solid #9ae6b4;border-radius:8px;padding:12px;margin-bottom:12px;color:#276749;font-size:14px}
-    .result-details{background:#f7fafc;border-radius:12px;padding:20px;margin:20px 0}
-    .result-item{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #e2e8f0}
-    .result-item:last-child{border-bottom:none}
-    .result-label{color:#4a5568;font-weight:600}
-    .result-value{color:#2d3748}
-    .select-controls{display:flex;gap:10px;margin-bottom:10px}
-    .select-button{padding:8px 16px;border:2px solid #667eea;border-radius:8px;background:#fff;color:#667eea;cursor:pointer;font-size:14px;font-weight:600;transition:.2s}
-    .select-button:hover{background:#667eea;color:#fff}
-    .timer{font-size:18px;color:#667eea;font-weight:700;text-align:center;margin-bottom:10px}
-    .answer-status{margin-top:8px;font-size:14px;font-weight:600}
-    .answer-status.correct{color:#48bb78}
-    .answer-status.incorrect{color:#f56565}
-    .test-mode-selector{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
-    .mode-button{padding:20px;border:2px solid #e2e8f0;border-radius:12px;background:#fff;cursor:pointer;transition:.15s;text-align:center}
-    .mode-button:hover{border-color:#667eea;background:#f7fafc}
-    .mode-button.selected{border-color:#667eea;background:#f0f4ff}
-    .mode-title{font-size:18px;font-weight:700;color:#2d3748;margin-bottom:4px}
-    .mode-desc{font-size:13px;color:#718096}
-    @media (max-width:480px){
-      .container{padding:20px}
-      .question-text{font-size:18px}
-      .score-display{font-size:52px}
-      .test-mode-selector{grid-template-columns:1fr}
-    }
-  </style>
-</head>
-<body>
-<div class="container">
-<!-- Home -->
-<div id="homeScreen">
-<h1>文法記述テスト</h1>
-<p style="font-size: 14px; text-align: center; color: gray;">ver.12</p>
-<p style="text-align:center;color:#718096;margin-bottom:20px;">高校英語文法 定義問題</p>
-<button class="button button-purple" onclick="startGrammarTest()">記述テストを開始</button>
-<button class="button button-orange" onclick="showPracticeMode()">練習モード</button>
-<button class="button button-green" onclick="showTeacherLogin()">教員ページ</button>
-</div>
-<!-- Settings -->
-<div class="hidden" id="settingsScreen">
-<h2>テスト設定</h2>
-<div class="form-group">
-<label>テストモード</label>
-<div class="test-mode-selector">
-<div class="mode-button selected" id="modeTest" onclick="selectMode('test')">
-<div class="mode-title">テストモード</div>
-<div class="mode-desc">時間制限あり・1回のみ解答</div>
-</div>
-<div class="mode-button" id="modePractice" onclick="selectMode('practice')">
-<div class="mode-title">練習モード</div>
-<div class="mode-desc">時間制限なし・即座に正解確認</div>
-</div>
-</div>
-</div>
-<div class="form-group">
-<label>文法大項目の選択（複数選択可）</label>
-<div class="select-controls">
-<button class="select-button" onclick="selectAllMajorCategories()">全て選択</button>
-<button class="select-button" onclick="deselectAllMajorCategories()">全て解除</button>
-</div>
-<div class="checkbox-group" style="max-height:150px;overflow-y:auto;border:2px solid #e2e8f0;border-radius:8px;padding:12px;">
-<label class="checkbox-label" style="display:flex;align-items:center;padding:4px 0;cursor:pointer;font-size:14px;">
-<input onchange="updateSubCategories()" style="margin-right:8px;" type="checkbox" value="tense"/>
-            時制（TENSE）
-          </label>
-<label class="checkbox-label" style="display:flex;align-items:center;padding:4px 0;cursor:pointer;font-size:14px;">
-<input onchange="updateSubCategories()" style="margin-right:8px;" type="checkbox" value="voice"/>
-            受動態（VOICE）
-          </label>
-<label class="checkbox-label" style="display:flex;align-items:center;padding:4px 0;cursor:pointer;font-size:14px;">
-<input onchange="updateSubCategories()" style="margin-right:8px;" type="checkbox" value="auxiliary"/>
-            助動詞（AUXILIARY VERB）
-          </label>
-<label class="checkbox-label" style="display:flex;align-items:center;padding:4px 0;cursor:pointer;font-size:14px;">
-<input onchange="updateSubCategories()" style="margin-right:8px;" type="checkbox" value="infinitive"/>
-            不定詞（INFINITIVE）
-          </label>
-<label class="checkbox-label" style="display:flex;align-items:center;padding:4px 0;cursor:pointer;font-size:14px;">
-<input onchange="updateSubCategories()" style="margin-right:8px;" type="checkbox" value="gerund"/>
-            動名詞（GERUND）
-          </label>
-<label class="checkbox-label" style="display:flex;align-items:center;padding:4px 0;cursor:pointer;font-size:14px;">
-<input onchange="updateSubCategories()" style="margin-right:8px;" type="checkbox" value="participle"/>
-            分詞（PARTICIPLE）
-          </label>
-<label class="checkbox-label" style="display:flex;align-items:center;padding:4px 0;cursor:pointer;font-size:14px;">
-<input onchange="updateSubCategories()" style="margin-right:8px;" type="checkbox" value="subjunctive"/>
-            仮定法（SUBJUNCTIVE）
-          </label>
-<label class="checkbox-label" style="display:flex;align-items:center;padding:4px 0;cursor:pointer;font-size:14px;">
-<input onchange="updateSubCategories()" style="margin-right:8px;" type="checkbox" value="relative"/>
-            関係詞（RELATIVE PRONOUN）
-          </label>
-<label class="checkbox-label" style="display:flex;align-items:center;padding:4px 0;cursor:pointer;font-size:14px;">
-<input onchange="updateSubCategories()" style="margin-right:8px;" type="checkbox" value="comparison"/>
-            比較（COMPARISON）
-          </label>
-</div>
-</div>
-<div class="form-group">
-<label>文法小項目の選択（複数選択可）</label>
-<div class="select-controls">
-<button class="select-button" onclick="selectAllItems()">全て選択</button>
-<button class="select-button" onclick="deselectAllItems()">全て解除</button>
-</div>
-<div class="checkbox-group" id="subCategoryGroup" style="max-height:200px;overflow-y:auto;border:2px solid #e2e8f0;border-radius:8px;padding:12px;"></div>
-</div>
-<div class="form-group">
-<label>問題数</label>
-<select id="questionCount">
-<option value="3">3問</option>
-<option value="5">5問</option>
-<option selected="" value="10">10問</option>
-<option value="all">全問題</option>
-</select>
-</div>
-<div class="order-select" style="margin: 10px 0;">
-<label for="questionOrder">出題順:</label>
-<select id="questionOrder">
-<option value="sequential">順番通り</option>
-<option value="shuffle">シャッフル</option>
-</select>
-</div>
-<div class="form-group" id="timeLimitGroup">
-<label>制限時間</label>
-<select id="timeLimit">
-<option value="5">5分</option>
-<option selected="" value="10">10分</option>
-<option value="15">15分</option>
-<option value="20">20分</option>
-<option value="0">無制限</option>
-</select>
-</div>
-<div id="studentInfoGroup">
-<div class="info-grid">
-<div class="form-group">
-<label>学年 <span style="color:#f56565;">*</span></label>
-<select id="studentGrade">
-<option value="">選択してください</option>
-<option value="1年">1年</option>
-<option value="2年">2年</option>
-<option value="3年">3年</option>
-</select>
-</div>
-<div class="form-group">
-<label>クラス <span style="color:#f56565;">*</span></label>
-<select id="studentClass">
-<option value="">選択してください</option>
-</select>
-</div>
-</div>
-<div class="info-grid">
-<div class="form-group">
-<label>出席番号 <span style="color:#f56565;">*</span></label>
-<select id="studentNumber">
-<option value="">選択してください</option>
-</select>
-</div>
-<div class="form-group">
-<label>氏名 <span style="color:#f56565;">*</span></label>
-<input id="studentName" placeholder="例: 山田太郎" type="text"/>
-</div>
-</div>
-</div>
-<button class="button button-blue" onclick="startTest()">テスト開始</button>
-<button class="button button-gray" onclick="backToHome()">戻る</button>
-</div>
-<!-- Quiz -->
-<div class="hidden" id="quizScreen">
-<div class="timer" id="timer"></div>
-<div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-<div class="quiz-container">
-<div class="question-box">
-<div class="question-header">
-<div class="question-number" id="questionNumber"></div>
-<div class="point-badge" id="pointBadge"></div>
-</div>
-<div class="question-title" id="questionTitle"></div>
-<div class="question-text" id="questionText"></div>
-<button class="button button-gray" id="toggleExampleBtn" onclick="toggleExample()" style="margin-top:8px;">例文を表示</button>
-<div id="exampleBox" class="example-box hidden" style="margin-top:10px;padding:12px;border:1px solid #e2e8f0;border-radius:8px;background:#f9fafb;">
-  <div style="font-size:12px;color:#718096;font-weight:700;margin-bottom:6px;">例文</div>
-  <div id="exampleEn" style="font-size:15px;color:#2d3748;"></div>
-  <div id="exampleJp" style="font-size:14px;color:#4a5568;margin-top:4px;"></div>
-</div>
-
-</div>
-<div class="answer-section">
-<textarea class="answer-input" id="answerInput" placeholder="答えを入力してください..." rows="3"></textarea>
-<div class="answer-status" id="answerStatus"></div>
-<button class="hint-btn" id="hintButton" type="button" style="display:none;" onclick="toggleHint()">ヒントを見る</button>
-<div id="hintBox" class="hint-box" style="display:none;">
-  <div class="hint-label">ヒント</div>
-  <div id="hintText" class="hint-text"></div>
-</div>
-<div class="model-answer" id="modelAnswer">
-<div class="model-answer-label">模範解答</div>
-<div class="model-answer-text" id="modelAnswerText"></div>
-</div>
-</div>
-</div>
-<button class="button button-blue" id="submitButton" onclick="submitAnswer()">解答を提出</button>
-<button class="button button-blue hidden" id="nextButton" onclick="nextQuestion()">次の問題へ</button>
-<button class="button button-orange hidden" id="finishButton" onclick="finishTest()">テストを終了</button>
-</div>
-<!-- Result -->
-<div class="hidden" id="resultScreen">
-<h2>テスト終了！</h2>
-<div class="score-display" id="scoreDisplay"></div>
-<div class="result-details">
-<div class="result-item">
-<span class="result-label">正解数</span>
-<span class="result-value" id="correctCount"></span>
-</div>
-<div class="result-item">
-<span class="result-label">問題数</span>
-<span class="result-value" id="totalCount"></span>
-</div>
-<div class="result-item">
-<span class="result-label">所要時間</span>
-<span class="result-value" id="elapsedTime"></span>
-</div>
-</div>
-<div class="success-box" id="saveSuccess" style="display:none;">
-<strong>✅ 保存完了</strong><br/>成績がクラウドに保存されました。
-      </div>
-<div id="detailedResults"></div>
-<button class="button button-blue" onclick="restartTest()">もう一度挑戦</button>
-<button class="button button-gray" onclick="backToHome()">メニューに戻る</button>
-</div>
-<!-- Teacher Login -->
-<div class="hidden" id="teacherLoginScreen">
-<h2>教員ページログイン</h2>
-<div class="form-group">
-<label>パスワード</label>
-<input id="teacherPassword" placeholder="パスワードを入力" type="password"/>
-</div>
-<button class="button button-green" onclick="teacherLogin()">ログイン</button>
-<button class="button button-gray" onclick="backToHome()">戻る</button>
-</div>
-<!-- Teacher Page -->
-<div class="hidden" id="teacherScreen">
-<h2>成績管理</h2>
-<div id="scoresList" style="max-height:400px;overflow-y:auto;">
-<p style="text-align:center;color:#718096;">まだ成績データがありません</p>
-</div>
-<button class="button button-blue" onclick="loadCloudScores()" style="margin-top:10px;">クラウドから読み込み</button>
-<button class="button button-green" onclick="exportScores()" style="margin-top:10px;">CSVでエクスポート</button>
-<button class="button button-red" onclick="clearAllScores()" style="margin-top:20px;">すべてのデータを削除</button>
-<button class="button button-gray" onclick="backToHome()">戻る</button>
-</div>
-</div>
-
-<style>
-.hint-box{margin-top:12px;padding:12px;background:#fff7ed;border:2px solid #ed8936;border-radius:8px;display:none}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Hiragino Sans',sans-serif;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;overflow-x:hidden}
+.container{background:#fff;border-radius:20px;padding:30px;box-shadow:0 20px 40px rgba(0,0,0,.1);max-width:900px;width:100%}
+h1,h2{text-align:center;color:#333;margin-bottom:18px}
+h1{font-size:26px}
+.sub{font-size:13px;text-align:center;color:#718096;margin-bottom:18px}
+.button{display:block;width:100%;padding:12px;margin-bottom:12px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:.2s;color:#fff;text-align:center;-webkit-appearance:none}
+.button:hover{transform:translateY(-1px);box-shadow:0 5px 12px rgba(0,0,0,.2)}
+.button-purple{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%)}
+.button-green{background:linear-gradient(135deg,#48bb78 0%,#2f855a 100%)}
+.button-blue{background:linear-gradient(135deg,#3182ce 0%,#2c5282 100%)}
+.button-gray{background:linear-gradient(135deg,#718096 0%,#4a5568 100%)}
+.button-orange{background:linear-gradient(135deg,#ed8936 0%,#c05621 100%)}
+.button-red{background:linear-gradient(135deg,#f56565 0%,#c53030 100%)}
+.hidden{display:none !important}
+.form-group{margin-bottom:14px}
+label{display:block;margin-bottom:6px;font-weight:700;color:#4a5568;font-size:14px}
+select,input[type=text]{width:100%;padding:10px;border:2px solid #e2e8f0;border-radius:8px;font-size:16px;transition:border-color .2s}
+select:focus,input[type=text]:focus{outline:none;border-color:#667eea}
+.checkbox-group{max-height:220px;overflow-y:auto;border:2px solid #e2e8f0;border-radius:8px;padding:12px}
+.select-controls{display:flex;gap:10px;margin:8px 0}
+.select-button{padding:8px 12px;border:2px solid #667eea;border-radius:8px;background:#fff;color:#667eea;cursor:pointer;font-size:14px;font-weight:600;transition:.15s}
+.select-button:hover{background:#667eea;color:#fff}
+.progress-bar{height:8px;background:#e2e8f0;border-radius:4px;margin-bottom:12px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,#667eea 0%,#48bb78 100%);transition:width .3s;border-radius:4px}
+.timer{font-size:16px;color:#667eea;font-weight:700;text-align:center;margin-bottom:8px}
+.quiz-container{text-align:left}
+.question-box{background:#f8f9fa;border-radius:12px;padding:18px;margin-bottom:14px}
+.question-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.question-number{font-size:14px;color:#718096;font-weight:600}
+.point-badge{background:#667eea;color:#fff;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:700}
+.question-title{font-size:13px;color:#4a5568;margin-bottom:6px;font-weight:600}
+.question-text{font-size:20px;font-weight:700;color:#2d3748;line-height:1.5}
+.model-answer{margin-top:10px;padding:12px;background:#e6fffa;border:2px solid #38b2ac;border-radius:8px;display:none}
+.model-answer-label{font-size:12px;color:#2c7a7b;font-weight:700;margin-bottom:4px}
+.model-answer-text{color:#234e52;font-size:15px;line-height:1.5}
+.rate-grid{display:grid;grid-template-columns:1fr;gap:10px;margin-top:10px}
+.rate-btn{padding:10px;border:2px solid #e2e8f0;border-radius:10px;background:#fff;cursor:pointer;font-weight:700;transition:.15s}
+.rate-btn.perfect{border-color:#48bb78}
+.rate-btn.some{border-color:#ed8936}
+.rate-btn.none{border-color:#f56565}
+.rate-btn.selected{background:#f0f4ff;border-color:#667eea}
+.rate-note{font-size:12px;color:#718096;text-align:center;margin-top:4px}
+#rateFeedback{font-size:12px;color:#2c5282;text-align:center;margin-top:6px;display:none}
+.example-box{margin-top:10px;padding:12px;border:1px solid #e2e8f0;border-radius:8px;background:#f9fafb}
+.example-dim{color:#718096}
+.hint-box{margin-top:10px;padding:12px;background:#fff7ed;border:2px solid #ed8936;border-radius:8px;display:none}
 .hint-label{font-size:12px;color:#c05621;font-weight:700;margin-bottom:4px}
 .hint-text{color:#7b341e;font-size:15px;line-height:1.5}
 .hint-btn{display:inline-block;padding:8px 12px;border:2px solid #ed8936;border-radius:8px;background:#fff;cursor:pointer;font-size:14px;font-weight:700;color:#c05621;margin-top:10px}
-.hint-btn:hover{background:#fffaf0}
+.result-details{background:#f7fafc;border-radius:12px;padding:16px;margin:14px 0}
+.result-item{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #e2e8f0}
+.result-item:last-child{border-bottom:none}
+.score-display{font-size:56px;font-weight:800;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:10px 0;text-align:center}
+.small{font-size:12px;color:#718096;text-align:center;margin-top:6px}
+@media (max-width:480px){.rate-grid{grid-template-columns:1fr} .question-text{font-size:18px} .score-display{font-size:48px}}
+#err{display:none;margin-bottom:10px;padding:10px;border-radius:8px;background:#FED7D7;color:#822727;font-weight:700}
+
+/* Persistent home FAB */
+.home-fab{
+  position:fixed; right:16px; bottom:16px; z-index:1000;
+  display:flex; align-items:center; gap:8px;
+  border:none; border-radius:999px; padding:10px 14px;
+  font-weight:800; font-size:14px; cursor:pointer;
+  background:linear-gradient(135deg,#805ad5 0%, #4c51bf 100%); color:#fff;
+  box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+.home-fab:active{ transform:translateY(1px); }
+.home-fab .icon{ font-size:18px; line-height:1; }
+
+/* 管理モードのレイアウト */
+.mgmt-grid{display:grid;grid-template-columns:1fr;gap:16px}
+.mgmt-section{border:1px solid #e2e8f0;border-radius:12px;padding:14px;background:#f9fafb}
+.mgmt-title{font-weight:800;font-size:16px;color:#2d3748;margin-bottom:8px}
+.mgmt-note{font-size:12px;color:#718096;margin-top:6px}
+.item-list{max-height:360px;overflow-y:auto;border:1px solid #e2e8f0;border-radius:10px;background:#fff}
+.item-row{padding:10px 12px;border-bottom:1px solid #edf2f7}
+.item-row:last-child{border-bottom:none}
+.badge{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:700;background:#edf2ff;color:#374ea2;margin-left:6px}
+.inline-controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.inline-btn{padding:6px 10px;border:2px solid #667eea;border-radius:8px;background:#fff;color:#667eea;font-weight:700;cursor:pointer}
+.inline-btn:hover{background:#667eea;color:#fff}
+.code{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-size:12px;color:#4a5568;background:#edf2f7;border-radius:6px;padding:2px 6px}
 </style>
+</head>
+<body>
+<div class="container">
+  <div id="err"></div>
+  <div id="homeScreen">
+    <h1>文法テスト（確認式＋復習）</h1>
+    <div class="sub">ver.14M9 / 高校英語文法 定義問題</div>
+    <button class="button button-purple" onclick="startGrammarTest()">テストモード</button>
+    <button class="button button-orange" onclick="showPracticeMode()">練習モード</button>
+    <button class="button button-green" onclick="startReviewMode()">復習モード</button>
+    <button class="button button-blue" onclick="showManagement()">管理モード</button>
+    <div class="small">CSVは同フォルダの <code id="csvNameNote">grammar_definition_with_examples2.csv</code> を自動読込します。</div>
+  </div>
+
+  <div id="settingsScreen" class="hidden">
+    <h2>設定</h2>
+    <div class="form-group">
+      <label>モード</label>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px">
+        <div id="modeTest" class="select-button" style="text-align:center" onclick="selectMode('test')">テスト</div>
+        <div id="modePractice" class="select-button" style="text-align:center" onclick="selectMode('practice')">練習</div>
+      </div>
+      <div class="sub" id="modeNote">「解答を確認」で正解を表示 → 記憶度を3択で自己評価します（記述式なし）</div>
+    </div>
+
+    <div class="form-group">
+      <label>文法大項目（複数選択可）</label>
+      <div class="select-controls">
+        <button class="select-button" onclick="selectAllMajorCategories()">全て選択</button>
+        <button class="select-button" onclick="deselectAllMajorCategories()">全て解除</button>
+      </div>
+      <div class="checkbox-group" id="majorGroup"></div>
+    </div>
+
+    <div class="form-group">
+      <label>文法小項目（複数選択可）</label>
+      <div class="select-controls">
+        <button class="select-button" onclick="selectAllItems()">全て選択</button>
+        <button class="select-button" onclick="deselectAllItems()">全て解除</button>
+      </div>
+      <div class="checkbox-group" id="subCategoryGroup"></div>
+    </div>
+
+    <div class="form-group">
+      <label>出題順</label>
+      <select id="questionOrder">
+        <option value="sequential">順番通り</option>
+        <option value="shuffle">シャッフル</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>問題数</label>
+      <select id="questionCount">
+        <option value="5">5問</option>
+        <option value="10" selected>10問</option>
+        <option value="all">全問題</option>
+      </select>
+    </div>
+
+    <div class="form-group" id="timeLimitGroup">
+      <label>制限時間（テストのみ）</label>
+      <select id="timeLimit">
+        <option value="5">5分</option>
+        <option value="10" selected>10分</option>
+        <option value="15">15分</option>
+        <option value="0">無制限</option>
+      </select>
+    </div>
+
+    <div id="studentInfoGroup">
+      <div class="form-group">
+        <label>氏名（テストのみ任意）</label>
+        <input id="studentName" type="text" placeholder="例: 山田太郎"/>
+      </div>
+    </div>
+
+    <button class="button button-blue" onclick="startTest()">開始</button>
+    <button class="button button-gray" onclick="backToHome()">戻る</button>
+  </div>
+
+  <div id="quizScreen" class="hidden">
+    <div id="timer" class="timer"></div>
+    <div class="progress-bar"><div id="progressFill" class="progress-fill"></div></div>
+
+    <div class="quiz-container">
+      <div class="question-box">
+        <div class="question-header">
+          <div id="questionNumber" class="question-number"></div>
+          <div id="pointBadge" class="point-badge"></div>
+        </div>
+        <div id="questionTitle" class="question-title"></div>
+        <div id="questionText" class="question-text"></div>
+
+        <!-- 1) ヒント -->
+        <button id="hintButton" class="hint-btn" type="button" style="display:none" onclick="toggleHint()">ヒントを見る</button>
+        <div id="hintBox" class="hint-box">
+          <div class="hint-label">ヒント</div>
+          <div id="hintText" class="hint-text"></div>
+        </div>
+
+        <!-- 2) 例文 -->
+        <button id="toggleExampleBtn" class="button button-gray" style="margin-top:8px" onclick="toggleExample()">例文を表示</button>
+        <div id="exampleBox" class="example-box hidden">
+          <div style="font-size:12px;color:#718096;font-weight:700;margin-bottom:6px;">例文</div>
+          <div id="exampleEn" style="font-size:15px;color:#2d3748;"></div>
+          <div id="exampleJp" style="font-size:14px;color:#4a5568;margin-top:4px;"></div>
+          <div id="exampleNone" class="example-dim hidden">（例文は登録されていません）</div>
+        </div>
+
+        <!-- 3) 解答 -->
+        <button id="confirmButton" class="button button-blue" onclick="confirmAnswer()">解答を確認</button>
+        <div id="modelAnswer" class="model-answer">
+          <div class="model-answer-label">模範解答</div>
+          <div id="modelAnswerText" class="model-answer-text"></div>
+        </div>
+      </div>
+
+      <div>
+        <div id="rateArea" class="hidden">
+          <div class="rate-grid">
+            <button id="btnPerfect" class="rate-btn perfect" onclick="rateCurrent('perfect')">完璧に覚えた</button>
+            <button id="btnSome" class="rate-btn some" onclick="rateCurrent('some')">まだ完璧ではない</button>
+            <button id="btnNone" class="rate-btn none" onclick="rateCurrent('none')">ぜんぜん覚えられていない</button>
+          </div>
+          <div id="rateFeedback">保存しました。</div>
+          <div class="rate-note">※「まだ」「ぜんぜん」を選ぶと自動的に復習リストに追加されます（ローカル保存）</div>
+        </div>
+
+        <button id="nextButton" class="button button-blue hidden" onclick="nextQuestion()">次の問題へ</button>
+        <button id="finishButton" class="button button-orange hidden" onclick="finishTest()">テストを終了</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="resultScreen" class="hidden">
+    <h2>終了</h2>
+    <div id="scoreDisplay" class="score-display"></div>
+    <div class="result-details">
+      <div class="result-item"><span>問題数</span><span id="totalCount"></span></div>
+      <div class="result-item"><span>所要時間</span><span id="elapsedTime"></span></div>
+      <div class="result-item"><span>復習に追加</span><span id="reviewAddedCount"></span></div>
+    </div>
+    <div id="detailedResults"></div>
+    <button class="button button-green" onclick="startReviewMode()">復習モードでやる</button>
+    <button class="button button-gray" onclick="backToHome()">メニューに戻る</button>
+  </div>
+
+  <!-- 管理モード（パスワードなし） -->
+  <div id="managementScreen" class="hidden">
+    <h2>管理モード</h2>
+    <div class="mgmt-grid">
+      <div class="mgmt-section">
+        <div class="mgmt-title">復習リスト管理</div>
+        <div id="reviewListBox" class="item-list"></div>
+        <div class="inline-controls">
+          <button class="inline-btn" onclick="exportReviewList()">復習リストを書き出す</button>
+          <button class="inline-btn" onclick="importReviewList()">復習リストを読み込む</button>
+          <button class="button button-red" style="width:auto" onclick="clearReviewAll()">復習リストを全削除</button>
+        </div>
+        <div class="mgmt-note">ブラウザのローカル保存を利用します。端末が変わるとリストは共有されません。</div>
+      </div>
+      <div class="mgmt-section">
+        <div class="mgmt-title">項目別の問題一覧</div>
+        <div class="form-group">
+          <label>文法小項目（POINT）を選択</label>
+          <select id="itemSelector" onchange="renderItemQuestions()">
+            <option value="">（小項目を選択）</option>
+          </select>
+        </div>
+        <div id="itemInfo" class="small" style="text-align:left;margin-bottom:8px;"></div>
+        <div id="itemQuestionsBox" class="item-list"></div>
+      </div>
+    </div>
+    <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+      <button class="button button-gray" style="width:auto" onclick="backToHome()">メニューに戻る</button>
+    </div>
+  </div>
+</div>
+
+<!-- Persistent home button -->
+<button class="home-fab" onclick="goHomeSafely()" title="ホームに戻る">
+  <span class="icon">🏠</span><span>ホームに戻る</span>
+</button>
 
 <script>
-    // ====== グローバル状態 ======
-    let grammarQuestions = [];
-    let currentQuestions = [];
-    let currentQuestion = 0;
-    let score = 0;
-    let studentScores = [];
-    let currentStudentInfo = null;
-    let testMode = 'test';
-    let userAnswers = [];
-    let startTime = null;
-    let timerInterval = null;
-    let timeLimit = 10;
-    let selectedCategories = [];
+const DEFAULT_CSVS = ['grammar_definition_with_examples2.csv','grammar_definition.csv'];
+document.getElementById('csvNameNote').textContent = DEFAULT_CSVS[0];
 
-    // ====== GAS設定 ======
-    const GAS_URL = 'https://script.google.com/macros/s/AKfycby2LlbbgoOcQe9akIQ7Jegs5qiNqbsbqt23JfNHiKNMSotld7gjSDAPz-K-2gekC8viHw/exec';
+// surface errors on screen
+window.addEventListener('error', (e)=>{
+  const box=document.getElementById('err');
+  box.textContent = 'スクリプトエラー: ' + (e.message||'') + '（詳細はブラウザのコンソールを参照）';
+  box.style.display='block';
+});
 
-    // ====== 文法データの定義 ======
-    const grammarData = {
-      tense: {
-        name: "時制（TENSE）",
-        items: [
-          {id: "001", name: "基本３時制の定義"},
-          {id: "002", name: "様々な未来表現"},
-          {id: "003", name: "進行形の定義"},
-          {id: "004", name: "進行形のルール"},
-          {id: "005", name: "「時や条件」を表す副詞節で用いる現在形"},
-          {id: "006", name: "現在完了形の用法①～完了・結果・経験～"},
-          {id: "007", name: "現在完了形の用法②～継続～"},
-          {id: "008", name: "現在完了形の用法③～注意点～"},
-          {id: "009", name: "過去完了形の用法①～完了・結果・経験～"},
-          {id: "010", name: "過去完了形の用法②～継続～"},
-          {id: "011", name: "過去完了形の用法③～大過去～"},
-          {id: "012", name: "未来完了形の用法①～完了・結果・経験と継続～"},
-          {id: "013", name: "未来完了形の用法②～注意点～"}
-        ]
-      },
-      voice: {
-        name: "受動態（VOICE）",
-        items: [
-          {id: "014", name: "受動態の基本"},
-          {id: "015", name: "様々な形の受動態"},
-          {id: "016", name: "受動態の疑問文"},
-          {id: "017", name: "第４文型の受動態"},
-          {id: "018", name: "第５文型の受動態"},
-          {id: "019", name: "思考認知告示動詞の受動態"},
-          {id: "020", name: "注意すべき受動態の表現①～be known～"},
-          {id: "021", name: "注意すべき受動態の表現②～感情表現～"},
-          {id: "022", name: "注意すべき受動態の表現③～被害表現～"},
-          {id: "023", name: "注意すべき受動態の表現④～その他の頻出表現～"},
-          {id: "024", name: "be動詞の代わりに使える「動作動詞」と「状態動詞」"},
-          {id: "025", name: "注意すべき受動態の表現⑤～受動態を使わない表現～"},
-          {id: "026", name: "群動詞（熟語）の受動態"}
-        ]
-      },
-      auxiliary: {
-        name: "助動詞（AUXILIARY VERB）",
-        items: [
-          {id: "027", name: "canの基本"},
-          {id: "028", name: "couldを理解しよう"},
-          {id: "029", name: "mayの基本"},
-          {id: "030", name: "mightの基本"},
-          {id: "031", name: "mustの基本"},
-          {id: "032", name: "mustとhave toの違いを理解しよう"},
-          {id: "033", name: "shouldの基本"},
-          {id: "034", name: "shouldの仲間①ought toV"},
-          {id: "035", name: "shouldの仲間②had better V原形"},
-          {id: "036", name: "willの基本"},
-          {id: "037", name: "wouldの基本"},
-          {id: "038", name: "used to V原形～の基本"},
-          {id: "039", name: "shallの基本"},
-          {id: "040", name: "needの基本"},
-          {id: "041", name: "助動詞 have Vp.p.シリーズ"},
-          {id: "042", name: "慣用表現シリーズ"},
-          {id: "043", name: "that節で用いられる想念のshould①"},
-          {id: "044", name: "that節で用いられる想念のshould②"}
-        ]
-      },
-      infinitive: {
-        name: "不定詞（INFINITIVE）",
-        items: [
-          {id: "045", name: "不定詞の基本① 名詞的用法"},
-          {id: "046", name: "不定詞の基本② 形容詞的用法"},
-          {id: "047", name: "不定詞の基本③ 副詞的用法"},
-          {id: "048", name: "ＳＶＯ＋toＶ～"},
-          {id: "049", name: "不定詞の意味上の主語①"},
-          {id: "050", name: "不定詞の意味上の主語②"},
-          {id: "051", name: "使役動詞（原形不定詞）"},
-          {id: "052", name: "知覚動詞"},
-          {id: "053", name: "～ようだシリーズ"},
-          {id: "054", name: "時制の不一致"},
-          {id: "055", name: "様々な形の不定詞～進行形・受動態・否定～"},
-          {id: "056", name: "疑問詞 toV～シリーズ"},
-          {id: "057", name: "独立不定詞"},
-          {id: "058", name: "be to 不定詞"},
-          {id: "059", name: "難易度を表す形容詞＋ toV～"},
-          {id: "060", name: "代不定詞"},
-          {id: "061", name: "不定詞の熟語①"},
-          {id: "062", name: "不定詞の熟語②"}
-        ]
-      },
-      gerund: {
-        name: "動名詞（GERUND）",
-        items: [
-          {id: "063", name: "動名詞の基本"},
-          {id: "064", name: "動名詞と不定詞の違い"},
-          {id: "065", name: "動名詞の意味上の主語と否定語の位置"},
-          {id: "066", name: "動名詞の受動態"},
-          {id: "067", name: "時制の不一致"},
-          {id: "068", name: "動名詞を使った重要表現①"},
-          {id: "069", name: "動名詞を使った重要表現②"},
-          {id: "070", name: "動名詞と不定詞①"},
-          {id: "071", name: "動名詞と不定詞②"},
-          {id: "072", name: "動名詞と不定詞③"}
-        ]
-      },
-      participle: {
-        name: "分詞（PARTICIPLE）",
-        items: [
-          {id: "073", name: "現在分詞の基本"},
-          {id: "074", name: "過去分詞の基本"},
-          {id: "075", name: "補語になる分詞（第２文型）"},
-          {id: "076", name: "補語になる分詞（第５文型）①"},
-          {id: "077", name: "補語になる分詞（第５文型）②"},
-          {id: "078", name: "分詞構文の基本"},
-          {id: "079", name: "分詞構文の作り方"},
-          {id: "080", name: "分詞構文の和訳"},
-          {id: "081", name: "時制の不一致＆独立分詞構文"},
-          {id: "082", name: "接続詞を省略しない分詞構文"},
-          {id: "083", name: "慣用的な分詞構文"},
-          {id: "084", name: "付帯状況を表すwith"},
-          {id: "085", name: "形容詞になっちまった分詞"}
-        ]
-      },
-      subjunctive: {
-        name: "仮定法（SUBJUNCTIVE）",
-        items: [
-          {id: "086", name: "直接法と仮定法"},
-          {id: "087", name: "仮定法過去（現在の妄想）"},
-          {id: "088", name: "仮定法過去完了（過去の妄想）"},
-          {id: "089", name: "wishとas ifを用いた仮定法"},
-          {id: "090", name: "未来の妄想"},
-          {id: "091", name: "ifの省略"},
-          {id: "092", name: "if節を使わない仮定法表現"},
-          {id: "093", name: "仮定法を使った慣用表現"},
-          {id: "094", name: "仮定法ミックス（過去に～だったら、いま…なのになぁ）"}
-        ]
-      },
-      relative: {
-        name: "関係詞（RELATIVE PRONOUN）",
-        items: [
-          {id: "095", name: "関係代名詞の基本"},
-          {id: "096", name: "関係代名詞that"},
-          {id: "097", name: "前置詞と関係代名詞"},
-          {id: "098", name: "関係副詞when"},
-          {id: "099", name: "関係副詞whyとhow"},
-          {id: "100", name: "先行詞を省略できるケース"},
-          {id: "101", name: "関係詞の非制限用法"},
-          {id: "102", name: "非制限用法の使い方"},
-          {id: "103", name: "関係副詞where"},
-          {id: "104", name: "関係詞代名詞what"},
-          {id: "105", name: "関係詞代名詞whatを用いた慣用表現"},
-          {id: "106", name: "複合関係詞の概要"},
-          {id: "107", name: "副詞節（譲歩）を作る複合関係代名詞①"},
-          {id: "108", name: "副詞節（譲歩）を作る複合関係代名詞②"},
-          {id: "109", name: "名詞節を作る複合関係代名詞"},
-          {id: "110", name: "関係代名詞としてのthanとbut"},
-          {id: "111", name: "関係代名詞としてのas"},
-          {id: "112", name: "マニア向け関係代名詞"}
-        ]
-      },
-      comparison: {
-        name: "比較（COMPARISON）",
-        items: [
-          {id: "113", name: "原級比較の基本"},
-          {id: "114", name: "asの倍数表現"},
-          {id: "115", name: "asを用いた慣用表現①"},
-          {id: "116", name: "asを用いた慣用表現②"},
-          {id: "117", name: "asを用いた慣用表現③"},
-          {id: "118", name: "比較級の基本"},
-          {id: "119", name: "差を具体的に表す比較級"},
-          {id: "120", name: "比較級の倍数表現"},
-          {id: "121", name: "不規則変化する形容詞・副詞"},
-          {id: "122", name: "lessを用いた比較級"},
-          {id: "123", name: "比較級を用いた慣用表現①"},
-          {id: "124", name: "比較級を用いた慣用表現②"},
-          {id: "125", name: "比較級を用いた慣用表現③"},
-          {id: "126", name: "比較級を用いた慣用表現④"},
-          {id: "127", name: "noを使った比較表現①"},
-          {id: "128", name: "noを使った比較表現②"},
-          {id: "129", name: "最上級の基本"},
-          {id: "130", name: "最上級を用いた表現①"},
-          {id: "131", name: "最上級を用いた表現②"},
-          {id: "132", name: "最上級の意味を表す原級・比較表現"}
-        ]
-      }
-    };
+let questionData = [];        
+let currentQuestions = [];
+let currentQuestion = 0;
+let startTime = null;
+let timerInterval = null;
+let timeLimit = 10;
+let testMode = 'test';        
+let selectedCategories = [];
+let reviewPool = [];          
+let reviewAddedNow = 0;
 
-    // ====== 問題データ ======
-    let questionData = [];
-    
-    // CSVのタイトルとgrammarDataの小項目IDをマッピング
-    function normalizeTitle(s){return (s||'').toString().toLowerCase().replace(/\s+/g,'').replace(/["""'、。・（）()［］【】\[\]\-—–~〜|｜]/g,'');}
-    const titleToItemIdMap = {
-      "基本３時制の定義": "001",
-      "様々な未来表現": "002",
-      "進行形の定義": "003",
-      "進行形のルール": "004",
-      "「時や条件」を表す副詞節で用いる現在形": "005",
-      "現在完了形の用法①～完了・結果・経験～": "006",
-      "現在完了形の用法②～継続～": "007",
-      "現在完了形の用法③～注意点～": "008",
-      "過去完了形の用法①～完了・結果・経験～": "009",
-      "過去完了形の用法②～継続～": "010",
-      "過去完了形の用法③～大過去～": "011",
-      "未来完了形の用法①～完了・結果・経験と継続～": "012",
-      "未来完了形の用法②～注意点～": "013",
-      "受動態の基本": "014",
-      "様々な形の受動態": "015",
-      "受動態の疑問文": "016",
-      "第４文型の受動態": "017",
-      "第５文型の受動態": "018",
-      "思考認知告示動詞の受動態": "019",
-      "注意すべき受動態の表現①～be known～": "020",
-      "注意すべき受動態の表現②～感情表現～": "021",
-      "注意すべき受動態の表現③～被害表現～": "022",
-      "注意すべき受動態の表現④～その他の頻出表現～": "023",
-      "be動詞の代わりに使える「動作動詞」と「状態動詞」": "024",
-      "注意すべき受動態の表現⑤～受動態を使わない表現～": "025",
-      "群動詞（熟語）の受動態": "026",
-      "canの基本": "027",
-      "couldを理解しよう": "028",
-      "mayの基本": "029",
-      "mightの基本": "030",
-      "mustの基本": "031",
-      "mustとhave toの違いを理解しよう": "032",
-      "shouldの基本": "033",
-      "shouldの仲間①ought toV": "034",
-      "shouldの仲間②had better V原形": "035",
-      "willの基本": "036",
-      "wouldの基本": "037",
-      "used to V原形～の基本": "038",
-      "shallの基本": "039",
-      "needの基本": "040",
-      "助動詞 have Vp.p.シリーズ": "041",
-      "慣用表現シリーズ": "042",
-      "that節で用いられる想念のshould①": "043",
-      "that節で用いられる想念のshould②": "044",
-      "不定詞の基本① 名詞的用法": "045",
-      "不定詞の基本② 形容詞的用法": "046",
-      "不定詞の基本③ 副詞的用法": "047",
-      "SVO＋toV～ 不定詞の基本": "048",
-      "不定詞の意味上の主語①": "049",
-      "不定詞の意味上の主語②": "050",
-      "使役動詞（原形不定詞）": "051",
-      "知覚動詞": "052",
-      "～ようだシリーズ": "053",
-      "時制の不一致": "054",
-      "様々な形の不定詞～進行形・受動態・否定～": "055",
-      "疑問詞 toV～シリーズ": "056",
-      "独立不定詞": "057",
-      "be to 不定詞": "058",
-      "難易度を表す形容詞＋ toV～": "059",
-      "代不定詞": "060",
-      "不定詞の熟語①": "061",
-      "不定詞の熟語②": "062",
-      "動名詞の基本": "063",
-      "動名詞と不定詞の違い": "064",
-      "動名詞の意味上の主語と否定語の位置": "065",
-      "動名詞の受動態": "066",
-      "時制の不一致": "067",
-      "動名詞を使った重要表現①": "068",
-      "動名詞を使った重要表現②": "069",
-      "動名詞と不定詞①": "070",
-      "動名詞と不定詞②": "071",
-      "動名詞と不定詞③": "072",
-      "現在分詞の基本": "073",
-      "過去分詞の基本": "074",
-      "補語になる分詞（第２文型）": "075",
-      "補語になる分詞（第５文型）①": "076",
-      "補語になる分詞（第５文型）②": "077",
-      "分詞構文の基本": "078",
-      "分詞構文の作り方": "079",
-      "分詞構文の和訳": "080",
-      "時制の不一致＆独立分詞構文": "081",
-      "接続詞を省略しない分詞構文": "082",
-      "慣用的な分詞構文": "083",
-      "付帯状況を表すwith": "084",
-      "形容詞になっちまった分詞": "085",
-      "直接法と仮定法": "086",
-      "仮定法過去（現在の妄想）": "087",
-      "仮定法過去完了（過去の妄想）": "088",
-      "wishとas ifを用いた仮定法": "089",
-      "未来の妄想": "090",
-      "ifの省略": "091",
-      "if節を使わない仮定法表現": "092",
-      "仮定法を使った慣用表現": "093",
-      "仮定法ミックス（過去に～だったら、いま…なのになぁ）": "094",
-      "関係代名詞の基本": "095",
-      "関係代名詞that": "096",
-      "前置詞と関係代名詞": "097",
-      "関係副詞when": "098",
-      "関係副詞whyとhow": "099",
-      "先行詞を省略できるケース": "100",
-      "関係詞の非制限用法": "101",
-      "非制限用法の使い方": "102",
-      "関係副詞where": "103",
-      "関係詞代名詞what": "104",
-      "関係詞代名詞whatを用いた慣用表現": "105",
-      "複合関係詞の概要": "106",
-      "副詞節（譲歩）を作る複合関係代名詞①": "107",
-      "副詞節（譲歩）を作る複合関係代名詞②": "108",
-      "名詞節を作る複合関係代名詞": "109",
-      "関係代名詞としてのthanとbut": "110",
-      "関係代名詞としてのas": "111",
-      "マニア向け関係代名詞": "112",
-      "原級比較の基本": "113",
-      "asの倍数表現": "114",
-      "asを用いた慣用表現①": "115",
-      "asを用いた慣用表現②": "116",
-      "asを用いた慣用表現③": "117",
-      "比較級の基本": "118",
-      "差を具体的に表す比較級": "119",
-      "比較級の倍数表現": "120",
-      "不規則変化する形容詞・副詞": "121",
-      "lessを用いた比較級": "122",
-      "比較級を用いた慣用表現①": "123",
-      "比較級を用いた慣用表現②": "124",
-      "比較級を用いた慣用表現③": "125",
-      "比較級を用いた慣用表現④": "126",
-      "noを使った比較表現①": "127",
-      "noを使った比較表現②": "128",
-      "最上級の基本": "129",
-      "最上級を用いた表現①": "130",
-      "最上級を用いた表現②": "131",
-      "最上級の意味を表す原級・比較表現": "132"
-    };
+function showScreen(id){
+  ['homeScreen','settingsScreen','quizScreen','resultScreen','managementScreen']
+  .forEach(sid => { const el = document.getElementById(sid); if(el) el.classList.add('hidden'); });
+  const target=document.getElementById(id);
+  if(target) target.classList.remove('hidden');
+}
+function backToHome(){
+  resetState();
+  showScreen('homeScreen');
+}
+function resetState(){
+  currentQuestions = [];
+  currentQuestion = 0;
+  startTime = null;
+  if(timerInterval) clearInterval(timerInterval);
+  reviewAddedNow = 0;
+  const ma=document.getElementById('modelAnswer'); if(ma) ma.style.display='none';
+  const ra=document.getElementById('rateArea'); if(ra) ra.classList.add('hidden');
+  ['btnPerfect','btnSome','btnNone'].forEach(id=>{
+    const b=document.getElementById(id); if(b){ b.classList.remove('selected'); b.disabled=false; }
+  });
+  const fb=document.getElementById('rateFeedback'); if(fb){ fb.style.display='none'; fb.textContent='保存しました。'; }
+  const nb=document.getElementById('nextButton'); if(nb) nb.classList.add('hidden');
+  const fb2=document.getElementById('finishButton'); if(fb2) fb2.classList.add('hidden');
+  const hb=document.getElementById('hintBox'); if(hb) hb.style.display='none';
+  const hbBtn=document.getElementById('hintButton'); if(hbBtn) hbBtn.style.display='none';
+  const ex=document.getElementById('exampleBox'); if(ex){ ex.classList.add('hidden'); }
+  const exBtn=document.getElementById('toggleExampleBtn'); if(exBtn){ exBtn.textContent='例文を表示'; }
+  const exNone=document.getElementById('exampleNone'); if(exNone){ exNone.classList.add('hidden'); }
+}
 
-    // ====== ユーティリティ ======
-    function showScreen(id){
-      ['homeScreen','settingsScreen','quizScreen','resultScreen','teacherLoginScreen','teacherScreen','questionScreen']
-        .forEach(sid=>{ const el=document.getElementById(sid); if(el) el.classList.add('hidden'); });
-      const target=document.getElementById(id);
-      if(target){ target.classList.remove('hidden'); }
+// Safe home navigation
+function goHomeSafely(){
+  const quizVisible = !document.getElementById('quizScreen').classList.contains('hidden');
+  if(quizVisible && currentQuestions.length){
+    const ok = confirm('進行中のセッションを終了してホームに戻ります。よろしいですか？');
+    if(!ok) return;
+  }
+  backToHome();
+}
+
+document.addEventListener('DOMContentLoaded', async ()=>{
+  buildCategoryUI();
+  updateSubCategories();
+  loadReviewPool();
+  await autoLoadCSV();
+  buildItemSelector();  // 管理モードの項目セレクタを作成
+});
+
+async function autoLoadCSV(){
+  for (const name of DEFAULT_CSVS){
+    try{
+      const res = await fetch(name, {cache:'no-store'});
+      if(!res.ok) throw new Error('HTTP '+res.status);
+      const text = await res.text();
+      const rows = parseCSV(text);
+      questionData = rowsToQuestions(rows);
+      console.log(`[CSV] Loaded ${questionData.length} rows from ${name}`);
+      document.getElementById('csvNameNote').textContent = name;
+      return;
+    }catch(e){
+      console.warn(`[CSV] Failed to load ${name}`, e);
     }
+  }
+  questionData = [
+    {id:'001',question:'現在形の定義は？',answer:'昨日も今日も明日も変わらない',point:'POINT 1',title:'基本３時制の定義',subId:'001'}
+  ];
+}
 
-    function backToHome(){
-      showScreen('homeScreen');
-      resetQuizState();
+// CSV parser
+function parseCSV(text){
+  const rows=[]; let row=[]; let cur=''; let inQ=false;
+  for(let i=0;i<text.length;i++){
+    const c=text[i], n=text[i+1];
+    if(inQ){
+      if(c==='\"'){
+        if(n==='\"'){ cur+='\"'; i++; }
+        else{ inQ=false; }
+      }else cur+=c;
+    }else{
+      if(c==='\"'){ inQ=true; }
+      else if(c===','){ row.push(cur); cur=''; }
+      else if(c==='\r'){ /* skip */ }
+      else if(c==='\n'){ row.push(cur); rows.push(row); row=[]; cur=''; }
+      else cur+=c;
     }
+  }
+  if(cur.length>0 || row.length>0){ row.push(cur); rows.push(row); }
+  return rows;
+}
 
-    function resetQuizState(){
-      currentQuestion=0;
-      score=0;
-      currentQuestions=[];
-      userAnswers=[];
-      testMode='test';
-      selectedCategories=[];
-      if(timerInterval) clearInterval(timerInterval);
-      resetExampleUI();
-      resetHintUI();
+// Normalizers
+function normalizeHeader(h){
+  return (h||'').toString().trim().toLowerCase().replace(/[\s_]+/g,'');
+}
+function normalizeTitle(s){
+  return (s||'')
+    .toString()
+    .trim()
+    .replace(/\u301c/g,'\uff5e')
+    .replace(/\s+/g,'')
+    ;
+}
+
+// Title→ID map
+const titleToItemIdMapRaw = {
+  "基本３時制の定義":"001","様々な未来表現":"002","進行形の定義":"003","進行形のルール":"004","「時や条件」を表す副詞節で用いる現在形":"005",
+  "現在完了形の用法①～完了・結果・経験～":"006","現在完了形の用法②～継続～":"007","現在完了形の用法③～注意点～":"008",
+  "過去完了形の用法①～完了・結果・経験～":"009","過去完了形の用法②～継続～":"010","過去完了形の用法③～大過去～":"011",
+  "未来完了形の用法①～完了・結果・経験と継続～":"012","未来完了形の用法②～注意点～":"013","受動態の基本":"014","様々な形の受動態":"015",
+  "受動態の疑問文":"016","第４文型の受動態":"017","第５文型の受動態":"018","思考認知告示動詞の受動態":"019","注意すべき受動態の表現①～be known～":"020",
+  "注意すべき受動態の表現②～感情表現～":"021","注意すべき受動態の表現③～被害表現～":"022","注意すべき受動態の表現④～その他の頻出表現～":"023",
+  "be動詞の代わりに使える「動作動詞」と「状態動詞」":"024","注意すべき受動態の表現⑤～受動態を使わない表現～":"025","群動詞（熟語）の受動態":"026",
+  "canの基本":"027","couldを理解しよう":"028","mayの基本":"029","mightの基本":"030","mustの基本":"031","mustとhave toの違いを理解しよう":"032",
+  "shouldの基本":"033","shouldの仲間①ought toV":"034","shouldの仲間②had better V原形":"035","willの基本":"036","wouldの基本":"037",
+  "used to V原形～の基本":"038","shallの基本":"039","needの基本":"040","助動詞 have Vp.p.シリーズ":"041","慣用表現シリーズ":"042",
+  "that節で用いられる想念のshould①":"043","that節で用いられる想念のshould②":"044","不定詞の基本① 名詞的用法":"045","不定詞の基本② 形容詞的用法":"046",
+  "不定詞の基本③ 副詞的用法":"047","ＳＶＯ＋toＶ～":"048","不定詞の意味上の主語①":"049","不定詞の意味上の主語②":"050","使役動詞（原形不定詞）":"051",
+  "知覚動詞":"052","～ようだシリーズ":"053","時制の不一致":"054","様々な形の不定詞～進行形・受動態・否定～":"055","疑問詞 toV～シリーズ":"056","独立不定詞":"057",
+  "be to 不定詞":"058","難易度を表す形容詞＋ toV～":"059","代不定詞":"060","不定詞の熟語①":"061","不定詞の熟語②":"062","動名詞の基本":"063",
+  "動名詞と不定詞の違い":"064","動名詞の意味上の主語と否定語の位置":"065","動名詞の受動態":"066","時制の不一致":"067","動名詞を使った重要表現①":"068",
+  "動名詞を使った重要表現②":"069","動名詞と不定詞①":"070","動名詞と不定詞②":"071","動名詞と不定詞③":"072","現在分詞の基本":"073","過去分詞の基本":"074",
+  "補語になる分詞（第２文型）":"075","補語になる分詞（第５文型）①":"076","補語になる分詞（第５文型）②":"077","分詞構文の基本":"078","分詞構文の作り方":"079",
+  "分詞構文の和訳":"080","時制の不一致＆独立分詞構文":"081","接続詞を省略しない分詞構文":"082","慣用的な分詞構文":"083","付帯状況を表すwith":"084",
+  "形容詞になっちまった分詞":"085","直接法と仮定法":"086","仮定法過去（現在の妄想）":"087","仮定法過去完了（過去の妄想）":"088","wishとas ifを用いた仮定法":"089",
+  "未来の妄想":"090","ifの省略":"091","if節を使わない仮定法表現":"092","仮定法を使った慣用表現":"093","仮定法ミックス（過去に～だったら、いま…なのになぁ）":"094",
+  "関係代名詞の基本":"095","関係代名詞that":"096","前置詞と関係代名詞":"097","関係副詞when":"098","関係副詞whyとhow":"099","先行詞を省略できるケース":"100",
+  "関係詞の非制限用法":"101","非制限用法の使い方":"102","関係副詞where":"103","関係詞代名詞what":"104","関係詞代名詞whatを用いた慣用表現":"105",
+  "複合関係詞の概要":"106","副詞節（譲歩）を作る複合関係代名詞①":"107","副詞節（譲歩）を作る複合関係代名詞②":"108","名詞節を作る複合関係代名詞":"109",
+  "関係代名詞としてのthanとbut":"110","関係代名詞としてのas":"111","マニア向け関係代名詞":"112","原級比較の基本":"113","asの倍数表現":"114",
+  "asを用いた慣用表現①":"115","asを用いた慣用表現②":"116","asを用いた慣用表現③":"117","比較級の基本":"118","差を具体的に表す比較級":"119",
+  "比較級の倍数表現":"120","不規則変化する形容詞・副詞":"121","lessを用いた比較級":"122","比較級を用いた慣用表現①":"123","比較級を用いた慣用表現②":"124",
+  "比較級を用いた慣用表現③":"125","比較級を用いた慣用表現④":"126","noを使った比較表現①":"127","noを使った比較表現②":"128","最上級の基本":"129",
+  "最上級を用いた表現①":"130","最上級を用いた表現②":"131","最上級の意味を表す原級・比較表現":"132"
+};
+const normalizedTitleMap = {}; Object.keys(titleToItemIdMapRaw).forEach(k => { normalizedTitleMap[normalizeTitle(k)] = titleToItemIdMapRaw[k]; });
+
+function rowsToQuestions(rows){
+  if(!rows || !rows.length) return [];
+  const rawHeader = rows[0];
+  const header = rawHeader.map(normalizeHeader);
+
+  const idx = (name)=> header.indexOf(normalizeHeader(name));
+  const idI = idx('id');
+  const qI=idx('question');
+  const aI=idx('answer');
+  const pI=idx('point');
+  const tI=idx('title');
+  const hI = (idx('hint')>=0?idx('hint'):idx('hints'));
+  const eEI = (idx('exampleen')>=0?idx('exampleen'):idx('example_en'));
+  const eJI = (idx('examplejp')>=0?idx('examplejp'):idx('example_jp'));
+
+  const out=[];
+  for(let i=1;i<rows.length;i++){
+    const r=rows[i]; if(!r || r.length===0) continue;
+    const get = (I)=> (I>=0 && I<r.length) ? (r[I]||'') : '';
+
+    const idRaw = (get(idI)).toString().trim();
+    const id = idRaw.padStart(3,'0');
+    const titleRaw = (get(tI)).toString();
+    const title = titleRaw.trim();
+    const pointRaw = (get(pI)).toString();
+
+    let subId = null;
+    const m = pointRaw.match(/(\d{1,3})/);
+    if(m){
+      const num = parseInt(m[1],10);
+      if(num>=1 && num<=132) subId = String(num).padStart(3,'0');
     }
-
-    // ====== セレクト初期化 ======
-    function initializeSelects(){
-      const classSelect=document.getElementById('studentClass');
-      const numberSelect=document.getElementById('studentNumber');
-      if(classSelect && classSelect.options.length<=1){
-        for(let i=1;i<=10;i++){
-          const o=document.createElement('option');
-          o.value=i+'組';
-          o.textContent=i+'組';
-          classSelect.appendChild(o);
-        }
-      }
-      if(numberSelect && numberSelect.options.length<=1){
-        for(let i=1;i<=40;i++){
-          const o=document.createElement('option');
-          o.value=i+'番';
-          o.textContent=i+'番';
-          numberSelect.appendChild(o);
-        }
-      }
+    if(!subId){
+      const norm = normalizeTitle(title);
+      if(normalizedTitleMap[norm]) subId = normalizedTitleMap[norm];
     }
+    if(!subId){ subId = id; }
 
-    // ====== カテゴリ選択 ======
-    function selectAllMajorCategories(){
-      const checkboxes = document.querySelectorAll('.checkbox-group input[type="checkbox"]');
-      checkboxes.forEach(cb => {
-        if(['tense','voice','auxiliary','infinitive','gerund','participle','subjunctive','relative','comparison'].includes(cb.value)){
-          cb.checked = true;
-        }
-      });
-      updateSubCategories();
-    }
-
-    function deselectAllMajorCategories(){
-      const checkboxes = document.querySelectorAll('.checkbox-group input[type="checkbox"]');
-      checkboxes.forEach(cb => {
-        if(['tense','voice','auxiliary','infinitive','gerund','participle','subjunctive','relative','comparison'].includes(cb.value)){
-          cb.checked = false;
-        }
-      });
-      updateSubCategories();
-    }
-
-    function updateSubCategories(){
-      const checkedMajorCategories = [];
-      const majorCheckboxes = document.querySelectorAll('.checkbox-group input[type="checkbox"]:checked');
-      majorCheckboxes.forEach(cb => {
-        if(['tense','voice','auxiliary','infinitive','gerund','participle','subjunctive','relative','comparison'].includes(cb.value)){
-          checkedMajorCategories.push(cb.value);
-        }
-      });
-
-      const subCategoryGroup = document.getElementById('subCategoryGroup');
-      subCategoryGroup.innerHTML = '';
-
-      if(checkedMajorCategories.length === 0){
-        // 何も選択されていない場合は全て表示
-        Object.keys(grammarData).forEach(key => {
-          displayCategoryItems(key, subCategoryGroup);
-        });
-      } else {
-        // 選択されたカテゴリのみ表示
-        checkedMajorCategories.forEach(key => {
-          displayCategoryItems(key, subCategoryGroup);
-        });
-      }
-    }
-
-    function displayCategoryItems(key, container){
-      const category = grammarData[key];
-      if(!category) return;
-      
-      const header = document.createElement('div');
-      header.style.fontWeight = '700';
-      header.style.color = '#667eea';
-      header.style.marginTop = '12px';
-      header.style.marginBottom = '4px';
-      header.style.fontSize = '15px';
-      header.textContent = category.name;
-      container.appendChild(header);
-
-      category.items.forEach(item => {
-        const label = document.createElement('label');
-        label.style.display = 'flex';
-        label.style.alignItems = 'center';
-        label.style.padding = '4px 0';
-        label.style.cursor = 'pointer';
-        label.style.fontSize = '14px';
-        label.innerHTML = `
-          <input type="checkbox" value="${item.id}" onchange="updateSelectedCategories()" style="margin-right:8px;">
-          ${item.id}. ${item.name}
-        `;
-        container.appendChild(label);
-      });
-    }
-
-    function selectAllItems(){
-      const checkboxes = document.querySelectorAll('#subCategoryGroup input[type="checkbox"]');
-      checkboxes.forEach(cb => cb.checked = true);
-      updateSelectedCategories();
-    }
-
-    function deselectAllItems(){
-      const checkboxes = document.querySelectorAll('#subCategoryGroup input[type="checkbox"]');
-      checkboxes.forEach(cb => cb.checked = false);
-      updateSelectedCategories();
-    }
-
-    function updateSelectedCategories(){
-      selectedCategories = [];
-      const checkboxes = document.querySelectorAll('#subCategoryGroup input[type="checkbox"]:checked');
-      checkboxes.forEach(cb => selectedCategories.push(cb.value.padStart(3, '0')));
-    }
-
-    // ====== モード選択 ======
-    function selectMode(mode){
-      testMode = mode;
-      document.getElementById('modeTest').classList.toggle('selected', mode === 'test');
-      document.getElementById('modePractice').classList.toggle('selected', mode === 'practice');
-      
-      // 練習モードでは時間制限と学生情報を非表示
-      document.getElementById('timeLimitGroup').style.display = mode === 'practice' ? 'none' : 'block';
-      document.getElementById('studentInfoGroup').style.display = mode === 'practice' ? 'none' : 'block';
-    }
-
-    function showPracticeMode(){
-      showScreen('settingsScreen');
-      selectMode('practice');
-      // 初期状態で全カテゴリを表示
-      setTimeout(() => {
-        updateSubCategories();
-      }, 100);
-    }
-
-    // ====== テスト開始 ======
-    function startGrammarTest(){
-      showScreen('settingsScreen');
-      selectMode('test');
-      // 初期状態で全カテゴリを表示
-      setTimeout(() => {
-        updateSubCategories();
-      }, 100);
-    }
-
-    function startTest(){
-      // テストモードの場合のみ学生情報を検証
-      if(testMode === 'test'){
-        const grade = document.getElementById('studentGrade').value;
-        const studentClass = document.getElementById('studentClass').value;
-        const number = document.getElementById('studentNumber').value;
-        const name = document.getElementById('studentName').value;
-
-        if(!grade || !studentClass || !number || !name){
-          alert('学年・クラス・出席番号・氏名をすべて入力してください。');
-          return;
-        }
-        currentStudentInfo = { grade, class: studentClass, number, name };
-      }
-
-      // カテゴリが選択されているか確認
-      if(selectedCategories.length === 0){
-        alert('文法小項目を1つ以上選択してください。');
-        return;
-      }
-
-      // スコアをリセット
-      score = 0;
-      currentQuestion = 0;
-
-      // 問題生成
-      generateQuestions();
-      
-      if(currentQuestions.length === 0){
-        alert('選択した項目に問題が用意されていません。');
-        return;
-      }
-
-      // タイマー設定
-      if(testMode === 'test'){
-        timeLimit = parseInt(document.getElementById('timeLimit').value);
-        startTime = Date.now();
-        if(timeLimit > 0) startTimer();
-      }
-
-      showScreen('quizScreen');
-      displayQuestion();
-    }
-
-    function generateQuestions(){
-      const count = document.getElementById('questionCount').value;
-      const order = document.getElementById('questionOrder')?.value || 'sequential';
-      
-      console.log('選択されたカテゴリ:', selectedCategories);
-      console.log('利用可能な問題数:', questionData.length);
-      console.log('questionDataの最初の5件:', questionData.slice(0, 5));
-      
-      // 選択されたカテゴリの問題のみ抽出
-      let filteredQuestions = questionData.filter(q => {
-        const match = selectedCategories.includes(q.id);
-        if (!match && selectedCategories.length > 0 && questionData.length > 0) {
-          console.log(`問題ID ${q.id} は選択カテゴリに含まれていません`);
-        }
-        return match;
-      });
-      
-      console.log('フィルタ後の問題数:', filteredQuestions.length);
-      
-      // 問題が存在しない場合は全問題を使用（デモ用）
-      if(filteredQuestions.length === 0){
-        console.log('選択されたカテゴリに問題がありません。');
-        // エラーメッセージを表示して処理を中断
-        return;
-      }
-      
-      // シャッフルするかどうかの判定
-      let orderedQuestions;
-      if(order === 'shuffle'){
-        orderedQuestions = [...filteredQuestions].sort(() => Math.random() - 0.5);
-      } else {
-        // 順番通りの場合はそのまま使用
-        orderedQuestions = [...filteredQuestions];
-      }
-      
-      if(count === 'all'){
-        currentQuestions = orderedQuestions;
-      } else {
-        currentQuestions = orderedQuestions.slice(0, parseInt(count));
-      }
-      
-      // 各問題に answered フラグを初期化
-      currentQuestions = currentQuestions.map(q => ({
-        ...q,
-        answered: false,
-        isCorrect: false
-      }));
-      
-      userAnswers = new Array(currentQuestions.length).fill('');
-    }
-
-    function startTimer(){
-      const updateTimer = () => {
-        const elapsed = Math.floor((Date.now() - startTime) / 1000);
-        const remaining = timeLimit * 60 - elapsed;
-        
-        if(remaining <= 0){
-          clearInterval(timerInterval);
-          alert('制限時間になりました。テストを終了します。');
-          finishTest();
-          return;
-        }
-        
-        const minutes = Math.floor(remaining / 60);
-        const seconds = remaining % 60;
-        document.getElementById('timer').textContent = 
-          `残り時間: ${minutes}:${seconds.toString().padStart(2, '0')}`;
-      };
-      
-      updateTimer();
-      timerInterval = setInterval(updateTimer, 1000);
-    }
-
-    function displayQuestion(){
-      resetExampleUI();
-      resetHintUI();
-      
-      if(currentQuestion >= currentQuestions.length){
-        finishTest();
-        return;
-      }
-
-      const q = currentQuestions[currentQuestion];
-      document.getElementById('questionNumber').textContent = `問${currentQuestion + 1} / ${currentQuestions.length}`;
-      document.getElementById('pointBadge').textContent = q.point;
-      document.getElementById('questionTitle').textContent = q.title;
-      document.getElementById('questionText').textContent = q.question;
-      
-      // 前の解答があれば表示
-      document.getElementById('answerInput').value = userAnswers[currentQuestion] || '';
-      document.getElementById('answerInput').className = 'answer-input';
-      document.getElementById('answerStatus').textContent = '';
-      document.getElementById('modelAnswer').style.display = 'none';
-      
-      // ヒント設定
-      updateHintForCurrentQuestion();
-      
-      // ボタンの表示制御
-      const isLastQuestion = currentQuestion === currentQuestions.length - 1;
-      
-      if(testMode === 'practice' || testMode === 'test'){
-        document.getElementById('submitButton').classList.remove('hidden');
-        document.getElementById('nextButton').classList.toggle('hidden', testMode === 'practice' || !isLastQuestion);
-        document.getElementById('finishButton').classList.toggle('hidden', testMode === 'practice' || isLastQuestion === false);
-      }
-
-      document.getElementById('progressFill').style.width = 
-        (((currentQuestion + 1) / currentQuestions.length) * 100) + '%';
-      
-      // タイマー表示
-      document.getElementById('timer').style.display = 
-        (testMode === 'test' && timeLimit > 0) ? 'block' : 'none';
-    }
-
-    function submitAnswer(){
-      const userAnswer = document.getElementById('answerInput').value.trim();
-      const q = currentQuestions[currentQuestion];
-      
-      userAnswers[currentQuestion] = userAnswer;
-      
-      // 正解判定（部分一致も考慮）
-      const isCorrect = checkAnswer(userAnswer, q.answer);
-      
-      if(isCorrect){
-        document.getElementById('answerInput').className = 'answer-input correct';
-        document.getElementById('answerStatus').textContent = '✓ 正解！';
-        document.getElementById('answerStatus').className = 'answer-status correct';
-        score++;
-      } else {
-        document.getElementById('answerInput').className = 'answer-input incorrect';
-        document.getElementById('answerStatus').textContent = '✗ 不正解';
-        document.getElementById('answerStatus').className = 'answer-status incorrect';
-      }
-      
-      // 模範解答を表示
-      document.getElementById('modelAnswerText').textContent = q.answer;
-      document.getElementById('modelAnswer').style.display = 'block';
-      
-      // ボタンの切り替え
-      document.getElementById('submitButton').classList.add('hidden');
-      if(currentQuestion < currentQuestions.length - 1){
-        document.getElementById('nextButton').classList.remove('hidden');
-      } else {
-        document.getElementById('finishButton').classList.remove('hidden');
-      }
-    }
-
-    function checkAnswer(userAnswer, correctAnswer){
-      // 空の解答は不正解
-      if(!userAnswer || userAnswer.trim() === '') return false;
-      
-      // 前処理：大文字小文字を区別せず、余分な空白を削除
-      const normalizeText = (text) => {
-        return text.toLowerCase()
-          .replace(/[、。！？「」『』（）｛｝［］【】・]/g, ' ') // 句読点を空白に
-          .replace(/\s+/g, ' ') // 連続する空白を1つに
-          .trim();
-      };
-      
-      const normalizedUser = normalizeText(userAnswer);
-      const normalizedCorrect = normalizeText(correctAnswer);
-      
-      // 完全一致
-      if(normalizedUser === normalizedCorrect) return true;
-      
-      // 番号付きリストの特別処理（①②③などがある場合）
-      if(correctAnswer.includes('①') || correctAnswer.includes('②')) {
-        // 番号付きの項目を抽出
-        const correctItems = correctAnswer.match(/[①-⑩]\s*[^①-⑩]*/g) || [];
-        const extractedCorrectItems = correctItems.map(item => {
-          return item.replace(/[①-⑩]/g, '').trim().toLowerCase();
-        });
-        
-        // ユーザーの解答から項目を抽出（様々な区切り文字に対応）
-        const userItems = userAnswer.split(/[,、\n①-⑩123456789０-９]/).filter(item => item.trim());
-        const normalizedUserItems = userItems.map(item => item.trim().toLowerCase());
-        
-        // 項目の一致率を計算
-        let matchCount = 0;
-        extractedCorrectItems.forEach(correctItem => {
-          const found = normalizedUserItems.some(userItem => {
-            // 部分一致または類似度チェック
-            return userItem.includes(correctItem) || 
-                   correctItem.includes(userItem) ||
-                   calculateSimilarity(userItem, correctItem) > 0.7;
-          });
-          if(found) matchCount++;
-        });
-        
-        // 60%以上の項目が一致していれば正解
-        if(extractedCorrectItems.length > 0) {
-          return matchCount / extractedCorrectItems.length >= 0.6;
-        }
-      }
-      
-      // キーワードベースの判定
-      const extractKeywords = (text) => {
-        // 日本語と英語のキーワードを抽出
-        const keywords = text.match(/[ぁ-んァ-ヶー一-龠]+|[a-zA-Z]+/g) || [];
-        // 2文字以上のキーワードのみを使用（助詞などを除外）
-        return keywords.filter(kw => kw.length >= 2);
-      };
-      
-      const correctKeywords = extractKeywords(normalizedCorrect);
-      const userKeywords = extractKeywords(normalizedUser);
-      
-      if(correctKeywords.length === 0) return false;
-      
-      // 各正解キーワードに対して、ユーザーの解答に含まれているかチェック
-      let keywordMatches = 0;
-      let importantKeywordMatches = 0;
-      
-      // 重要なキーワードを定義（これらは必須）
-      const importantPatterns = [
-        /過去|現在|未来|完了|進行/,
-        /public|private|公的|私的/,
-        /状態動詞|動作動詞/,
-        /継続|完了|結果|経験/,
-        /will|going\s*to/i
-      ];
-      
-      correctKeywords.forEach(keyword => {
-        const isImportant = importantPatterns.some(pattern => pattern.test(keyword));
-        
-        // ユーザーの解答に含まれているかチェック
-        const found = userKeywords.some(userKw => {
-          // 完全一致
-          if(userKw === keyword) return true;
-          // 部分一致（3文字以上の場合）
-          if(keyword.length >= 3 && (userKw.includes(keyword) || keyword.includes(userKw))) return true;
-          // 類似度チェック
-          return calculateSimilarity(userKw, keyword) > 0.8;
-        });
-        
-        if(found) {
-          keywordMatches++;
-          if(isImportant) importantKeywordMatches++;
-        } else if(isImportant) {
-          // 重要なキーワードが見つからない場合はペナルティ
-          keywordMatches -= 0.5;
-        }
-      });
-      
-      // 判定：キーワードの60%以上が一致していれば正解
-      const matchRate = keywordMatches / correctKeywords.length;
-      
-      // 短い解答（10文字未満）の場合は厳しく判定
-      if(normalizedUser.length < 10) {
-        return matchRate >= 0.8;
-      }
-      
-      // 通常の判定
-      return matchRate >= 0.6;
-    }
-    
-    // 文字列の類似度を計算（レーベンシュタイン距離の簡易版）
-    function calculateSimilarity(str1, str2) {
-      const longer = str1.length > str2.length ? str1 : str2;
-      const shorter = str1.length > str2.length ? str2 : str1;
-      
-      if (longer.length === 0) return 1.0;
-      
-      const editDistance = getEditDistance(longer, shorter);
-      return (longer.length - editDistance) / longer.length;
-    }
-    
-    // 編集距離を計算
-    function getEditDistance(str1, str2) {
-      const matrix = [];
-      
-      for (let i = 0; i <= str2.length; i++) {
-        matrix[i] = [i];
-      }
-      
-      for (let j = 0; j <= str1.length; j++) {
-        matrix[0][j] = j;
-      }
-      
-      for (let i = 1; i <= str2.length; i++) {
-        for (let j = 1; j <= str1.length; j++) {
-          if (str2.charAt(i - 1) === str1.charAt(j - 1)) {
-            matrix[i][j] = matrix[i - 1][j - 1];
-          } else {
-            matrix[i][j] = Math.min(
-              matrix[i - 1][j - 1] + 1, // 置換
-              matrix[i][j - 1] + 1,     // 挿入
-              matrix[i - 1][j] + 1      // 削除
-            );
-          }
-        }
-      }
-      
-      return matrix[str2.length][str1.length];
-    }
-
-    function nextQuestion(){
-      resetExampleUI();
-      resetHintUI();
-      // テストモードの場合は解答を保存
-      if(testMode === 'test'){
-        const userAnswer = document.getElementById('answerInput').value.trim();
-        userAnswers[currentQuestion] = userAnswer;
-      }
-      
-      currentQuestion++;
-      displayQuestion();
-    }
-
-    function finishTest(){
-      if(timerInterval) clearInterval(timerInterval);
-      
-      // テストモードで未解答の問題を保存
-      if(testMode === 'test'){
-        const userAnswer = document.getElementById('answerInput').value.trim();
-        userAnswers[currentQuestion] = userAnswer;
-        
-        // 採点
-        score = 0;
-        currentQuestions.forEach((q, i) => {
-          if(checkAnswer(userAnswers[i], q.answer)){
-            score++;
-          }
-        });
-      }
-      
-      showResult();
-    }
-
-    function showResult(){
-      const percentage = Math.round((score / currentQuestions.length) * 100);
-      document.getElementById('scoreDisplay').textContent = percentage + '%';
-      document.getElementById('correctCount').textContent = `${score}問`;
-      document.getElementById('totalCount').textContent = `${currentQuestions.length}問`;
-      
-      // 所要時間
-      if(startTime){
-        const elapsed = Math.floor((Date.now() - startTime) / 1000);
-        const minutes = Math.floor(elapsed / 60);
-        const seconds = elapsed % 60;
-        document.getElementById('elapsedTime').textContent = 
-          `${minutes}分${seconds}秒`;
-      } else {
-        document.getElementById('elapsedTime').textContent = '-';
-      }
-      
-      // 詳細結果（両モード共通で表示）
-      let detailHtml = '<h3 style="margin-top:20px;">解答詳細</h3>';
-      currentQuestions.forEach((q, i) => {
-        const isCorrect = q.isCorrect !== undefined ? q.isCorrect : checkAnswer(userAnswers[i], q.answer);
-        detailHtml += `
-          <div style="margin:10px 0;padding:10px;background:${isCorrect ? '#f0fff4' : '#fff5f5'};border-radius:8px;">
-            <div style="font-weight:600;color:#2d3748;">問${i+1}. ${q.question}</div>
-            <div style="color:#4a5568;margin-top:4px;">あなたの解答: ${userAnswers[i] || '（未解答）'}</div>
-            <div style="color:${isCorrect ? '#48bb78' : '#f56565'};margin-top:4px;">
-              ${isCorrect ? '✓ 正解' : '✗ 不正解　正解: ' + q.answer}
-            </div>
-          </div>
-        `;
-      });
-      document.getElementById('detailedResults').innerHTML = detailHtml;
-
-      // 成績保存（テストモードのみ）
-      if(testMode === 'test' && currentStudentInfo){
-        const newScore = {
-          ...currentStudentInfo,
-          score,
-          total: currentQuestions.length,
-          percentage,
-          date: new Date().toLocaleString('ja-JP'),
-          timeLimit: timeLimit,
-          elapsedTime: startTime ? Math.floor((Date.now() - startTime) / 1000) : 0
-        };
-        studentScores.push(newScore);
-        saveData();
-        autoSendResult(newScore);
-      }
-
-      showScreen('resultScreen');
-    }
-
-    function restartTest(){
-      resetQuizState();
-      startGrammarTest();
-    }
-
-    // ====== 教員ページ ======
-    function showTeacherLogin(){
-      const pw = document.getElementById('teacherPassword');
-      if(pw) pw.value = '';
-      showScreen('teacherLoginScreen');
-    }
-
-    function teacherLogin(){
-      const password = document.getElementById('teacherPassword').value;
-      if(password === '1611'){
-        showTeacherPage();
-      } else {
-        alert('パスワードが間違っています');
-      }
-    }
-
-    function showTeacherPage(){
-      const list = document.getElementById('scoresList');
-      if(studentScores.length === 0){
-        list.innerHTML = '<p style="text-align:center;color:#718096;">まだ成績データがありません</p>';
-      } else {
-        let html = '<table style="width:100%;border-collapse:collapse"><tr style="background:#f7fafc">'
-          + '<th style="padding:10px;border:1px solid #e2e8f0;">日時</th>'
-          + '<th style="padding:10px;border:1px solid #e2e8f0;">氏名</th>'
-          + '<th style="padding:10px;border:1px solid #e2e8f0;">学年</th>'
-          + '<th style="padding:10px;border:1px solid #e2e8f0;">得点</th></tr>';
-        
-        studentScores.forEach(s => {
-          html += `<tr>
-            <td style="padding:10px;border:1px solid #e2e8f0;">${s.date}</td>
-            <td style="padding:10px;border:1px solid #e2e8f0;">${s.name}</td>
-            <td style="padding:10px;border:1px solid #e2e8f0;">${s.grade} ${s.class} ${s.number}</td>
-            <td style="padding:10px;border:1px solid #e2e8f0;">${s.percentage}% (${s.score}/${s.total})</td>
-          </tr>`;
-        });
-        html += '</table>';
-        list.innerHTML = html;
-      }
-      showScreen('teacherScreen');
-    }
-
-    function exportScores(){
-      if(studentScores.length === 0){
-        alert('エクスポートする成績データがありません');
-        return;
-      }
-      let csv = '日時,氏名,学年,クラス,出席番号,得点率,正解数,問題数\n';
-      studentScores.forEach(s => {
-        csv += `"${s.date}","${s.name}","${s.grade}","${s.class}","${s.number}",${s.percentage}%,${s.score},${s.total}\n`;
-      });
-      
-      const bom = new Uint8Array([0xEF, 0xBB, 0xBF]);
-      const blob = new Blob([bom, csv], {type: 'text/csv;charset=utf-8'});
-      const link = document.createElement('a');
-      const date = new Date().toISOString().slice(0, 10);
-      link.download = `grammar_scores_${date}.csv`;
-      link.href = URL.createObjectURL(blob);
-      link.click();
-      URL.revokeObjectURL(link.href);
-    }
-
-    function clearAllScores(){
-      if(confirm('本当にすべてのデータを削除しますか？\nこの操作は取り消せません。')){
-        const dp = prompt('削除パスワード「9999」を入力してください：');
-        if(dp === '9999'){
-          studentScores = [];
-          saveData();
-          alert('すべてのデータを削除しました');
-          showTeacherPage();
-        } else {
-          alert('パスワードが違います');
-        }
-      }
-    }
-
-    async function loadCloudScores(){
-      const scores = await getScoresFromCloud();
-      if(scores.length > 0){
-        scores.forEach(cs => {
-          const exists = studentScores.some(ls => 
-            ls.date === cs.date && ls.name === cs.name
-          );
-          if(!exists){
-            studentScores.push(cs);
-          }
-        });
-        saveData();
-        alert(`クラウドから${scores.length}件の成績を読み込みました`);
-        showTeacherPage();
-      } else {
-        alert('クラウドに成績データがありません');
-      }
-    }
-
-    // ====== ローカル保存 ======
-    function loadData(){
-      try {
-        const saved = localStorage.getItem('grammarDescriptionTestData');
-        if(saved){
-          const data = JSON.parse(saved);
-          studentScores = data.studentScores || [];
-        }
-      } catch(e){
-        console.warn('loadData failed', e);
-      }
-    }
-
-    function saveData(){
-      const data = { studentScores };
-      localStorage.setItem('grammarDescriptionTestData', JSON.stringify(data));
-    }
-
-    // ====== クラウド連携 ======
-    function saveScoreToCloud(scoreData){
-      return new Promise((resolve) => {
-        try{
-          if(!scoreData.reqId){
-            scoreData.reqId = (Date.now().toString(36) + Math.random().toString(36).slice(2,8));
-          }
-          const params = new URLSearchParams(scoreData);
-          const url = GAS_URL + '?' + params.toString();
-
-          if (typeof navigator !== 'undefined' && navigator && navigator.onLine === false){
-            resolve(false);
-            return;
-          }
-
-          if (typeof fetch === 'function'){
-            try{
-              fetch(url, { mode: 'no-cors', keepalive: true })
-                .then(()=> resolve(true))
-                .catch(()=> {
-                  try{
-                    const img = new Image();
-                    img.onload = () => resolve(true);
-                    img.onerror = () => resolve(true);
-                    img.src = url + '&_img=1&_ts=' + Date.now();
-                    setTimeout(()=> resolve(true), 2500);
-                  }catch(_){
-                    resolve(true);
-                  }
-                });
-              return;
-            }catch(_){}
-          }
-
-          try{
-            const img = new Image();
-            img.onload = () => resolve(true);
-            img.onerror = () => resolve(true);
-            img.src = url + '&_img=1&_ts=' + Date.now();
-            setTimeout(()=> resolve(true), 2500);
-          }catch(_){
-            resolve(false);
-          }
-        }catch(e){
-          resolve(false);
-        }
-      });
-    }
-
-    async function getScoresFromCloud(){
-      try{
-        const res = await fetch(GAS_URL + '?action=getAll');
-        const data = await res.json();
-        if(data.success){
-          return data.scores;
-        }
-        console.error('データ取得エラー:', data.error);
-        return [];
-      }catch(e){
-        console.error('通信エラー:', e);
-        return [];
-      }
-    }
-
-    let hasSentToCloud = false;
-
-    function autoSendResult(newScore) {
-      if (!hasSentToCloud) {
-        hasSentToCloud = true;
-        const payload = {
-          action: 'save',
-          date: newScore.date,
-          name: newScore.name,
-          grade: newScore.grade,
-          class: newScore.class,
-          number: newScore.number,
-          percentage: newScore.percentage,
-          score: newScore.score,
-          total: newScore.total,
-          elapsedTime: newScore.elapsedTime
-        };
-        
-        saveScoreToCloud(payload).then((ok) => {
-          const success = document.getElementById('saveSuccess');
-          if (ok && success) {
-            success.style.display = 'block';
-          }
-        });
-      }
-      setTimeout(() => { hasSentToCloud = false; }, 3000);
-    }
-
-    // ====== CSV処理 ======
-    function splitCSVRow(line){
-      const out=[];let cur='';let inQ=false;
-      for(let i=0;i<line.length;i++){
-        const ch=line[i],n=line[i+1];
-        if(ch==='"'){
-          if(inQ&&n==='"'){cur+='"';i++;continue;}
-          inQ=!inQ;continue;
-        }
-        if(ch===','&&!inQ){out.push(cur);cur='';continue;}
-        cur+=ch;
-      }
-      out.push(cur);
-      return out;
-    }
-
-    // CSVファイルから問題を読み込む関数
-    async function loadQuestionsFromCSV(){
-      try{
-        const response = await fetch('grammar_definition_with_examples2.csv');
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const csvContent = await response.text();
-        console.log('CSV読み込み成功, 文字数:', csvContent.length);
-        
-        const lines = csvContent.replace(/\r/g,'').split('\n').filter(l=>l.trim()!=='');
-        console.log('総行数:', lines.length);
-        
-        const headers = splitCSVRow(lines[0]);
-        console.log('ヘッダー:', headers);
-        
-        const idx = (name)=>headers.indexOf(name);
-        const iId=idx('id'), iQ=idx('question'), iA=idx('answer'), iP=idx('point'), iT=idx('title');
-        const iH=idx('hint'), iExEn=idx('example_en'), iExJp=idx('example_jp');
-        
-        const parsed=[];
-        for(let i=1;i<lines.length;i++){
-          const row=splitCSVRow(lines[i]);
-          if(row.length===0) continue;
-          
-          const rawId = iId>-1 ? String(row[iId]||'') : '';
-          const csvId = rawId.padStart(3,'0');
-          const question = iQ>-1 ? String(row[iQ]||'').trim() : '';
-          const answer   = iA>-1 ? String(row[iA]||'').trim() : '';
-          const point    = iP>-1 ? String(row[iP]||'').trim() : '';
-          const title    = iT>-1 ? String(row[iT]||'').trim() : '';
-          const hint     = iH>-1 ? String(row[iH]||'').trim() : '';
-          const example_en = iExEn>-1 ? String(row[iExEn]||'').trim() : '';
-          const example_jp = iExJp>-1 ? String(row[iExJp]||'').trim() : '';
-          
-          if(!question || !answer || !title) continue;
-          
-          const normalizedMap = {}; 
-          Object.keys(titleToItemIdMap||{}).forEach(k=>normalizedMap[normalizeTitle(k)] = titleToItemIdMap[k]);
-          const mappedId = (titleToItemIdMap && titleToItemIdMap[title]) ? titleToItemIdMap[title] : (normalizedMap[normalizeTitle(title)] || csvId);
-          
-          parsed.push({ id: mappedId, csvId, question, answer, point, title, hint, example_en, example_jp });
-        }
-        
-        if(parsed.length>0){
-          window.questionData = parsed;
-          questionData = parsed; // グローバル変数にも代入
-          console.log(`CSVから${parsed.length}件を読み込みました`);
-          console.log('読み込んだ問題のID例:', parsed.slice(0, 5).map(q => ({ id: q.id, title: q.title })));
-          console.log('questionData確認:', questionData.length);
-        }else{
-          console.warn('CSVから有効な行を読み込めませんでした');
-        }
-      }catch(e){
-        console.error('CSV読み込み失敗', e);
-        // ローカルファイルの場合のフォールバック
-        if (e.message.includes('Failed to fetch')) {
-          console.log('ローカルファイルアクセスエラー。デモデータを使用します。');
-          // デモデータを設定
-          window.questionData = [
-            { id: "001", csvId: "001", question: "基本３時制とは何か説明しなさい。", answer: "①過去形 ②現在形 ③未来形", point: "3点", title: "基本３時制の定義", hint: "英語の動詞には3つの基本的な時制があります", example_en: "I played tennis yesterday.|I play tennis every day.|I will play tennis tomorrow.", example_jp: "私は昨日テニスをした。|私は毎日テニスをする。|私は明日テニスをするだろう。" }
-          ];
-        }
-      }
-    }
-
-    // ====== 例文機能 ======
-    function resetExampleUI(){
-      const box=document.getElementById('exampleBox');
-      const en=document.getElementById('exampleEn');
-      const jp=document.getElementById('exampleJp');
-      const btn=document.getElementById('toggleExampleBtn');
-      if(box){ box.classList.add('hidden'); }
-      if(en){ en.textContent=''; }
-      if(jp){ jp.textContent=''; }
-      if(btn){ btn.textContent='例文を表示'; }
-    }
-
-    function toggleExample(){
-      try{
-        const q = (typeof currentQuestions!=='undefined' && typeof currentQuestion!=='undefined') ? currentQuestions[currentQuestion] : null;
-        if(!q){
-          alert('問題データが見つかりません。'); return;
-        }
-        const hasExample = (q.example_en && q.example_en.length>0) || (q.example_jp && q.example_jp.length>0);
-        if(!hasExample){
-          alert('この問題には例文が設定されていません。'); return;
-        }
-        const box=document.getElementById('exampleBox');
-        const en=document.getElementById('exampleEn');
-        const jp=document.getElementById('exampleJp');
-        const enFormatted=(q.example_en||'').split('|').join('<br>');
-        const jpFormatted=(q.example_jp||'').split('|').join('<br>');
-        if(en) en.innerHTML=enFormatted;
-        if(jp) jp.innerHTML=jpFormatted;
-        if(box){
-          const hidden=box.classList.contains('hidden');
-          if(hidden){ box.classList.remove('hidden'); } else { box.classList.add('hidden'); }
-        }
-        const btn=document.getElementById('toggleExampleBtn');
-        if(btn){
-          if(box && box.classList.contains('hidden')) btn.textContent='例文を表示';
-          else btn.textContent='例文を隠す';
-        }
-      }catch(e){
-        console.error('toggleExample error', e);
-      }
-    }
-
-    // ====== ヒント機能 ======
-    function resetHintUI(){
-      const box = document.getElementById('hintBox');
-      const btn = document.getElementById('hintButton');
-      if(box) box.style.display = 'none';
-      if(btn) btn.style.display = 'none';
-    }
-
-    function toggleHint(){
-      const box = document.getElementById('hintBox');
-      if(!box) return;
-      box.style.display = (box.style.display === 'none' || box.style.display === '') ? 'block' : 'none';
-    }
-
-    function updateHintForCurrentQuestion(){
-      const hb = document.getElementById('hintBox');
-      const ht = document.getElementById('hintText');
-      const hbtn = document.getElementById('hintButton');
-      
-      if(hb) hb.style.display = 'none';
-      
-      let q = null;
-      if(Array.isArray(currentQuestions) && typeof currentQuestion === 'number'){
-        q = currentQuestions[currentQuestion];
-      }
-      
-      const hint = q && q.hint ? String(q.hint).trim() : '';
-      
-      if(ht) ht.textContent = hint || '';
-      if(hbtn) hbtn.style.display = hint ? 'inline-block' : 'none';
-    }
-
-    // ====== 初期化 ======
-    window.addEventListener('DOMContentLoaded', () => {
-      initializeSelects();
-      loadData();
-      
-      // CSVファイルから問題を読み込む
-      loadQuestionsFromCSV();
+    out.push({
+      id,
+      question: (get(qI)).toString().trim(),
+      answer: (get(aI)).toString().trim(),
+      point: pointRaw.trim(),
+      title,
+      subId,
+      hint: (get(hI)).toString().trim(),
+      exampleEn: (get(eEI)).toString().trim(),
+      exampleJp: (get(eJI)).toString().trim()
     });
+  }
+  return out;
+}
+
+// Review pool
+const REVIEW_KEY='grammarReviewPoolV1';
+function loadReviewPool(){
+  try{ reviewPool = JSON.parse(localStorage.getItem(REVIEW_KEY)||'[]'); if(!Array.isArray(reviewPool)) reviewPool=[]; }
+  catch(_){ reviewPool=[]; }
+}
+function saveReviewPool(){ localStorage.setItem(REVIEW_KEY, JSON.stringify(reviewPool)); }
+function addToReview(q){
+  if(!q || !q.id) return;
+  if(!reviewPool.some(x=>String(x.id)===String(q.id))){
+    reviewPool.push(q);
+    saveReviewPool();
+    reviewAddedNow++;
+  }
+}
+function removeFromReview(id){
+  const before = reviewPool.length;
+  reviewPool = reviewPool.filter(x=>String(x.id)!==String(id));
+  if(reviewPool.length!==before) saveReviewPool();
+}
+
+// Modes
+function selectMode(m){
+  testMode=m;
+  document.getElementById('timeLimitGroup').style.display=(m==='test')?'block':'none';
+  document.getElementById('studentInfoGroup').style.display=(m==='test')?'block':'none';
+}
+function showPracticeMode(){ showScreen('settingsScreen'); selectMode('practice'); updateSubCategories(); }
+function startGrammarTest(){ showScreen('settingsScreen'); selectMode('test'); updateSubCategories(); }
+
+// Start
+function startTest(){
+  if(selectedCategories.length===0){ alert('文法小項目を1つ以上選択してください'); return; }
+  let filtered = questionData.filter(q=> selectedCategories.includes(String(q.subId).padStart(3,'0')) );
+  if(filtered.length===0){
+    const sel = selectedCategories.join(', ');
+    alert(`選択した項目に問題がありません（選択: ${sel}）。CSVのPOINT列に数値が入っているかをご確認ください。`);
+    return;
+  }
+
+  const order=document.getElementById('questionOrder').value;
+  if(order==='shuffle') filtered = shuffle(filtered);
+
+  const count=document.getElementById('questionCount').value;
+  if(count!=='all') filtered = filtered.slice(0, parseInt(count,10));
+
+  currentQuestions = filtered.map(q=>({...q}));
+  currentQuestion = 0; reviewAddedNow=0;
+
+  if(testMode==='test'){
+    timeLimit=parseInt(document.getElementById('timeLimit').value||'10',10);
+    startTime=Date.now();
+    const update=()=>{
+      const elapsed=Math.floor((Date.now()-startTime)/1000);
+      const remaining=timeLimit*60 - elapsed;
+      if(timeLimit>0){
+        if(remaining<=0){ clearInterval(timerInterval); finishTest(); return; }
+        const mm=String(Math.floor(remaining/60)).padStart(2,'0');
+        const ss=String(remaining%60).padStart(2,'0');
+        document.getElementById('timer').textContent = `残り時間: ${mm}:${ss}`;
+      }else{ document.getElementById('timer').textContent=''; }
+    };
+    update(); timerInterval=setInterval(update,1000);
+  }else{
+    document.getElementById('timer').textContent='';
+  }
+
+  showScreen('quizScreen');
+  renderQuestion();
+}
+
+function startReviewMode(){
+  loadReviewPool();
+  if(!reviewPool.length){ alert('復習リストが空です。「まだ／ぜんぜん」で追加してください。'); return; }
+  testMode='review';
+  currentQuestions = reviewPool.map(q=>({...q}));
+  currentQuestion=0; reviewAddedNow=0;
+  document.getElementById('timer').textContent='';
+  showScreen('quizScreen');
+  renderQuestion();
+}
+
+// Render
+function renderQuestion(){
+  if(currentQuestion>=currentQuestions.length){ finishTest(); return; }
+  const q=currentQuestions[currentQuestion];
+  document.getElementById('questionNumber').textContent=`問${currentQuestion+1} / ${currentQuestions.length}`;
+  document.getElementById('pointBadge').textContent=q.point||'';
+  document.getElementById('questionTitle').textContent=q.title||'';
+  document.getElementById('questionText').textContent=q.question||'';
+  document.getElementById('modelAnswerText').textContent=q.answer||'';
+  document.getElementById('exampleEn').textContent=q.exampleEn||'';
+  document.getElementById('exampleJp').textContent = q.exampleJp || '';
+  document.getElementById('hintText').textContent=q.hint||'';
+
+  document.getElementById('modelAnswer').style.display='none';
+  document.getElementById('rateArea').classList.add('hidden');
+  ['btnPerfect','btnSome','btnNone'].forEach(id=>{
+    const b=document.getElementById(id); if(b){ b.classList.remove('selected'); b.disabled=false; }
+  });
+  const fb=document.getElementById('rateFeedback'); fb.style.display='none'; fb.textContent='保存しました。';
+
+  document.getElementById('nextButton').classList.add('hidden');
+  document.getElementById('finishButton').classList.add('hidden');
+  document.getElementById('confirmButton').disabled=false;
+
+  const ex=document.getElementById('exampleBox'); ex.classList.add('hidden');
+  document.getElementById('toggleExampleBtn').textContent='例文を表示';
+  const hasHint = !!(q.hint && q.hint.trim().length);
+  document.getElementById('hintButton').style.display = hasHint ? 'inline-block' : 'none';
+  document.getElementById('hintBox').style.display='none';
+}
+
+function confirmAnswer(){
+  document.getElementById('modelAnswer').style.display='block';
+  document.getElementById('rateArea').classList.remove('hidden');
+  document.getElementById('confirmButton').disabled=true;
+  document.getElementById('nextButton').classList.remove('hidden');
+  if(currentQuestion === currentQuestions.length-1){
+    document.getElementById('finishButton').classList.remove('hidden');
+  }
+  document.getElementById('modelAnswer').scrollIntoView({behavior:'smooth', block:'center'});
+}
+
+function rateCurrent(level){
+  const q=currentQuestions[currentQuestion];
+  ['btnPerfect','btnSome','btnNone'].forEach(id=>{ const b=document.getElementById(id); b.classList.remove('selected'); });
+  if(level==='perfect'){ document.getElementById('btnPerfect').classList.add('selected'); }
+  if(level==='some'){ document.getElementById('btnSome').classList.add('selected'); }
+  if(level==='none'){ document.getElementById('btnNone').classList.add('selected'); }
+  const fb=document.getElementById('rateFeedback');
+  if(level==='some' || level==='none'){ addToReview(q); fb.textContent='復習リストに追加しました。'; }
+  else{ fb.textContent='了解。次へ進めます。'; }
+  fb.style.display='block';
+}
+
+function nextQuestion(){
+  currentQuestion++;
+  renderQuestion();
+}
+
+function finishTest(){
+  if(timerInterval) clearInterval(timerInterval);
+  const total = currentQuestions.length;
+  let elapsed = 0;
+  if(startTime){ elapsed = Math.floor((Date.now()-startTime)/1000); }
+  const mm=String(Math.floor(elapsed/60)).padStart(2,'0');
+  const ss=String(elapsed%60).padStart(2,'0');
+
+  document.getElementById('totalCount').textContent = total;
+  document.getElementById('elapsedTime').textContent = `${mm}:${ss}`;
+  document.getElementById('reviewAddedCount').textContent = reviewAddedNow;
+  document.getElementById('scoreDisplay').textContent = `${total} 問 完了`;
+
+  showScreen('resultScreen');
+}
+
+// Example/Hint
+function toggleExample(){
+  const box=document.getElementById('exampleBox');
+  const btn=document.getElementById('toggleExampleBtn');
+  const q=currentQuestions[currentQuestion]||{};
+  const hasAny = (q.exampleEn && q.exampleEn.trim()) || (q.exampleJp && q.exampleJp.trim());
+  document.getElementById('exampleNone').classList.toggle('hidden', !!hasAny);
+  if(box.classList.contains('hidden')){ box.classList.remove('hidden'); btn.textContent='例文を隠す'; }
+  else{ box.classList.add('hidden'); btn.textContent='例文を表示'; }
+}
+function toggleHint(){
+  const box=document.getElementById('hintBox');
+  box.style.display = (box.style.display==='none' || box.style.display==='') ? 'block' : 'none';
+}
+
+// === 管理モード ===
+function showManagement(){
+  renderReviewList();
+  buildItemSelector();
+  renderItemQuestions();
+  showScreen('managementScreen');
+}
+
+function renderReviewList(){
+  const box=document.getElementById('reviewListBox');
+  loadReviewPool();
+  if(!reviewPool.length){ box.innerHTML='<div class="item-row" style="text-align:center;color:#718096">（復習リストは空です）</div>'; return; }
+  const rows = reviewPool.map(q=>{
+    const title = q.title?`<div style="font-size:12px;color:#718096">${escapeHTML(q.title)}</div>`:'';
+    return `<div class="item-row">
+      <div style="font-weight:700">${escapeHTML(q.id)}. ${escapeHTML(q.question||'')}</div>
+      ${title}
+      <div class="inline-controls">
+        <button onclick="removeFromReview('${q.id}');renderReviewList();" class="inline-btn">復習から削除</button>
+        <button onclick="previewQA('${q.id}')" class="inline-btn">内容を見る</button>
+      </div>
+    </div>`;
+  }).join('');
+  box.innerHTML = rows;
+}
+
+function previewQA(id){
+  const q = (reviewPool.find(x=>String(x.id)===String(id))) || (questionData.find(x=>String(x.id)===String(id)));
+  if(!q){ alert('データが見つかりません。'); return; }
+  const msg = `【${q.point||''}】${q.title||''}\n\n問題: ${q.question||''}\n\nヒント: ${q.hint||'(なし)'}\n\n例文(EN): ${q.exampleEn||'(なし)'}\n例文(JP): ${q.exampleJp||'(なし)'}\n\n解答: ${q.answer||''}`;
+  alert(msg);
+}
+
+function clearReviewAll(){
+  if(!confirm('復習リストをすべて削除します。よろしいですか？')) return;
+  reviewPool=[]; saveReviewPool(); renderReviewList();
+}
+
+// エクスポート／インポート（JSON）
+function exportReviewList(){
+  loadReviewPool();
+  const blob = new Blob([JSON.stringify(reviewPool, null, 2)], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'review_list.json';
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url), 1000);
+}
+function importReviewList(){
+  const inp = document.createElement('input');
+  inp.type='file'; inp.accept='application/json';
+  inp.onchange = (e)=>{
+    const file = e.target.files[0]; if(!file) return;
+    const reader = new FileReader();
+    reader.onload = ()=>{
+      try{
+        const data = JSON.parse(reader.result);
+        if(Array.isArray(data)){ reviewPool = data; saveReviewPool(); renderReviewList(); alert('読み込みました。'); }
+        else alert('形式が正しくありません。');
+      }catch(_){ alert('読み込みに失敗しました。'); }
+    };
+    reader.readAsText(file);
+  };
+  inp.click();
+}
+
+// 項目別問題一覧
+function buildItemSelector(){
+  const sel = document.getElementById('itemSelector');
+  if(!sel) return;
+  // subId => title の代表値を作る（questionDataから）
+  const map = new Map();
+  questionData.forEach(q=>{
+    const id = String(q.subId||'').padStart(3,'0');
+    const name = q.title || id;
+    if(!map.has(id)) map.set(id, name);
+  });
+  // データがない場合は grammarData からフルリスト
+  if(map.size===0){
+    Object.values(grammarData).forEach(cat=>{
+      (cat.items||[]).forEach(it=>{ map.set(it.id, it.name); });
+    });
+  }
+  // 一旦クリアしてから追加
+  sel.innerHTML = '<option value="">（小項目を選択）</option>';
+  const arr = Array.from(map.entries()).sort((a,b)=>a[0].localeCompare(b[0]));
+  arr.forEach(([id, name])=>{
+    const opt = document.createElement('option');
+    opt.value = id; opt.textContent = `${id}. ${name}`;
+    sel.appendChild(opt);
+  });
+  // 既存選択があれば維持
+  const cur = sel.getAttribute('data-current');
+  if(cur){ sel.value = cur; }
+}
+
+function renderItemQuestions(){
+  const sel = document.getElementById('itemSelector');
+  const box = document.getElementById('itemQuestionsBox');
+  const info = document.getElementById('itemInfo');
+  if(!sel || !box) return;
+  const id = sel.value;
+  sel.setAttribute('data-current', id);
+  if(!id){
+    box.innerHTML = '<div class="item-row" style="text-align:center;color:#718096">（小項目を選択してください）</div>';
+    info.textContent='';
+    return;
+  }
+  const list = questionData.filter(q=>String(q.subId).padStart(3,'0')===String(id).padStart(3,'0'));
+  info.textContent = `この小項目の問題数: ${list.length} 件`;
+  if(list.length===0){
+    box.innerHTML = '<div class="item-row" style="text-align:center;color:#718096">（この項目の問題はCSVに見つかりませんでした）</div>';
+    return;
+  }
+  box.innerHTML = list.map(q=>{
+    const ex = (q.exampleEn||q.exampleJp) ? `<div class="small">例: <span class="code">${escapeHTML(q.exampleEn||'')}</span> / <span class="code">${escapeHTML(q.exampleJp||'')}</span></div>` : '';
+    return `<div class="item-row">
+      <div><span class="code">${escapeHTML(q.id)}</span> <strong>${escapeHTML(q.question||'')}</strong> <span class="badge">${escapeHTML(q.point||'')}</span></div>
+      <div class="small">解答: <span class="code">${escapeHTML(q.answer||'')}</span></div>
+      ${ex}
+      <div class="inline-controls">
+        <button class="inline-btn" onclick="addToReviewById('${q.id}')">復習に追加</button>
+        <button class="inline-btn" onclick="removeFromReview('${q.id}');renderReviewList()">復習から削除</button>
+        <button class="inline-btn" onclick="previewQA('${q.id}')">内容を見る</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function addToReviewById(id){
+  const q = questionData.find(x=>String(x.id)===String(id));
+  if(!q){ alert('問題が見つかりません。'); return; }
+  addToReview(q);
+  renderReviewList();
+  alert('復習リストに追加しました。');
+}
+
+// Utils
+function shuffle(arr){ const a=arr.slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+function escapeHTML(s){ return (s||'').toString().replace(/[&<>"']/g, m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m])); }
+
+// Category UI (出題設定用)
+const grammarData = {
+  tense:{name:"時制（TENSE）",items:[
+    {id:"001",name:"基本３時制の定義"},{id:"002",name:"様々な未来表現"},{id:"003",name:"進行形の定義"},
+    {id:"004",name:"進行形のルール"},{id:"005",name:"「時や条件」を表す副詞節で用いる現在形"},
+    {id:"006",name:"現在完了形の用法①～完了・結果・経験～"},{id:"007",name:"現在完了形の用法②～継続～"},
+    {id:"008",name:"現在完了形の用法③～注意点～"},{id:"009",name:"過去完了形の用法①～完了・結果・経験～"},
+    {id:"010",name:"過去完了形の用法②～継続～"},{id:"011",name:"過去完了形の用法③～大過去～"},
+    {id:"012",name:"未来完了形の用法①～完了・結果・経験と継続～"},{id:"013",name:"未来完了形の用法②～注意点～"}
+  ]},
+  voice:{name:"受動態（VOICE）",items:[
+    {id:"014",name:"受動態の基本"},{id:"015",name:"様々な形の受動態"},{id:"016",name:"受動態の疑問文"},
+    {id:"017",name:"第４文型の受動態"},{id:"018",name:"第５文型の受動態"},{id:"019",name:"思考認知告示動詞の受動態"},
+    {id:"020",name:"注意すべき受動態の表現①～be known～"},{id:"021",name:"注意すべき受動態の表現②～感情表現～"},
+    {id:"022",name:"注意すべき受動態の表現③～被害表現～"},{id:"023",name:"注意すべき受動態の表現④～その他の頻出表現～"},
+    {id:"024",name:"be動詞の代わりに使える「動作動詞」と「状態動詞」"},{id:"025",name:"注意すべき受動態の表現⑤～受動態を使わない表現～"},
+    {id:"026",name:"群動詞（熟語）の受動態"}
+  ]},
+  auxiliary:{name:"助動詞（AUXILIARY VERB）",items:[
+    {id:"027",name:"canの基本"},{id:"028",name:"couldを理解しよう"},{id:"029",name:"mayの基本"},{id:"030",name:"mightの基本"},
+    {id:"031",name:"mustの基本"},{id:"032",name:"mustとhave toの違いを理解しよう"},{id:"033",name:"shouldの基本"},
+    {id:"034",name:"shouldの仲間①ought toV"},{id:"035",name:"shouldの仲間②had better V原形"},{id:"036",name:"willの基本"},
+    {id:"037",name:"wouldの基本"},{id:"038",name:"used to V原形～の基本"},{id:"039",name:"shallの基本"},
+    {id:"040",name:"needの基本"},{id:"041",name:"助動詞 have Vp.p.シリーズ"},{id:"042",name:"慣用表現シリーズ"},
+    {id:"043",name:"that節で用いられる想念のshould①"},{id:"044",name:"that節で用いられる想念のshould②"}
+  ]},
+  infinitive:{name:"不定詞（INFINITIVE）",items:[
+    {id:"045",name:"不定詞の基本① 名詞的用法"},{id:"046",name:"不定詞の基本② 形容詞的用法"},{id:"047",name:"不定詞の基本③ 副詞的用法"},
+    {id:"048",name:"ＳＶＯ＋toＶ～"},{id:"049",name:"不定詞の意味上の主語①"},{id:"050",name:"不定詞の意味上の主語②"},
+    {id:"051",name:"使役動詞（原形不定詞）"},{id:"052",name:"知覚動詞"},{id:"053",name:"～ようだシリーズ"},{id:"054",name:"時制の不一致"},
+    {id:"055",name:"様々な形の不定詞～進行形・受動態・否定～"},{id:"056",name:"疑問詞 toV～シリーズ"},{id:"057",name:"独立不定詞"},
+    {id:"058",name:"be to 不定詞"},{id:"059",name:"難易度を表す形容詞＋ toV～"},{id:"060",name:"代不定詞"},
+    {id:"061",name:"不定詞の熟語①"},{id:"062",name:"不定詞の熟語②"}
+  ]},
+  gerund:{name:"動名詞（GERUND）",items:[
+    {id:"063",name:"動名詞の基本"},{id:"064",name:"動名詞と不定詞の違い"},{id:"065",name:"動名詞の意味上の主語と否定語の位置"},
+    {id:"066",name:"動名詞の受動態"},{id:"067",name:"時制の不一致"},{id:"068",name:"動名詞を使った重要表現①"},
+    {id:"069",name:"動名詞を使った重要表現②"},{id:"070",name:"動名詞と不定詞①"},{id:"071",name:"動名詞と不定詞②"},
+    {id:"072",name:"動名詞と不定詞③"}
+  ]},
+  participle:{name:"分詞（PARTICIPLE）",items:[
+    {id:"073",name:"現在分詞の基本"},{id:"074",name:"過去分詞の基本"},{id:"075",name:"補語になる分詞（第２文型）"},
+    {id:"076",name:"補語になる分詞（第５文型）①"},{id:"077",name:"補語になる分詞（第５文型）②"},
+    {id:"078",name:"分詞構文の基本"},{id:"079",name:"分詞構文の作り方"},{id:"080",name:"分詞構文の和訳"},
+    {id:"081",name:"時制の不一致＆独立分詞構文"},{id:"082",name:"接続詞を省略しない分詞構文"},{id:"083",name:"慣用的な分詞構文"},
+    {id:"084",name:"付帯状況を表すwith"},{id:"085",name:"形容詞になっちまった分詞"}
+  ]},
+  subjunctive:{name:"仮定法（SUBJUNCTIVE）",items:[
+    {id:"086",name:"直接法と仮定法"},{id:"087",name:"仮定法過去（現在の妄想）"},{id:"088",name:"仮定法過去完了（過去の妄想）"},
+    {id:"089",name:"wishとas ifを用いた仮定法"},{id:"090",name:"未来の妄想"},{id:"091",name:"ifの省略"},
+    {id:"092",name:"if節を使わない仮定法表現"},{id:"093",name:"仮定法を使った慣用表現"},{id:"094",name:"仮定法ミックス（過去に～だったら、いま…なのになぁ）"}
+  ]},
+  relative:{name:"関係詞（RELATIVE PRONOUN）",items:[
+    {id:"095",name:"関係代名詞の基本"},{id:"096",name:"関係代名詞that"},{id:"097",name:"前置詞と関係代名詞"},
+    {id:"098",name:"関係副詞when"},{id:"099",name:"関係副詞whyとhow"},{id:"100",name:"先行詞を省略できるケース"},
+    {id:"101",name:"関係詞の非制限用法"},{id:"102",name:"非制限用法の使い方"},{id:"103",name:"関係副詞where"},
+    {id:"104",name:"関係詞代名詞what"},{id:"105",name:"関係詞代名詞whatを用いた慣用表現"},
+    {id:"106",name:"複合関係詞の概要"},{id:"107",name:"副詞節（譲歩）を作る複合関係代名詞①"},
+    {id:"108",name:"副詞節（譲歩）を作る複合関係代名詞②"},{id:"109",name:"名詞節を作る複合関係代名詞"},
+    {id:"110",name:"関係代名詞としてのthanとbut"},{id:"111",name:"関係代名詞としてのas"},{id:"112",name:"マニア向け関係代名詞"}
+  ]},
+  comparison:{name:"比較（COMPARISON）",items:[
+    {id:"113",name:"原級比較の基本"},{id:"114",name:"asの倍数表現"},{id:"115",name:"asを用いた慣用表現①"},
+    {id:"116",name:"asを用いた慣用表現②"},{id:"117",name:"asを用いた慣用表現③"},{id:"118",name:"比較級の基本"},
+    {id:"119",name:"差を具体的に表す比較級"},{id:"120",name:"比較級の倍数表現"},{id:"121",name:"不規則変化する形容詞・副詞"},
+    {id:"122",name:"lessを用いた比較級"},{id:"123",name:"比較級を用いた慣用表現①"},{id:"124",name:"比較級を用いた慣用表現②"},
+    {id:"125",name:"比較級を用いた慣用表現③"},{id:"126",name:"比較級を用いた慣用表現④"},
+    {id:"127",name:"noを使った比較表現①"},{id:"128",name:"noを使った比較表現②"},
+    {id:"129",name:"最上級の基本"},{id:"130",name:"最上級を用いた表現①"},{id:"131",name:"最上級を用いた表現②"},
+    {id:"132",name:"最上級の意味を表す原級・比較表現"}
+  ]}
+};
+
+function buildCategoryUI(){
+  const major=document.getElementById('majorGroup');
+  if(!major) return;
+  major.innerHTML='';
+  Object.keys(grammarData).forEach(key=>{
+    const label=document.createElement('label');
+    label.style.display='flex';label.style.alignItems='center';label.style.padding='4px 0';label.style.cursor='pointer';label.style.fontSize='14px';
+    label.innerHTML = `<input type="checkbox" value="${key}" style="margin-right:8px" onchange="updateSubCategories()"> ${grammarData[key].name}`;
+    major.appendChild(label);
+  });
+}
+function updateSubCategories(){
+  const sub=document.getElementById('subCategoryGroup'); if(!sub) return;
+  sub.innerHTML='';
+  const checkedMajors=[...document.querySelectorAll('#majorGroup input[type=checkbox]:checked')].map(cb=>cb.value);
+  const keys = checkedMajors.length?checkedMajors:Object.keys(grammarData);
+  keys.forEach(key=>{
+    const header=document.createElement('div');
+    header.style.fontWeight='700';header.style.color='#667eea';header.style.marginTop='10px';header.style.marginBottom='4px';header.style.fontSize='15px';
+    header.textContent = grammarData[key].name;
+    sub.appendChild(header);
+    grammarData[key].items.forEach(item=>{
+      const label=document.createElement('label');
+      label.style.display='flex';label.style.alignItems='center';label.style.padding='4px 0';label.style.cursor='pointer';label.style.fontSize='14px';
+      label.innerHTML = `<input type="checkbox" value="${item.id}" style="margin-right:8px" onchange="updateSelectedCategories()"> ${item.id}. ${item.name}`;
+      sub.appendChild(label);
+    });
+  });
+}
+function selectAllMajorCategories(){document.querySelectorAll('#majorGroup input[type=checkbox]').forEach(cb=>cb.checked=true);updateSubCategories();}
+function deselectAllMajorCategories(){document.querySelectorAll('#majorGroup input[type=checkbox]').forEach(cb=>cb.checked=false);updateSubCategories();}
+function selectAllItems(){document.querySelectorAll('#subCategoryGroup input[type=checkbox]').forEach(cb=>cb.checked=true);updateSelectedCategories();}
+function deselectAllItems(){document.querySelectorAll('#subCategoryGroup input[type=checkbox]').forEach(cb=>cb.checked=false);updateSelectedCategories();}
+function updateSelectedCategories(){selectedCategories=[...document.querySelectorAll('#subCategoryGroup input[type=checkbox]:checked')].map(cb=>cb.value.padStart(3,'0'));}
 </script>
 </body>
 </html>
