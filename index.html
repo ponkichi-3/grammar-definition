@@ -576,12 +576,12 @@ function renderQuestion(){
   const q=currentQuestions[currentQuestion];
   document.getElementById('questionNumber').textContent=`問${currentQuestion+1} / ${currentQuestions.length}`;
   document.getElementById('pointBadge').textContent=q.point||'';
-  document.getElementById('questionTitle').textContent=q.title||'';
-  document.getElementById('questionText').textContent=q.question||'';
-  document.getElementById('modelAnswerText').textContent=q.answer||'';
-  document.getElementById('exampleEn').textContent=q.exampleEn||'';
-  document.getElementById('exampleJp').textContent = q.exampleJp || '';
-  document.getElementById('hintText').textContent=q.hint||'';
+  document.getElementById('questionTitle').innerHTML = bar2br(q.title||'');
+  document.getElementById('questionText').innerHTML = bar2br(q.question||'');
+  document.getElementById('modelAnswerText').innerHTML = bar2br(q.answer||'');
+  document.getElementById('exampleEn').innerHTML = bar2br(q.exampleEn||'');
+  document.getElementById('exampleJp').innerHTML = bar2br(q.exampleJp||'');
+  document.getElementById('hintText').innerHTML = bar2br(q.hint||'');
 
   document.getElementById('modelAnswer').style.display='none';
   document.getElementById('rateArea').classList.add('hidden');
@@ -775,10 +775,10 @@ function renderItemQuestions(){
     return;
   }
   box.innerHTML = list.map(q=>{
-    const ex = (q.exampleEn||q.exampleJp) ? `<div class="small">例: <span class="code">${escapeHTML(q.exampleEn||'')}</span> / <span class="code">${escapeHTML(q.exampleJp||'')}</span></div>` : '';
+    const ex = (q.exampleEn||q.exampleJp) ? `<div class="small">例: <span class="code">${bar2br(escapeHTML(q.exampleEn||''))}</span> / <span class="code">${bar2br(escapeHTML(q.exampleJp||''))}</span></div>` : '';
     return `<div class="item-row">
       <div><span class="code">${escapeHTML(q.id)}</span> <strong>${escapeHTML(q.question||'')}</strong> <span class="badge">${escapeHTML(q.point||'')}</span></div>
-      <div class="small">解答: <span class="code">${escapeHTML(q.answer||'')}</span></div>
+      <div class="small">解答: <span class="code">${bar2br(escapeHTML(q.answer||''))}</span></div>
       ${ex}
       <div class="inline-controls">
         <button class="inline-btn" onclick="addToReviewById('${q.id}')">復習に追加</button>
@@ -798,6 +798,9 @@ function addToReviewById(id){
 }
 
 // Utils
+function bar2br(s){ return (s||'').toString().split('|').join('<br>'); }
+function bar2nl(s){ return (s||'').toString().split('|').join('\n'); }
+
 function shuffle(arr){ const a=arr.slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
 function escapeHTML(s){ return (s||'').toString().replace(/[&<>"']/g, m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m])); }
 
