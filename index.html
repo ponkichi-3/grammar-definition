@@ -143,13 +143,19 @@ select:focus,input[type=text]:focus{outline:none;border-color:#667eea}
     </div>
 
     <div class="form-group">
-      <label>問題数</label>
-      <select id="questionCount">
-        <option value="5">5問</option>
-        <option value="10" selected>10問</option>
-        <option value="all">全問題</option>
-      </select>
-    </div>
+  <label>問題数</label>
+  <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+    <select id="questionCount">
+      <option value="5">5問</option>
+      <option value="10" selected>10問</option>
+      <option value="all">全問題</option>
+      <option value="custom">カスタム</option>
+    </select>
+    <input id="questionCountCustom" type="number" min="1" placeholder="例: 37" class="hidden"
+           style="width:120px;padding:8px;border:2px solid #e2e8f0;border-radius:8px;font-size:16px"/>
+  </div>
+  <div class="small">「カスタム」を選ぶと右の欄に任意の整数（1以上）を入力できます。</div>
+</div>
 
     <div class="form-group" id="timeLimitGroup">
       <label>制限時間（テストのみ）</label>
@@ -340,6 +346,14 @@ function goHomeSafely(){
 }
 
 document.addEventListener('DOMContentLoaded', async ()=>{
+  // 問題数「カスタム」選択時の入力欄の表示切替
+  try{
+    const qcSel = document.getElementById('questionCount');
+    const qcCustom = document.getElementById('questionCountCustom');
+    const toggleCustom = ()=>{ if(qcCustom && qcSel) qcCustom.classList.toggle('hidden', qcSel.value!=='custom'); };
+    if(qcSel){ qcSel.addEventListener('change', toggleCustom); toggleCustom(); }
+  }catch(e){ console.warn('custom question count init failed', e); }
+
   buildCategoryUI();
   updateSubCategories();
   loadReviewPool();
@@ -531,9 +545,14 @@ function startTest(){
   const order=document.getElementById('questionOrder').value;
   if(order==='shuffle') filtered = shuffle(filtered);
 
-  const count=document.getElementById('questionCount').value;
-  if(count!=='all') filtered = filtered.slice(0, parseInt(count,10));
-
+  const countSel = document.getElementById('questionCount').value;
+  if(countSel==='custom'){
+    const v = parseInt((document.getElementById('questionCountCustom')||{}).value||'0',10);
+    if(!Number.isFinite(v)||v<=0){ alert('カスタム問題数は1以上の整数で入力してください'); return; }
+    filtered = filtered.slice(0, Math.min(v, filtered.length));
+  }else if(countSel!=='all'){
+    filtered = filtered.slice(0, parseInt(countSel,10));
+  }
   currentQuestions = filtered.map(q=>({...q}));
   currentQuestion = 0; reviewAddedNow=0;
 
@@ -619,8 +638,16 @@ function rateCurrent(level){
   if(level==='some'){ document.getElementById('btnSome').classList.add('selected'); }
   if(level==='none'){ document.getElementById('btnNone').classList.add('selected'); }
   const fb=document.getElementById('rateFeedback');
-  if(level==='some' || level==='none'){ addToReview(q); fb.textContent='復習リストに追加しました。'; }
-  else{ fb.textContent='了解。次へ進めます。'; }
+  if(level==='perfect' && q && q.id){
+    // 「完璧に覚えた」→ 復習リストから即削除（以後の復習モードで出題されません）
+    removeFromReview(q.id);
+    fb.textContent='復習リストから削除しました。';
+  }else if(level==='some' || level==='none'){
+    addToReview(q);
+    fb.textContent='復習リストに追加しました。';
+  }else{
+    fb.textContent='保存しました。';
+  }
   fb.style.display='block';
 }
 
