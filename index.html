@@ -475,19 +475,35 @@ function rowsToQuestions(rows){
     const title = titleRaw.trim();
     const pointRaw = (get(pI)).toString();
 
+    
     let subId = null;
-    const m = pointRaw.match(/(\d{1,3})/);
-    if(m){
-      const num = parseInt(m[1],10);
-      if(num>=1 && num<=132) subId = String(num).padStart(3,'0');
+    // S-series support (S01–S21)
+    (function(){
+      const s = (pointRaw||'').match(/S\s*([0-9]{1,2})/i);
+      if (s) {
+        const sNum = parseInt(s[1],10);
+        if (sNum>=1 && sNum<=21) subId = ('S'+String(sNum).padStart(2,'0')).toUpperCase();
+      }
+    })();
+
+    // Numeric POINT 001–132
+    if(!subId){
+      const m = (pointRaw||'').match(/(\d{1,3})/);
+      if(m){
+        const num = parseInt(m[1],10);
+        if(num>=1 && num<=132) subId = String(num).padStart(3,'0');
+      }
     }
+
+    // Title→ID map
     if(!subId){
       const norm = normalizeTitle(title);
       if(normalizedTitleMap[norm]) subId = normalizedTitleMap[norm];
     }
-    if(!subId){ subId = id; }
 
-    out.push({
+    // Fallback
+    if(!subId){ subId = id; }
+out.push({
       id,
       question: (get(qI)).toString().trim(),
       answer: (get(aI)).toString().trim(),
